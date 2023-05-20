@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
         body: AnimatedSplashScreen(
       splash: Image.asset(
-        "assets/images/intro1.png",
+        "assets/images/logo.png",
         fit: BoxFit.fill,
       ),
       nextScreen: IntroductionScreen(),
@@ -20,7 +20,7 @@ class SplashScreen extends StatelessWidget {
       splashIconSize: 200,
       duration: 2500,
       curve: Curves.fastOutSlowIn,
-      backgroundColor: mainColor.withOpacity(.9),
+      backgroundColor: mainColor,
       animationDuration: const Duration(seconds: 2),
     ));
   }
