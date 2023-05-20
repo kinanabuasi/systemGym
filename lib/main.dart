@@ -15,11 +15,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      //home: AddProductScreen(),//for debugging
-      theme: ThemeData(fontFamily: 'Poppins'),
-      initialRoute: Routes.splashScreen,
-      getPages: AppRoutes.routes,
-    );
+        debugShowCheckedModeBanner: false,
+        //home: AddProductScreen(),//for debugging
+        theme: ThemeData(fontFamily: 'Poppins'),
+        initialRoute: Routes.splashScreen,
+        getPages: AppRoutes.routes);
   }
 }
