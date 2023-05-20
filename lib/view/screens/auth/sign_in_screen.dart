@@ -33,7 +33,7 @@ class SignInScreen extends StatelessWidget {
             ))
           ],
         ),
-        LinearGradientContainer(
+        const LinearGradientContainer(
           beginAlignment: Alignment.center,
         ),
         Padding(
@@ -116,7 +116,7 @@ class SignInScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 40)
+              const SizedBox(height: 40)
             ],
           ),
         )

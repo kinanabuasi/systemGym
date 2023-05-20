@@ -26,7 +26,7 @@ buildIntroScreens({
                       Container(
                         width: double.infinity,
                         height: double.infinity,
-                        decoration: BoxDecoration(color: mainColor),
+                        decoration: const BoxDecoration(color: mainColor),
                       ),
                       ClipPath(
                         clipper: CustomClipPath(),
@@ -38,7 +38,7 @@ buildIntroScreens({
                           ),
                         ),
                       ),
-                      LinearGradientContainer(
+                      const LinearGradientContainer(
                           beginAlignment: Alignment.bottomCenter),
                     ],
                   )),
@@ -76,12 +76,13 @@ buildIntroScreens({
         )
       : Stack(
           children: [
-            Container(
+            SizedBox(
               height: double.infinity,
               width: double.infinity,
               child: Image.asset("assets/images/intro1.png", fit: BoxFit.cover),
             ),
-            LinearGradientContainer(beginAlignment: Alignment.bottomCenter),
+            const LinearGradientContainer(
+                beginAlignment: Alignment.bottomCenter),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -91,7 +92,7 @@ buildIntroScreens({
                     color: white,
                     fontSize: 33,
                     fontWeight: FontWeight.bold),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 MyText(
@@ -100,7 +101,7 @@ buildIntroScreens({
                     color: whiteGrey,
                     fontSize: 20,
                     fontWeight: FontWeight.normal),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Padding(
@@ -121,7 +122,7 @@ buildIntroScreens({
                     color: yellowColor,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 100,
                 )
               ],
@@ -133,9 +134,6 @@ buildIntroScreens({
 class CustomClipPath extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    double w = size.width;
-    double h = size.height;
-
     final path0 = Path();
 
     path0.moveTo(size.width * -0.0012500, size.height * -0.0100000);

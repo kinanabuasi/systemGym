@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../logic/bindings/auth/verification(binding.dart';
+import '../logic/bindings/auth/verification_binding.dart';
 import '../view/screens/auth/forgot_password_screen.dart';
 import '../view/screens/auth/introduction_screen.dart';
 import '../view/screens/auth/sign_in_screen.dart';

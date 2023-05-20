@@ -20,7 +20,7 @@ class ForgotPasswordScreen extends StatelessWidget {
               onPressed: () {
                 Get.back();
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back,
                 color: white,
                 size: 28,
@@ -41,7 +41,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                     color: white,
                     fontSize: 30,
                     fontWeight: FontWeight.w600),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 MyText(
@@ -50,14 +50,14 @@ class ForgotPasswordScreen extends StatelessWidget {
                     color: white,
                     fontSize: 18,
                     fontWeight: FontWeight.normal),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 MyTextFormField(
                     validator: () {},
                     hintText: "Email",
-                    prefixIcon: Icon(Icons.email_outlined)),
-                SizedBox(
+                    prefixIcon: const Icon(Icons.email_outlined)),
+                const SizedBox(
                   height: 80,
                 ),
                 Center(
@@ -69,7 +69,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                       fontSize: 15,
                       fontWeight: FontWeight.bold),
                 )),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40.0),
                   child: MyButton(

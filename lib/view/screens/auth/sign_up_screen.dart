@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../constants/colors.dart';
-import '../../../constants/routes.dart';
 import '../../../component/linear_gradient.dart';
 import '../../../component/buttons/my_buttons.dart';
 import '../../../component/my_text.dart';
@@ -33,7 +32,7 @@ class SignUpScreen extends StatelessWidget {
             ))
           ],
         ),
-        LinearGradientContainer(
+        const LinearGradientContainer(
           beginAlignment: Alignment.center,
         ),
         Padding(
@@ -135,7 +134,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 40)
+              const SizedBox(height: 40)
             ],
           ),
         )

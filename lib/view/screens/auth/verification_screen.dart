@@ -6,7 +6,6 @@ import '../../../constants/colors.dart';
 import '../../../logic/controllers/auth/verification_controller.dart';
 import '../../../component/buttons/my_buttons.dart';
 import '../../../component/my_text.dart';
-import '../../../component/text_form/my_text_form_field.dart';
 
 final otpController = Get.find<VerificationController>();
 
@@ -23,7 +22,7 @@ class VerificationScreen extends StatelessWidget {
               onPressed: () {
                 Get.back();
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back,
                 color: white,
                 size: 28,
@@ -44,7 +43,7 @@ class VerificationScreen extends StatelessWidget {
                     color: white,
                     fontSize: 30,
                     fontWeight: FontWeight.w600),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 MyText(
@@ -53,7 +52,7 @@ class VerificationScreen extends StatelessWidget {
                     color: white,
                     fontSize: 18,
                     fontWeight: FontWeight.normal),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Row(
@@ -67,7 +66,7 @@ class VerificationScreen extends StatelessWidget {
                     buildOtpTextField(),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 80,
                 ),
                 Center(
@@ -79,7 +78,7 @@ class VerificationScreen extends StatelessWidget {
                       fontSize: 15,
                       fontWeight: FontWeight.bold),
                 )),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40.0),
                   child: MyButton(

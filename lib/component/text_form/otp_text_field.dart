@@ -10,11 +10,12 @@ Widget buildOtpTextField() {
     width: 40,
     child: TextField(
       showCursor: false,
-      style: TextStyle(color: white, fontSize: 30, fontWeight: FontWeight.bold),
+      style: const TextStyle(
+          color: white, fontSize: 30, fontWeight: FontWeight.bold),
       decoration: InputDecoration(
-          counter: Text(""),
+          counter: const Text(""),
           hintText: "*",
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
               color: white, fontWeight: FontWeight.bold, fontSize: 25),
           focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(color: yellowColor, width: 3)),
