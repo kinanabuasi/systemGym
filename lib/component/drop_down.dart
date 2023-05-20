@@ -1,46 +1,24 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 
-import '../../constants/colors.dart';
+import '../constants/colors.dart';
 
-class MyTextFormField extends StatelessWidget {
-  final Function validator;
-  final String hintText;
-  TextEditingController? controller;
-  bool obsecure;
-  final Widget prefixIcon;
-  bool multiLines;
-
-  MyTextFormField({
+class DropDownButton extends StatelessWidget {
+  DropDownButton({
     super.key,
-    required this.validator,
-    required this.hintText,
-    required this.prefixIcon,
-    this.obsecure = false,
-    this.multiLines = false,
-    this.controller,
+    required this.list,
+    required this.value,
   });
+
+  final List list;
+  String? value;
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      maxLines: multiLines ? 4 : null,
-      obscureText: obsecure,
-      controller: controller,
-      cursorColor: mainColor,
-      keyboardType: TextInputType.text,
-      validator: (value) => validator(value),
+    return DropdownButtonFormField(
       decoration: InputDecoration(
-          prefixIcon: multiLines
-              ? Container(
-                  height: 80,
-                  width: 10,
-                  alignment: Alignment.topCenter,
-                  child: prefixIcon)
-              : prefixIcon,
+          prefixIcon: Image.asset("assets/images/yellow_check.png"),
           fillColor: white,
-          hintText: hintText,
+          hintText: "Product Type",
           hintStyle: const TextStyle(
               color: Colors.grey,
               fontSize: 15,
@@ -62,6 +40,16 @@ class MyTextFormField extends StatelessWidget {
           focusedErrorBorder: UnderlineInputBorder(
               borderSide: const BorderSide(color: Colors.red),
               borderRadius: BorderRadius.circular(10))),
+      items: list.map((item) {
+        return DropdownMenuItem<String>(
+          value: item,
+          child: Text(item),
+        );
+      }).toList(),
+      value: value,
+      onChanged: (value) {
+        this.value = value!;
+      },
     );
   }
 }

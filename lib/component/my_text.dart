@@ -24,10 +24,11 @@ class MyText extends StatelessWidget {
       text,
       textAlign: textAlign,
       style: TextStyle(
-          color: color,
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-          decoration: underLine),
+        color: color,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        decoration: underLine,
+      ),
     );
   }
 }

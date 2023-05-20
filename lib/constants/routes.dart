@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:systemgym/logic/bindings/other/add_products_binding.dart';
+import 'package:systemgym/view/screens/other/add_products_screen.dart';
 import '../logic/bindings/auth/verification_binding.dart';
 import '../view/screens/auth/forgot_password_screen.dart';
 import '../view/screens/auth/introduction_screen.dart';
@@ -40,6 +42,11 @@ class AppRoutes {
         transition: Transition.zoom,
         binding: VerificationBinding(),
         transitionDuration: const Duration(milliseconds: 300)),
+    GetPage(
+      name: Routes.addProducts,
+      page: () => AddProductScreen(),
+      binding: AddProductsBinding(),
+    ),
   ];
 }
 
@@ -50,4 +57,5 @@ class Routes {
   static const signUp = '/signUp';
   static const forgotPassword = '/forgotPassword';
   static const verificationScreen = '/verificationScreen';
+  static const addProducts = '/addProducts';
 }
