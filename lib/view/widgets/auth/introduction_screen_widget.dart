@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 
 import '../../../constants/colors.dart';
 import '../../../constants/routes.dart';
-import '../linear_gradient.dart';
-import '../my_buttons.dart';
-import '../my_text.dart';
+import '../../../component/linear_gradient.dart';
+import '../../../component/buttons/my_buttons.dart';
+import '../../../component/my_text.dart';
 
 buildIntroScreens({
   required String imageUrl,

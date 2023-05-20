@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../component/text_form/otp_text_field.dart';
 import '../../../constants/colors.dart';
-import '../../../constants/routes.dart';
+import '../../../logic/controllers/auth/verification_controller.dart';
 import '../../../component/buttons/my_buttons.dart';
 import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
 
-class ForgotPasswordScreen extends StatelessWidget {
-  const ForgotPasswordScreen({super.key});
+final otpController = Get.find<VerificationController>();
+
+class VerificationScreen extends StatelessWidget {
+  const VerificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,7 @@ class ForgotPasswordScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 MyText(
-                    text: "Forgot Password?",
+                    text: "Verification",
                     color: white,
                     fontSize: 30,
                     fontWeight: FontWeight.w600),
@@ -46,17 +49,24 @@ class ForgotPasswordScreen extends StatelessWidget {
                 ),
                 MyText(
                     text:
-                        "Enter your information below or\nlogin with an other account",
+                        "Check your email. We've sent you\nthe PIN at your email",
                     color: white,
                     fontSize: 18,
                     fontWeight: FontWeight.normal),
                 SizedBox(
                   height: 40,
                 ),
-                MyTextFormField(
-                    validator: () {},
-                    hintText: "Email",
-                    prefixIcon: Icon(Icons.email_outlined)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    buildOtpTextField(),
+                    buildOtpTextField(),
+                    buildOtpTextField(),
+                    buildOtpTextField(),
+                    buildOtpTextField(),
+                    buildOtpTextField(),
+                  ],
+                ),
                 SizedBox(
                   height: 80,
                 ),
@@ -64,7 +74,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                     child: InkWell(
                   onTap: () {},
                   child: MyText(
-                      text: "Try another way",
+                      text: "Did you receive any code?",
                       color: yellowColor,
                       fontSize: 15,
                       fontWeight: FontWeight.bold),
@@ -77,14 +87,12 @@ class ForgotPasswordScreen extends StatelessWidget {
                       widget: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: MyText(
-                            text: "Send",
+                            text: "Verify",
                             color: black,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
-                      function: () {
-                        Get.toNamed(Routes.verificationScreen);
-                      }),
+                      function: () {}),
                 )
               ],
             ),

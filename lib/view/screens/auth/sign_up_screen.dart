@@ -8,8 +8,8 @@ import '../../../component/buttons/my_buttons.dart';
 import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
 
-class SignInScreen extends StatelessWidget {
-  const SignInScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +20,11 @@ class SignInScreen extends StatelessWidget {
           children: [
             Expanded(
                 child: Image.asset(
-              "assets/images/signin.png",
+              "assets/images/signup.png",
               width: double.infinity,
               height: double.infinity,
               fit: BoxFit.cover,
-              alignment: Alignment.topRight,
+              alignment: Alignment.topCenter,
             )),
             Expanded(
                 child: Container(
@@ -48,13 +48,33 @@ class SignInScreen extends StatelessWidget {
                   fontSize: 28,
                   fontWeight: FontWeight.bold),
               const SizedBox(
-                height: 60,
+                height: 40,
+              ),
+              MyTextFormField(
+                  validator: () {},
+                  hintText: "Username",
+                  prefixIcon: const Icon(
+                    Icons.person,
+                    color: whiteGrey,
+                  )),
+              const SizedBox(
+                height: 20,
+              ),
+              MyTextFormField(
+                  validator: () {},
+                  hintText: "Club name",
+                  prefixIcon: const Icon(
+                    Icons.sports_mma,
+                    color: whiteGrey,
+                  )),
+              const SizedBox(
+                height: 20,
               ),
               MyTextFormField(
                   validator: () {},
                   hintText: "Email",
                   prefixIcon: const Icon(
-                    Icons.email,
+                    Icons.lock,
                     color: whiteGrey,
                   )),
               const SizedBox(
@@ -68,26 +88,25 @@ class SignInScreen extends StatelessWidget {
                     Icons.lock,
                     color: whiteGrey,
                   )),
-              const SizedBox(height: 15),
-              InkWell(
-                onTap: () {
-                  Get.toNamed(Routes.forgotPassword);
-                },
-                child: MyText(
-                    text: "Forgot Password?",
-                    color: white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold),
-              ),
               const SizedBox(
-                height: 40,
+                height: 20,
+              ),
+              MyTextFormField(
+                  validator: () {},
+                  hintText: "Subscription period",
+                  prefixIcon: const Icon(
+                    Icons.lock,
+                    color: whiteGrey,
+                  )),
+              const SizedBox(
+                height: 20,
               ),
               MyButton(
                   color: yellowColor,
                   widget: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: MyText(
-                        text: "Sign In",
+                        text: "Sign Up",
                         color: black,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
@@ -100,16 +119,16 @@ class SignInScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   MyText(
-                      text: "Didn't have any account? ",
+                      text: "If you have an account? ",
                       color: white,
                       fontSize: 15,
                       fontWeight: FontWeight.normal),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(Routes.signUp);
+                      Get.back();
                     },
                     child: MyText(
-                        text: "Sign up here",
+                        text: "Sign in here",
                         color: yellowColor,
                         fontSize: 15,
                         fontWeight: FontWeight.bold),
