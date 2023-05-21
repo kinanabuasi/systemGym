@@ -58,7 +58,7 @@ class SignInScreen extends StatelessWidget {
                     color: whiteGrey,
                   )),
               const SizedBox(
-                height: 20,
+                height: 16,
               ),
               MyTextFormField(
                   obsecure: true,
@@ -94,7 +94,7 @@ class SignInScreen extends StatelessWidget {
                   ),
                   function: () {}),
               const SizedBox(
-                height: 20,
+                height: 16,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

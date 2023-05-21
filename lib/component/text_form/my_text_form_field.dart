@@ -25,7 +25,7 @@ class MyTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      maxLines: multiLines ? 4 : null,
+      maxLines: multiLines ? 4 : 1,
       obscureText: obsecure,
       controller: controller,
       cursorColor: mainColor,

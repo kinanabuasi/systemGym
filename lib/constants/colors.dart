@@ -7,3 +7,6 @@ const Color white = Color(0xffffffff);
 const Color black = Color(0xff1C1C1E);
 const Color whiteGrey = Color(0xffBABABA);
 const Color darkGrey = Color(0xff2C2C2E);
+const Color grey = Color(0xffD9D9D9);
+
+const Color blackWithOpacity = Color(0xff2C2C2E);

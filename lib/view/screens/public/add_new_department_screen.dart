@@ -12,14 +12,12 @@ import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
 import '../../../constants/colors.dart';
 
-class AddProductScreen extends StatelessWidget {
-  AddProductScreen({Key? key}) : super(key: key);
-  AddProductsController controller = Get.put(AddProductsController());
+class AddNewDepartmentScreen extends StatelessWidget {
+  AddNewDepartmentScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          const MyAppBar(whiteText: "ADD", yellowText: " products/services"),
+      appBar: const MyAppBar(whiteText: "Add a", yellowText: " new Department"),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 40.0),
         width: double.infinity,
@@ -43,13 +41,8 @@ class AddProductScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            DropDownButton(
-                list: controller.items, value: controller.productType),
-            const SizedBox(
-              height: 16,
-            ),
             MyTextFormField(
-              hintText: "product name",
+              hintText: "Department name",
               validator: () {},
               prefixIcon: Image.asset("assets/images/yellow_check.png"),
             ),
@@ -58,17 +51,9 @@ class AddProductScreen extends StatelessWidget {
             ),
             MyTextFormField(
               multiLines: true,
-              hintText: "Product Description",
+              hintText: "Section Description",
               validator: () {},
               prefixIcon: Image.asset("assets/images/yellow_dot.png"),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            MyTextFormField(
-              hintText: "Product price \$",
-              validator: () {},
-              prefixIcon: Image.asset("assets/images/yellow_check.png"),
             ),
             const Spacer(),
             MyButton(

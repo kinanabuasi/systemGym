@@ -8,6 +8,11 @@ import '../view/screens/auth/sign_in_screen.dart';
 import '../view/screens/auth/sign_up_screen.dart';
 import '../view/screens/auth/splash_screen.dart';
 import '../view/screens/auth/verification_screen.dart';
+import '../view/screens/public/add_new_department_screen.dart';
+import '../view/screens/public/all_department_screen.dart';
+import '../view/screens/public/modify_club_settings_screen.dart';
+import '../view/screens/public/trainer_detail_screen.dart';
+import '../view/screens/public/workout_plan_today_screen.dart';
 
 class AppRoutes {
   static const splash = Routes.splashScreen;
@@ -47,6 +52,26 @@ class AppRoutes {
       page: () => AddProductScreen(),
       binding: AddProductsBinding(),
     ),
+    GetPage(
+      name: Routes.modifyClubSettings,
+      page: () => ModifyClubSettingsScreen(),
+    ),
+    GetPage(
+      name: Routes.addNewDepartment,
+      page: () => AddNewDepartmentScreen(),
+    ),
+    GetPage(
+      name: Routes.allDepartment,
+      page: () => AllDepartmentScreen(),
+    ),
+    GetPage(
+      name: Routes.trainerDetail,
+      page: () => TrainerDetailScreen(),
+    ),
+    GetPage(
+      name: Routes.workoutPlanToday,
+      page: () => WorkoutPlanTodayScreen(),
+    ),
   ];
 }
 
@@ -58,4 +83,9 @@ class Routes {
   static const forgotPassword = '/forgotPassword';
   static const verificationScreen = '/verificationScreen';
   static const addProducts = '/addProducts';
+  static const modifyClubSettings = '/modifyClubSettings';
+  static const addNewDepartment = '/addNewDepartment';
+  static const allDepartment = '/allDepartment';
+  static const trainerDetail = '/trainerDetail';
+  static const workoutPlanToday = '/workoutPlanToday';
 }

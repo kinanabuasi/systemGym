@@ -57,7 +57,7 @@ class SignUpScreen extends StatelessWidget {
                     color: whiteGrey,
                   )),
               const SizedBox(
-                height: 20,
+                height: 16,
               ),
               MyTextFormField(
                   validator: () {},
@@ -67,7 +67,7 @@ class SignUpScreen extends StatelessWidget {
                     color: whiteGrey,
                   )),
               const SizedBox(
-                height: 20,
+                height: 16,
               ),
               MyTextFormField(
                   validator: () {},
@@ -77,7 +77,7 @@ class SignUpScreen extends StatelessWidget {
                     color: whiteGrey,
                   )),
               const SizedBox(
-                height: 20,
+                height: 16,
               ),
               MyTextFormField(
                   obsecure: true,
@@ -88,7 +88,7 @@ class SignUpScreen extends StatelessWidget {
                     color: whiteGrey,
                   )),
               const SizedBox(
-                height: 20,
+                height: 16,
               ),
               MyTextFormField(
                   validator: () {},
@@ -98,7 +98,7 @@ class SignUpScreen extends StatelessWidget {
                     color: whiteGrey,
                   )),
               const SizedBox(
-                height: 20,
+                height: 16,
               ),
               MyButton(
                   color: yellowColor,
@@ -112,7 +112,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   function: () {}),
               const SizedBox(
-                height: 20,
+                height: 16,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

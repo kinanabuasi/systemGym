@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../component/text_form/otp_text_field.dart';
 import '../../../constants/colors.dart';
+import '../../../constants/routes.dart';
 import '../../../logic/controllers/auth/verification_controller.dart';
 import '../../../component/buttons/my_buttons.dart';
 import '../../../component/my_text.dart';
@@ -91,7 +92,9 @@ class VerificationScreen extends StatelessWidget {
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
-                      function: () {}),
+                      function: () {
+                        Get.toNamed(Routes.workoutPlanToday);
+                      }),
                 )
               ],
             ),
