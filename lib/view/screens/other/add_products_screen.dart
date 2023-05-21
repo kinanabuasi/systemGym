@@ -44,7 +44,9 @@ class AddProductScreen extends StatelessWidget {
               height: 30,
             ),
             DropDownButton(
-                list: controller.items, value: controller.productType),
+                hint: "Product Type",
+                list: controller.items,
+                value: controller.productType),
             const SizedBox(
               height: 16,
             ),

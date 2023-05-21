@@ -16,8 +16,8 @@ class AllDepartmentScreen extends StatelessWidget {
         width: double.infinity,
         color: mainColor,
         child: Column(
-          children: const [
-            SizedBox(
+          children: [
+            const SizedBox(
               height: 18,
             ),
             MyCounter(itemsLength: 6, id: "ID", name: "name", description: "")

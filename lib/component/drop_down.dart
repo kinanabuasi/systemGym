@@ -7,9 +7,11 @@ class DropDownButton extends StatelessWidget {
     super.key,
     required this.list,
     required this.value,
+    required this.hint,
   });
 
   final List list;
+  final String hint;
   String? value;
 
   @override
@@ -18,7 +20,7 @@ class DropDownButton extends StatelessWidget {
       decoration: InputDecoration(
           prefixIcon: Image.asset("assets/images/yellow_check.png"),
           fillColor: white,
-          hintText: "Product Type",
+          hintText: hint, //"Product Type",
           hintStyle: const TextStyle(
               color: Colors.grey,
               fontSize: 15,

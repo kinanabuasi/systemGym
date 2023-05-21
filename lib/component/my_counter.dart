@@ -6,12 +6,14 @@ import 'my_text.dart';
 class MyCounter extends StatelessWidget {
   final int itemsLength;
   final String id, name, description;
-  const MyCounter(
+  bool haveBlackArrow;
+  MyCounter(
       {super.key,
       required this.itemsLength,
       required this.id,
       required this.name,
-      required this.description});
+      required this.description,
+      this.haveBlackArrow = false});
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +51,11 @@ class MyCounter extends StatelessWidget {
                       color: secondYellowColor,
                       fontSize: 15,
                       fontWeight: FontWeight.normal),
+                  if (haveBlackArrow)
+                    const Icon(
+                      Icons.arrow_right_sharp,
+                      color: originalBlack,
+                    )
                 ],
               ),
             ),

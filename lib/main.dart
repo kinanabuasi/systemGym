@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:systemgym/view/screens/other/add_products_screen.dart';
-
 import 'constants/routes.dart';
 
 void main() {
@@ -16,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        //home: AddProductScreen(),//for debugging
+        //home: ChampionshipResultsScreen(), //for debugging
         theme: ThemeData(fontFamily: 'Poppins'),
         initialRoute: Routes.splashScreen,
         getPages: AppRoutes.routes);
