@@ -2,8 +2,11 @@ import 'package:get/get.dart';
 import 'package:systemgym/logic/bindings/other/add_products_binding.dart';
 import 'package:systemgym/view/screens/other/add_products_screen.dart';
 import '../logic/bindings/auth/verification_binding.dart';
+import '../view/screens/auth/player_auth/choose_age_screen.dart';
+import '../view/screens/auth/player_auth/choose_gender_screen.dart';
 import '../view/screens/auth/forgot_password_screen.dart';
 import '../view/screens/auth/introduction_screen.dart';
+import '../view/screens/auth/player_auth/sign_in_as_player_screen.dart';
 import '../view/screens/auth/sign_in_screen.dart';
 import '../view/screens/auth/sign_up_screen.dart';
 import '../view/screens/auth/splash_screen.dart';
@@ -72,6 +75,18 @@ class AppRoutes {
       name: Routes.workoutPlanToday,
       page: () => WorkoutPlanTodayScreen(),
     ),
+    GetPage(
+      name: Routes.signInAsPlayer,
+      page: () => SignInAsPlayerScreen(),
+    ),
+    GetPage(
+      name: Routes.chooseGender,
+      page: () => ChooseGenderScreen(),
+    ),
+    GetPage(
+      name: Routes.chooseAge,
+      page: () => ChooseAgeScreen(),
+    ),
   ];
 }
 
@@ -79,6 +94,7 @@ class Routes {
   static const splashScreen = '/splashScreen';
   static const introduction = '/introduction';
   static const signIn = '/signIn';
+  static const signInAsPlayer = '/signInAsPlayer';
   static const signUp = '/signUp';
   static const forgotPassword = '/forgotPassword';
   static const verificationScreen = '/verificationScreen';
@@ -88,4 +104,6 @@ class Routes {
   static const allDepartment = '/allDepartment';
   static const trainerDetail = '/trainerDetail';
   static const workoutPlanToday = '/workoutPlanToday';
+  static const chooseGender = '/chooseGender';
+  static const chooseAge = '/chooseAge';
 }

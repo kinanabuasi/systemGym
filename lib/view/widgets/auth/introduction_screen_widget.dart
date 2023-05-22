@@ -108,7 +108,7 @@ buildIntroScreens({
                   padding: const EdgeInsets.symmetric(horizontal: 80.0),
                   child: MyButton(
                     function: () {
-                      Get.toNamed(Routes.signIn);
+                      Get.toNamed(Routes.signInAsPlayer);
                     },
                     widget: Padding(
                       padding: const EdgeInsets.all(8.0),

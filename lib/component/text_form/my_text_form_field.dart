@@ -7,18 +7,26 @@ import '../../constants/colors.dart';
 class MyTextFormField extends StatelessWidget {
   final Function validator;
   final String hintText;
+  Color fillColor;
+  Color textColor;
+  Color focusedBorderColor;
+  Color enabledBorderColor;
   TextEditingController? controller;
   bool obsecure;
-  final Widget prefixIcon;
+  Widget? prefixIcon;
   bool multiLines;
 
   MyTextFormField({
     super.key,
     required this.validator,
     required this.hintText,
-    required this.prefixIcon,
+    this.prefixIcon,
     this.obsecure = false,
     this.multiLines = false,
+    this.fillColor = white,
+    this.textColor = white,
+    this.focusedBorderColor = mainColor,
+    this.enabledBorderColor = mainColor,
     this.controller,
   });
 
@@ -29,6 +37,7 @@ class MyTextFormField extends StatelessWidget {
       obscureText: obsecure,
       controller: controller,
       cursorColor: mainColor,
+      style: TextStyle(color: textColor),
       keyboardType: TextInputType.text,
       validator: (value) => validator(value),
       decoration: InputDecoration(
@@ -39,7 +48,7 @@ class MyTextFormField extends StatelessWidget {
                   alignment: Alignment.topCenter,
                   child: prefixIcon)
               : prefixIcon,
-          fillColor: white,
+          fillColor: fillColor,
           hintText: hintText,
           hintStyle: const TextStyle(
               color: Colors.grey,
@@ -51,10 +60,10 @@ class MyTextFormField extends StatelessWidget {
               borderSide: const BorderSide(color: mainColor),
               borderRadius: BorderRadius.circular(10)),
           enabledBorder: UnderlineInputBorder(
-              borderSide: const BorderSide(color: mainColor),
+              borderSide: BorderSide(color: enabledBorderColor),
               borderRadius: BorderRadius.circular(10)),
           focusedBorder: UnderlineInputBorder(
-              borderSide: const BorderSide(color: mainColor),
+              borderSide: BorderSide(color: focusedBorderColor),
               borderRadius: BorderRadius.circular(10)),
           errorBorder: UnderlineInputBorder(
               borderSide: const BorderSide(color: Colors.red),
