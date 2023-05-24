@@ -1,15 +1,19 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
   final Color color;
   final Widget widget;
   final Function() function;
+  final double? Circular;
 
   const MyButton({
     super.key,
     required this.color,
     required this.widget,
-    required this.function,
+    required this.function, 
+     this.Circular=10,
   });
 
   @override
@@ -19,7 +23,7 @@ class MyButton extends StatelessWidget {
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(Circular!)),
             backgroundColor: color,
           ),
           onPressed: function,

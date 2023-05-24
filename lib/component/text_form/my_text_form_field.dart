@@ -1,8 +1,9 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
+import '../../constants/fonts.dart';
 
 class MyTextFormField extends StatelessWidget {
   final Function validator;
@@ -15,6 +16,8 @@ class MyTextFormField extends StatelessWidget {
   bool obsecure;
   Widget? prefixIcon;
   bool multiLines;
+  TextInputType KeyboardType;
+  String? fontFamily;
 
   MyTextFormField({
     super.key,
@@ -24,10 +27,12 @@ class MyTextFormField extends StatelessWidget {
     this.obsecure = false,
     this.multiLines = false,
     this.fillColor = white,
-    this.textColor = white,
+    this.textColor = mainColor,
     this.focusedBorderColor = mainColor,
     this.enabledBorderColor = mainColor,
     this.controller,
+    this.KeyboardType = TextInputType.text,
+    this.fontFamily="Montserrat",
   });
 
   @override
@@ -37,8 +42,8 @@ class MyTextFormField extends StatelessWidget {
       obscureText: obsecure,
       controller: controller,
       cursorColor: mainColor,
-      style: TextStyle(color: textColor),
-      keyboardType: TextInputType.text,
+      style: TextStyle(color: textColor,fontFamily: fontFamily),
+      keyboardType: KeyboardType,
       validator: (value) => validator(value),
       decoration: InputDecoration(
           prefixIcon: multiLines

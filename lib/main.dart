@@ -1,5 +1,11 @@
+// ignore_for_file: unused_import, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:systemgym/view/screens/public/All%20%20employee_screen.dart';
+import 'package:systemgym/view/screens/public/adding_a_coach_screen.dart';
+import 'package:systemgym/view/screens/public/adding_a_trainer_screen.dart';
+import 'package:systemgym/view/screens/public/adding_an_employee.dart';
 import 'constants/routes.dart';
 
 void main() {
@@ -14,9 +20,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        //home: ChampionshipResultsScreen(), //for debugging
+        home: Adding_a_trainer_Screen(),
+        // adding_an_employee_Screen(),
+        //ChampionshipResultsScreen(), //for debugging
         theme: ThemeData(fontFamily: 'Poppins'),
-        initialRoute: Routes.splashScreen,
-        getPages: AppRoutes.routes);
+        // initialRoute: Routes.splashScreen,
+        // getPages: AppRoutes.routes
+        );
   }
 }
