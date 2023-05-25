@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names, prefer_const_constructors
+
 import 'package:get/get.dart';
 import 'package:systemgym/logic/bindings/other/add_products_binding.dart';
 import 'package:systemgym/view/screens/other/add_products_screen.dart';
@@ -12,6 +14,7 @@ import '../view/screens/auth/sign_up_screen.dart';
 import '../view/screens/auth/splash_screen.dart';
 import '../view/screens/auth/verification_screen.dart';
 import '../view/screens/public/add_new_department_screen.dart';
+import '../view/screens/public/adding_an_employee.dart';
 import '../view/screens/public/all_department_screen.dart';
 import '../view/screens/public/modify_club_settings_screen.dart';
 import '../view/screens/public/trainer_detail_screen.dart';
@@ -87,6 +90,10 @@ class AppRoutes {
       name: Routes.chooseAge,
       page: () => ChooseAgeScreen(),
     ),
+    GetPage(
+      name: Routes.adding_an_employee_Screen,
+      page: () => adding_an_employee_Screen(),
+    ),
   ];
 }
 
@@ -106,4 +113,5 @@ class Routes {
   static const workoutPlanToday = '/workoutPlanToday';
   static const chooseGender = '/chooseGender';
   static const chooseAge = '/chooseAge';
+  static const adding_an_employee_Screen = '/adding_an_employee_Screen';
 }

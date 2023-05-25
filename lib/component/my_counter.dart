@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: must_be_immutable
 
+import 'package:flutter/material.dart'; 
 import '../constants/colors.dart';
 import 'my_text.dart';
 
@@ -22,7 +23,7 @@ class MyCounter extends StatelessWidget {
         shrinkWrap: true,
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
+            padding: const EdgeInsets.only(top: 16.0),
             child: Container(
               height: 60,
               width: double.infinity,
