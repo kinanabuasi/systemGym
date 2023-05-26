@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
-import '../../constants/fonts.dart';
 
 class MyTextFormField extends StatelessWidget {
   final Function validator;
@@ -32,7 +31,7 @@ class MyTextFormField extends StatelessWidget {
     this.enabledBorderColor = mainColor,
     this.controller,
     this.KeyboardType = TextInputType.text,
-    this.fontFamily="Montserrat",
+    this.fontFamily = "Montserrat",
   });
 
   @override
@@ -42,7 +41,7 @@ class MyTextFormField extends StatelessWidget {
       obscureText: obsecure,
       controller: controller,
       cursorColor: mainColor,
-      style: TextStyle(color: textColor,fontFamily: fontFamily),
+      style: TextStyle(color: textColor, fontFamily: fontFamily),
       keyboardType: KeyboardType,
       validator: (value) => validator(value),
       decoration: InputDecoration(

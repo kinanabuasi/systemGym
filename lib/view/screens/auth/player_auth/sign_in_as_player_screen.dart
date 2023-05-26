@@ -15,6 +15,7 @@ class SignInAsPlayerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: true,
         backgroundColor: mainColor,
         body: Stack(
           children: [
@@ -44,12 +45,12 @@ class SignInAsPlayerScreen extends StatelessWidget {
                           const LinearGradientContainer(
                               beginAlignment: Alignment.bottomCenter),
                           Positioned(
-                            bottom: 150,
+                            bottom: 120,
                             left: 20,
                             child: MyText(
                                 text: "Welcome Back,\nSarah",
                                 color: white,
-                                fontSize: 35,
+                                fontSize: 30,
                                 fontWeight: FontWeight.bold),
                           )
                         ],
@@ -74,7 +75,7 @@ class SignInAsPlayerScreen extends StatelessWidget {
                                   validator: () {},
                                   hintText: "Email",
                                 ),
-                                const SizedBox(height: 15),
+                                const SizedBox(height: 5),
                                 MyTextFormField(
                                   enabledBorderColor: darkGrey,
                                   focusedBorderColor: secondYellowColor,
@@ -83,16 +84,15 @@ class SignInAsPlayerScreen extends StatelessWidget {
                                   validator: () {},
                                   hintText: "Password",
                                 ),
-                                const SizedBox(height: 15),
+                                const SizedBox(height: 10),
                                 MyText(
                                     text: "Forgot Password?",
                                     color: secondYellowColor,
                                     fontSize: 13,
                                     fontWeight: FontWeight.normal)
                               ]),
-                          SizedBox(),
                           SizedBox(
-                            height: 50,
+                            height: 40,
                             width: 125,
                             child: MyButton(
                                 color: yellowColor,
@@ -111,7 +111,7 @@ class SignInAsPlayerScreen extends StatelessWidget {
                                 function: () {
                                   Get.toNamed(Routes.chooseGender);
                                 }),
-                          )
+                          ),
                         ],
                       ),
                     ),
