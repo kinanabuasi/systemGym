@@ -69,7 +69,7 @@ class ChooseAgeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
-                  radius: 30,
+                  radius: 40,
                   backgroundColor: darkGrey,
                   child: IconButton(
                     icon: const Icon(Icons.arrow_back, color: white),
