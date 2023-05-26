@@ -20,12 +20,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Adding_a_trainer_Screen(),
+        // home: Adding_a_trainer_Screen(),
         // adding_an_employee_Screen(),
         //ChampionshipResultsScreen(), //for debugging
         theme: ThemeData(fontFamily: 'Poppins'),
-        // initialRoute: Routes.splashScreen,
-        // getPages: AppRoutes.routes
-        );
+        initialRoute: Routes.splashScreen,
+        getPages: AppRoutes.routes);
   }
 }

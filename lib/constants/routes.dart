@@ -8,6 +8,10 @@ import '../view/screens/auth/player_auth/choose_age_screen.dart';
 import '../view/screens/auth/player_auth/choose_gender_screen.dart';
 import '../view/screens/auth/forgot_password_screen.dart';
 import '../view/screens/auth/introduction_screen.dart';
+import '../view/screens/auth/player_auth/choose_goal_screen.dart';
+import '../view/screens/auth/player_auth/choose_height_screen.dart';
+import '../view/screens/auth/player_auth/choose_level_screen.dart';
+import '../view/screens/auth/player_auth/choose_weight_screen.dart';
 import '../view/screens/auth/player_auth/sign_in_as_player_screen.dart';
 import '../view/screens/auth/sign_in_screen.dart';
 import '../view/screens/auth/sign_up_screen.dart';
@@ -91,6 +95,22 @@ class AppRoutes {
       page: () => ChooseAgeScreen(),
     ),
     GetPage(
+      name: Routes.chooseWeight,
+      page: () => ChooseWeightScreen(),
+    ),
+    GetPage(
+      name: Routes.chooseHeight,
+      page: () => ChooseHeightScreen(),
+    ),
+    GetPage(
+      name: Routes.chooseGoal,
+      page: () => ChooseGoalScreen(),
+    ),
+    GetPage(
+      name: Routes.chooseLevel,
+      page: () => ChooseLevelScreen(),
+    ),
+    GetPage(
       name: Routes.adding_an_employee_Screen,
       page: () => adding_an_employee_Screen(),
     ),
@@ -113,5 +133,9 @@ class Routes {
   static const workoutPlanToday = '/workoutPlanToday';
   static const chooseGender = '/chooseGender';
   static const chooseAge = '/chooseAge';
+  static const chooseWeight = '/chooseWeight';
+  static const chooseHeight = '/chooseHeight';
+  static const chooseGoal = '/chooseGoal';
+  static const chooseLevel = '/chooseLevel';
   static const adding_an_employee_Screen = '/adding_an_employee_Screen';
 }
