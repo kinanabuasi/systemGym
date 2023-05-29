@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/logic/controllers/other/add_products_controller.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
-import '../../../component/app_bar.dart';
+import '../../../component/app_bars/app_bar.dart';
 import '../../../component/buttons/my_buttons.dart';
 import '../../../component/drop_down.dart';
 import '../../../component/my_text.dart';
@@ -35,7 +35,7 @@ class Adding_a_trainer_Screen extends StatelessWidget {
               const SizedBox(
                 height: 18,
               ),
-              const UploadImageWidget(),
+              UploadImageWidget(),
               const SizedBox(
                 height: 14,
               ),
@@ -106,45 +106,44 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 23),
               DropDownButton(
-                hint: "Subtype",
-                list: adding_an_employee_controller.Section,
-                value: adding_an_employee_controller.selectedSection),
+                  hint: "Subtype",
+                  list: adding_an_employee_controller.Section,
+                  value: adding_an_employee_controller.selectedSection),
               const SizedBox(height: 21),
               MyTextFormField(
                   validator: () {},
                   hintText: "The monthly subscription value \$",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-                  const SizedBox(height: 16),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
                   hintText: "Total subscription value",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-                  const SizedBox(height: 16),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
                   hintText: "height",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-                  const SizedBox(height: 17),
+              const SizedBox(height: 17),
               MyTextFormField(
                   validator: () {},
                   hintText: "weight",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
               DropDownButton(
-                hint: "Professional degree",
-                list:adding_an_employee_controller.employeeStatus,
-                value: adding_an_employee_controller.selectedEmployeeStatus),
+                  hint: "Professional degree",
+                  list: adding_an_employee_controller.employeeStatus,
+                  value: adding_an_employee_controller.selectedEmployeeStatus),
               const SizedBox(height: 16),
-              
               MyTextFormField(
                   validator: () {},
                   hintText: "Nationality",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
               DropDownButton(
-                hint: "gender",
-                list:adding_an_employee_controller.employeeStatus,
-                value: adding_an_employee_controller.selectedEmployeeStatus),
+                  hint: "gender",
+                  list: adding_an_employee_controller.employeeStatus,
+                  value: adding_an_employee_controller.selectedEmployeeStatus),
               const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
@@ -155,7 +154,7 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                   validator: () {},
                   hintText: "Governorate",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-             const SizedBox(height: 16),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
                   hintText: "Postal code",
@@ -165,22 +164,22 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                   validator: () {},
                   hintText: "website",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-                  const SizedBox(height: 16),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
                   hintText: "Facebook",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-                  const SizedBox(height: 16),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
                   hintText: "Twitter",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-                  const SizedBox(height: 16),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
                   hintText: "Instagram",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-                  const SizedBox(height: 16),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
                   hintText: "YouTube",
@@ -195,13 +194,12 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                     fontWeight: FontWeight.w700),
                 function: () {
                   adding_an_employee_controller.onItemSave();
-                return showTopSnackBar(
+                  return showTopSnackBar(
                     Overlay.of(context),
                     CustomSnackBar.success(
                       message: "Good job, New Employee is added successfully",
-                      textStyle:TextStyle(
-                    color: mainColor,
-                    fontFamily: "Poppins"),
+                      textStyle:
+                          TextStyle(color: mainColor, fontFamily: "Poppins"),
                       backgroundColor: yellowColor,
                       icon: const Icon(Icons.sentiment_very_satisfied,
                           color: mainColor, size: 120),

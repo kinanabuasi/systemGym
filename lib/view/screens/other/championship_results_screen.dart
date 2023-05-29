@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:systemgym/component/app_bar.dart';
+import 'package:systemgym/component/app_bars/app_bar.dart';
 import 'package:systemgym/constants/colors.dart';
 import 'package:systemgym/logic/controllers/other/championship_results_controller.dart';
 
@@ -30,7 +30,7 @@ class ChampionshipResultsScreen extends StatelessWidget {
               const SizedBox(
                 height: 18,
               ),
-              const UploadImageWidget(),
+              UploadImageWidget(),
               const SizedBox(
                 height: 14,
               ),

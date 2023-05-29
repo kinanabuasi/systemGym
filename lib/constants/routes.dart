@@ -17,12 +17,19 @@ import '../view/screens/auth/sign_in_screen.dart';
 import '../view/screens/auth/sign_up_screen.dart';
 import '../view/screens/auth/splash_screen.dart';
 import '../view/screens/auth/verification_screen.dart';
+import '../view/screens/profile/edit_profile_screen.dart';
 import '../view/screens/public/add_new_department_screen.dart';
 import '../view/screens/public/adding_an_employee.dart';
 import '../view/screens/public/all_department_screen.dart';
 import '../view/screens/public/modify_club_settings_screen.dart';
 import '../view/screens/public/trainer_detail_screen.dart';
 import '../view/screens/public/workout_plan_today_screen.dart';
+import '../view/screens/settings/contact_us_screen.dart';
+import '../view/screens/settings/language_screen.dart';
+import '../view/screens/settings/notifications_screen.dart';
+import '../view/screens/settings/privacy_policy_screen.dart';
+import '../view/screens/settings/settings_screen.dart';
+import '../view/screens/settings/units_of_measure_screen.dart';
 
 class AppRoutes {
   static const splash = Routes.splashScreen;
@@ -114,6 +121,34 @@ class AppRoutes {
       name: Routes.adding_an_employee_Screen,
       page: () => adding_an_employee_Screen(),
     ),
+    GetPage(
+      name: Routes.settingsScreen,
+      page: () => SettingsScreen(),
+    ),
+    GetPage(
+      name: Routes.unitsOfMeasureScreen,
+      page: () => UnitsOfMeasureScreen(),
+    ),
+    GetPage(
+      name: Routes.notificationsScreen,
+      page: () => NotificationsScreen(),
+    ),
+    GetPage(
+      name: Routes.languageScreen,
+      page: () => LanguageScreen(),
+    ),
+    GetPage(
+      name: Routes.contactUsScreen,
+      page: () => ContactUsScreen(),
+    ),
+    GetPage(
+      name: Routes.privacyPolicyScreen,
+      page: () => PrivacyPolicyScreen(),
+    ),
+    GetPage(
+      name: Routes.editProfileScreen,
+      page: () => EditProfileScreen(),
+    ),
   ];
 }
 
@@ -138,4 +173,11 @@ class Routes {
   static const chooseGoal = '/chooseGoal';
   static const chooseLevel = '/chooseLevel';
   static const adding_an_employee_Screen = '/adding_an_employee_Screen';
+  static const settingsScreen = '/settingsScreen';
+  static const unitsOfMeasureScreen = '/unitsOfMeasureScreen';
+  static const notificationsScreen = '/notificationsScreen';
+  static const languageScreen = '/languageScreen';
+  static const contactUsScreen = '/contactUsScreen';
+  static const privacyPolicyScreen = '/privacyPolicyScreen';
+  static const editProfileScreen = '/editProfileScreen';
 }

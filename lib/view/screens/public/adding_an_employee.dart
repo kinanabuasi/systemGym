@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/logic/controllers/other/add_products_controller.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
-import '../../../component/app_bar.dart';
+import '../../../component/app_bars/app_bar.dart';
 import '../../../component/buttons/my_buttons.dart';
 import '../../../component/drop_down.dart';
 import '../../../component/my_text.dart';
@@ -35,7 +35,7 @@ class adding_an_employee_Screen extends StatelessWidget {
               const SizedBox(
                 height: 18,
               ),
-              const UploadImageWidget(),
+              UploadImageWidget(),
               const SizedBox(
                 height: 14,
               ),
@@ -101,16 +101,15 @@ class adding_an_employee_Screen extends StatelessWidget {
                   prefixIcon: Image.asset("assets/images/yellow_dot.png")),
               const SizedBox(height: 16),
               DropDownButton(
-                hint: "Section",
-                list: adding_an_employee_controller.Section,
-                value: adding_an_employee_controller.selectedSection),
+                  hint: "Section",
+                  list: adding_an_employee_controller.Section,
+                  value: adding_an_employee_controller.selectedSection),
               const SizedBox(height: 16),
               DropDownButton(
-                hint: "employee status",
-                list:adding_an_employee_controller.employeeStatus,
-                value: adding_an_employee_controller.selectedEmployeeStatus),
+                  hint: "employee status",
+                  list: adding_an_employee_controller.employeeStatus,
+                  value: adding_an_employee_controller.selectedEmployeeStatus),
               const SizedBox(height: 42),
-              
               MyTextFormField(
                   validator: () {},
                   hintText: "The beginning of the shift",
@@ -135,13 +134,12 @@ class adding_an_employee_Screen extends StatelessWidget {
                     fontWeight: FontWeight.w700),
                 function: () {
                   adding_an_employee_controller.onItemSave();
-                return showTopSnackBar(
+                  return showTopSnackBar(
                     Overlay.of(context),
                     CustomSnackBar.success(
                       message: "Good job, New Employee is added successfully",
-                      textStyle:TextStyle(
-                    color: mainColor,
-                    fontFamily: "Poppins"),
+                      textStyle:
+                          TextStyle(color: mainColor, fontFamily: "Poppins"),
                       backgroundColor: yellowColor,
                       icon: const Icon(Icons.sentiment_very_satisfied,
                           color: mainColor, size: 120),
