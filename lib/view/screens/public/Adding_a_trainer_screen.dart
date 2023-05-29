@@ -79,12 +79,13 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
+                KeyboardType: TextInputType.datetime,
                 hintText: "#Subscription number",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
               ),
               const SizedBox(
-                height: 17,
+                height: 16,
               ),
               MyTextFormField(
                   multiLines: true,
@@ -101,50 +102,50 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                   prefixIcon: Image.asset("assets/images/yellow_dot.png")),
               const SizedBox(height: 19),
               MyTextFormField(
+                  KeyboardType: TextInputType.datetime,
                   validator: () {},
                   hintText: "date of birth",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-              const SizedBox(height: 23),
+              const SizedBox(height: 16),
               DropDownButton(
-                hint: "Subtype",
-                list: adding_an_employee_controller.Section,
-                value: adding_an_employee_controller.selectedSection),
-              const SizedBox(height: 21),
+                  hint: "Subtype",
+                  list: adding_an_employee_controller.Section,
+                  value: adding_an_employee_controller.selectedSection),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
                   hintText: "The monthly subscription value \$",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-                  const SizedBox(height: 16),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
                   hintText: "Total subscription value",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-                  const SizedBox(height: 16),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
                   hintText: "height",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-                  const SizedBox(height: 17),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
                   hintText: "weight",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
               DropDownButton(
-                hint: "Professional degree",
-                list:adding_an_employee_controller.employeeStatus,
-                value: adding_an_employee_controller.selectedEmployeeStatus),
+                  hint: "Professional degree",
+                  list: adding_an_employee_controller.employeeStatus,
+                  value: adding_an_employee_controller.selectedEmployeeStatus),
               const SizedBox(height: 16),
-              
               MyTextFormField(
                   validator: () {},
                   hintText: "Nationality",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
               DropDownButton(
-                hint: "gender",
-                list:adding_an_employee_controller.employeeStatus,
-                value: adding_an_employee_controller.selectedEmployeeStatus),
+                  hint: "gender",
+                  list: adding_an_employee_controller.employeeStatus,
+                  value: adding_an_employee_controller.selectedEmployeeStatus),
               const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
@@ -155,9 +156,10 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                   validator: () {},
                   hintText: "Governorate",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-             const SizedBox(height: 16),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
+                  KeyboardType: TextInputType.datetime,
                   hintText: "Postal code",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
@@ -165,22 +167,22 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                   validator: () {},
                   hintText: "website",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-                  const SizedBox(height: 16),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
                   hintText: "Facebook",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-                  const SizedBox(height: 16),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
                   hintText: "Twitter",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-                  const SizedBox(height: 16),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
                   hintText: "Instagram",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-                  const SizedBox(height: 16),
+              const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
                   hintText: "YouTube",
@@ -195,18 +197,8 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                     fontWeight: FontWeight.w700),
                 function: () {
                   adding_an_employee_controller.onItemSave();
-                return showTopSnackBar(
-                    Overlay.of(context),
-                    CustomSnackBar.success(
-                      message: "Good job, New Employee is added successfully",
-                      textStyle:TextStyle(
-                    color: mainColor,
-                    fontFamily: "Poppins"),
-                      backgroundColor: yellowColor,
-                      icon: const Icon(Icons.sentiment_very_satisfied,
-                          color: mainColor, size: 120),
-                    ),
-                  );
+                  return ShowTopSnackBar(
+                      "Good job, New Trainer is added successfully", context);
                 },
               ),
               const SizedBox(

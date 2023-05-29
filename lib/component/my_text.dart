@@ -9,6 +9,7 @@ class MyText extends StatelessWidget {
   final FontWeight fontWeight;
   TextAlign? textAlign;
   TextDecoration? underLine;
+  String? fontfamily;
   MyText(
       {super.key,
       required this.text,
@@ -16,6 +17,7 @@ class MyText extends StatelessWidget {
       required this.fontSize,
       required this.fontWeight,
       this.textAlign,
+      this.fontfamily,
       this.underLine});
 
   @override
@@ -28,6 +30,7 @@ class MyText extends StatelessWidget {
         fontSize: fontSize,
         fontWeight: fontWeight,
         decoration: underLine,
+        fontFamily: fontfamily,
       ),
     );
   }

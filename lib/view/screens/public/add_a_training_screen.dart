@@ -17,14 +17,15 @@ import '../../../constants/fonts.dart';
 import '../../../logic/controllers/public/adding_an_employee_controller.dart';
 import '../../widgets/public/trainer_detail_widgets/top_snackbar.dart';
 
-class adding_an_employee_Screen extends StatelessWidget {
-  adding_an_employee_Screen({Key? key}) : super(key: key);
+class Adding_a_training_Screen extends StatelessWidget {
+  Adding_a_training_Screen({Key? key}) : super(key: key);
   Adding_an_employee_controller adding_an_employee_controller =
       Get.put(Adding_an_employee_controller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBar(whiteText: "Adding an", yellowText: " employee"),
+      appBar:
+          const MyAppBar(whiteText: "Add a", yellowText: " training section"),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -53,7 +54,7 @@ class adding_an_employee_Screen extends StatelessWidget {
               MyTextFormField(
                 controller: adding_an_employee_controller.IDController,
                 validator: () {},
-                hintText: "#ID",
+                hintText: "The name of the training set",
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
               ),
               const SizedBox(
@@ -61,17 +62,8 @@ class adding_an_employee_Screen extends StatelessWidget {
               ),
               MyTextFormField(
                 controller: adding_an_employee_controller.FullNameController,
-                hintText: "full name",
-                validator: () {},
-                prefixIcon: Image.asset("assets/images/yellow_check.png"),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              MyTextFormField(
-                controller: adding_an_employee_controller.DateOfBirthController,
                 KeyboardType: TextInputType.datetime,
-                hintText: "date of birth",
+                hintText: "training number",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
               ),
@@ -79,7 +71,8 @@ class adding_an_employee_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
-                hintText: "National Number",
+                controller: adding_an_employee_controller.FullNameController,
+                hintText: "Training name",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
               ),
@@ -89,68 +82,55 @@ class adding_an_employee_Screen extends StatelessWidget {
               MyTextFormField(
                   multiLines: true,
                   validator: () {},
-                  hintText: "About the employee",
+                  hintText: "Training description",
                   prefixIcon: Image.asset("assets/images/yellow_dot.png")),
               const SizedBox(
-                height: 21,
+                height: 16,
               ),
               MyTextFormField(
-                  multiLines: true,
-                  validator: () {},
-                  hintText: "Comprehensive overview",
-                  prefixIcon: Image.asset("assets/images/yellow_dot.png")),
-              const SizedBox(height: 16),
-              DropDownButton(
-                hint: "Section",
-                list: adding_an_employee_controller.Section,
-                value: adding_an_employee_controller.selectedSection),
-              const SizedBox(height: 16),
-              DropDownButton(
-                hint: "employee status",
-                list:adding_an_employee_controller.employeeStatus,
-                value: adding_an_employee_controller.selectedEmployeeStatus),
-              const SizedBox(height: 42),
-              
+                controller: adding_an_employee_controller.IDController,
+                validator: () {},
+                hintText: "Video - link from the site",
+                prefixIcon: Image.asset("assets/images/yellow_check.png"),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
               MyTextFormField(
-                  validator: () {},
-                  hintText: "The beginning of the shift",
-                  prefixIcon: Image.asset("assets/images/yellow_check.png")),
-              const SizedBox(height: 16),
+                controller: adding_an_employee_controller.FullNameController,
+                hintText: "training time",
+                validator: () {},
+                prefixIcon: Image.asset("assets/images/yellow_check.png"),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
               MyTextFormField(
-                  validator: () {},
-                  hintText: "The end of the shift",
-                  prefixIcon: Image.asset("assets/images/yellow_check.png")),
-              const SizedBox(height: 16),
-              MyTextFormField(
-                  validator: () {},
-                  hintText: "total salary",
-                  prefixIcon: Image.asset("assets/images/yellow_check.png")),
-              const SizedBox(height: 88),
+                controller: adding_an_employee_controller.FullNameController,
+                KeyboardType: TextInputType.datetime,
+                hintText: "The number of iterations",
+                validator: () {},
+                prefixIcon: Image.asset("assets/images/yellow_check.png"),
+              ),
+              const SizedBox(height: 23),
               MyButton(
                 color: yellowColor,
                 widget: MyText(
-                    text: "Create now",
-                    color: black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700),
+                  text: "Create now",
+                  color: black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  fontfamily: Poppins,
+                ),
                 function: () {
                   adding_an_employee_controller.onItemSave();
-                return showTopSnackBar(
-                    Overlay.of(context),
-                    CustomSnackBar.success(
-                      message: "Good job, New Employee is added successfully",
-                      textStyle:TextStyle(
-                    color: mainColor,
-                    fontFamily: "Poppins"),
-                      backgroundColor: yellowColor,
-                      icon: const Icon(Icons.sentiment_very_satisfied,
-                          color: mainColor, size: 120),
-                    ),
-                  );
+                  return ShowTopSnackBar(
+                      "Good job, New Training is added successfully",
+                      context);
                 },
               ),
               const SizedBox(
-                height: 50,
+                height: 20,
               ),
             ],
           ),
