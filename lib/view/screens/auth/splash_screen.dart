@@ -3,6 +3,9 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:systemgym/view/screens/auth/introduction_screen.dart';
 
 import '../../../constants/colors.dart';
+import '../profile/edit_profile_screen.dart';
+import '../settings/privacy_policy_screen.dart';
+import '../settings/settings_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -15,7 +18,7 @@ class SplashScreen extends StatelessWidget {
         "assets/images/logo.png",
         fit: BoxFit.fill,
       ),
-      nextScreen: IntroductionScreen(),
+      nextScreen: EditProfileScreen(),
       splashTransition: SplashTransition.rotationTransition,
       splashIconSize: 200,
       duration: 2500,
