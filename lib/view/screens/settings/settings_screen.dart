@@ -14,7 +14,7 @@ class SettingsScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: black,
-        appBar: const SettingAppBar(title: "SETTINGS"),
+        appBar: SettingAppBar(title: "SETTINGS"),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20.0),
           child: ListView.builder(
@@ -55,7 +55,7 @@ class SettingsScreen extends StatelessWidget {
   ];
   List<String> screensRoutes = [
     Routes.unitsOfMeasureScreen,
-    Routes.notificationsScreen,
+    Routes.notificationsSettingsScreen,
     Routes.languageScreen,
     Routes.contactUsScreen
   ];

@@ -12,7 +12,7 @@ class LanguageScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
           backgroundColor: black,
-          appBar: const SettingAppBar(title: "LANGUAGE"),
+          appBar: SettingAppBar(title: "LANGUAGE"),
           body: Column(
             children: const [
               SizedBox(height: 20),

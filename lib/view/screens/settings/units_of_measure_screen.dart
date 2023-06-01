@@ -16,7 +16,7 @@ class UnitsOfMeasureScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
           backgroundColor: black,
-          appBar: const SettingAppBar(title: "UNITS OF MEASURE"),
+          appBar: SettingAppBar(title: "UNITS OF MEASURE"),
           body: Column(
             children: const [
               SizedBox(height: 20),
