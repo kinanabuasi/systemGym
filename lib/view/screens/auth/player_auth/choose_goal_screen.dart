@@ -1,19 +1,15 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:numberpicker/numberpicker.dart';
 import 'package:systemgym/component/my_text.dart';
 import 'package:systemgym/constants/colors.dart';
-import 'package:systemgym/logic/controllers/auth/player_auth/choose_gender_controller.dart';
 
-import '../../../../component/buttons/my_buttons.dart';
 import '../../../../constants/routes.dart';
-import '../../../../logic/controllers/auth/player_auth/choose_age_controller.dart';
 import '../../../../logic/controllers/auth/player_auth/choose_weight_controller.dart';
 import '../../../widgets/auth_player/take_information_body.dart';
 
 class ChooseGoalScreen extends StatelessWidget {
-  ChooseGoalScreen({super.key});
+  const ChooseGoalScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +26,7 @@ class ChooseGoalScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 40.0),
                 child: Column(
                   children: [
-                    Divider(
+                    const Divider(
                       thickness: 2,
                       color: yellowColor,
                     ),
@@ -38,8 +34,8 @@ class ChooseGoalScreen extends StatelessWidget {
                       options: CarouselOptions(
                           aspectRatio: 16 / 9,
                           viewportFraction: 0.6,
-                          scrollPhysics:
-                              ScrollPhysics(parent: BouncingScrollPhysics()),
+                          scrollPhysics: const ScrollPhysics(
+                              parent: BouncingScrollPhysics()),
                           height: 100.0,
                           scrollDirection: Axis.vertical),
                       items: [
@@ -56,7 +52,7 @@ class ChooseGoalScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 MyText(
-                                    text: "$i",
+                                    text: i,
                                     color: white,
                                     fontSize: 30,
                                     fontWeight: FontWeight.bold),
@@ -66,7 +62,7 @@ class ChooseGoalScreen extends StatelessWidget {
                         );
                       }).toList(),
                     ),
-                    Divider(
+                    const Divider(
                       thickness: 2,
                       color: yellowColor,
                     ),

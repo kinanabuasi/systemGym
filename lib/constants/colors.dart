@@ -12,4 +12,3 @@ const Color originalBlack = Color(0xff000000);
 const Color otherWhite = Color(0xffF6F6F6);
 
 const Color blackWithOpacity = Color(0xff2C2C2E);
-

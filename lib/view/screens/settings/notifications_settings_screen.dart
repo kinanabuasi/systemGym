@@ -7,16 +7,16 @@ import '../../../component/my_text.dart';
 import '../../../constants/colors.dart';
 import '../../../logic/controllers/settings/switch_button_controller.dart';
 
-class NotificationsScreen extends StatelessWidget {
+class NotificationsSettingsScreen extends StatelessWidget {
   final switchController = Get.put(SwitchController());
-  NotificationsScreen({super.key});
+  NotificationsSettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
           backgroundColor: black,
-          appBar: const SettingAppBar(title: "NOTIFICATIONS"),
+          appBar: SettingAppBar(title: "NOTIFICATIONS"),
           body: Column(children: [
             const SizedBox(height: 20),
             ListTile(
