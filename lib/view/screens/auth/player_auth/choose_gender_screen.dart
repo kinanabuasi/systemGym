@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:systemgym/component/my_text.dart';
 import 'package:systemgym/constants/colors.dart';
 import 'package:systemgym/logic/controllers/auth/player_auth/choose_gender_controller.dart';
 
-import '../../../../component/buttons/my_buttons.dart';
 import '../../../../constants/routes.dart';
 import '../../../widgets/auth_player/take_information_body.dart';
 

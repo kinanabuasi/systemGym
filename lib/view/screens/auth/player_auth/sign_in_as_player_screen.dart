@@ -105,7 +105,8 @@ class SignInAsPlayerScreen extends StatelessWidget {
                                         color: mainColor,
                                         fontSize: 17,
                                         fontWeight: FontWeight.bold),
-                                    Icon(Icons.chevron_right, color: mainColor)
+                                    const Icon(Icons.chevron_right,
+                                        color: mainColor)
                                   ],
                                 ),
                                 function: () {

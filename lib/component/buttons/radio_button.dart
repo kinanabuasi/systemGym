@@ -28,7 +28,7 @@ class MyRadioButton extends StatelessWidget {
                       color: white,
                       fontSize: 18,
                       fontWeight: FontWeight.normal),
-                  Spacer(),
+                  const Spacer(),
                   Radio(
                     value: value,
                     groupValue: unitsOfMeasureController.selected,

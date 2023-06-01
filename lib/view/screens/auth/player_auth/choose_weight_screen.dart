@@ -1,19 +1,15 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:numberpicker/numberpicker.dart';
 import 'package:systemgym/component/my_text.dart';
 import 'package:systemgym/constants/colors.dart';
-import 'package:systemgym/logic/controllers/auth/player_auth/choose_gender_controller.dart';
 
-import '../../../../component/buttons/my_buttons.dart';
 import '../../../../constants/routes.dart';
-import '../../../../logic/controllers/auth/player_auth/choose_age_controller.dart';
 import '../../../../logic/controllers/auth/player_auth/choose_weight_controller.dart';
 import '../../../widgets/auth_player/take_information_body.dart';
 
 class ChooseWeightScreen extends StatelessWidget {
-  ChooseWeightScreen({super.key});
+  const ChooseWeightScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +25,7 @@ class ChooseWeightScreen extends StatelessWidget {
               return CarouselSlider(
                 options: CarouselOptions(
                     scrollPhysics:
-                        ScrollPhysics(parent: BouncingScrollPhysics()),
+                        const ScrollPhysics(parent: BouncingScrollPhysics()),
                     height: 400.0,
                     scrollDirection: Axis.horizontal),
                 items: [
@@ -198,7 +194,7 @@ class ChooseWeightScreen extends StatelessWidget {
                                   color: white,
                                   fontSize: 50,
                                   fontWeight: FontWeight.bold),
-                              SizedBox(
+                              const SizedBox(
                                 width: 5,
                               ),
                               MyText(
@@ -208,7 +204,7 @@ class ChooseWeightScreen extends StatelessWidget {
                                   fontWeight: FontWeight.bold)
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Container(
                             width: double.infinity,
                             child: Row(

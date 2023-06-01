@@ -5,11 +5,13 @@ import '../../constants/colors.dart';
 import '../my_text.dart';
 
 class SettingAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const SettingAppBar({
+  SettingAppBar({
     super.key,
     required this.title,
+    this.titleColor = white,
   });
   final String title;
+  Color titleColor;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -17,21 +19,22 @@ class SettingAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        backgroundColor: black,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         leading: Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(8.0),
           child: Container(
-            decoration: BoxDecoration(color: darkGrey, shape: BoxShape.circle),
+            decoration:
+                const BoxDecoration(color: darkGrey, shape: BoxShape.circle),
             child: Center(
               child: IconButton(
                 onPressed: () {
                   Get.back();
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.chevron_left,
                   color: white,
-                  size: 30,
+                  size: 25,
                 ),
               ),
             ),
@@ -40,7 +43,7 @@ class SettingAppBar extends StatelessWidget implements PreferredSizeWidget {
         centerTitle: true,
         title: MyText(
             text: title,
-            color: white,
+            color: titleColor,
             fontSize: 25,
             fontWeight: FontWeight.bold));
   }
