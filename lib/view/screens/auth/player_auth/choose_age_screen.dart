@@ -10,7 +10,7 @@ import '../../../widgets/auth_player/take_information_body.dart';
 AgeController ageController = Get.put(AgeController());
 
 class ChooseAgeScreen extends StatelessWidget {
-  ChooseAgeScreen({super.key});
+  const ChooseAgeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

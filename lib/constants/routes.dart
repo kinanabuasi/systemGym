@@ -3,7 +3,10 @@
 import 'package:get/get.dart';
 import 'package:systemgym/logic/bindings/other/add_products_binding.dart';
 import 'package:systemgym/view/screens/other/add_products_screen.dart';
+import '../logic/bindings/auth/sign_in_binding.dart';
+import '../logic/bindings/auth/sign_up_bindind.dart';
 import '../logic/bindings/auth/verification_binding.dart';
+import '../view/screens/auth/how_to_login_screen.dart';
 import '../view/screens/auth/player_auth/choose_age_screen.dart';
 import '../view/screens/auth/player_auth/choose_gender_screen.dart';
 import '../view/screens/auth/forgot_password_screen.dart';
@@ -17,12 +20,27 @@ import '../view/screens/auth/sign_in_screen.dart';
 import '../view/screens/auth/sign_up_screen.dart';
 import '../view/screens/auth/splash_screen.dart';
 import '../view/screens/auth/verification_screen.dart';
+import '../view/screens/profile/edit_profile_screen.dart';
+import '../view/screens/profile/pro_profile_screen.dart';
+import '../view/screens/profile/profile_screen.dart';
 import '../view/screens/public/add_new_department_screen.dart';
 import '../view/screens/public/adding_an_employee_screen.dart';
 import '../view/screens/public/all_department_screen.dart';
 import '../view/screens/public/modify_club_settings_screen.dart';
+import '../view/screens/public/payment/add_new_card_screen.dart';
+import '../view/screens/public/payment/edit_card_screen.dart';
+import '../view/screens/public/payment/payment_completed_screen.dart';
+import '../view/screens/public/payment/payment_screen.dart';
+import '../view/screens/public/reviews/reviews_screen.dart';
+import '../view/screens/public/reviews/write_review_screen.dart';
 import '../view/screens/public/trainer_detail_screen.dart';
 import '../view/screens/public/workout_plan_today_screen.dart';
+import '../view/screens/settings/contact_us_screen.dart';
+import '../view/screens/settings/language_screen.dart';
+import '../view/screens/settings/notifications_settings_screen.dart';
+import '../view/screens/settings/privacy_policy_screen.dart';
+import '../view/screens/settings/settings_screen.dart';
+import '../view/screens/settings/units_of_measure_screen.dart';
 
 class AppRoutes {
   static const splash = Routes.splashScreen;
@@ -38,12 +56,14 @@ class AppRoutes {
     ),
     GetPage(
         name: Routes.signIn,
-        page: () => const SignInScreen(),
+        page: () => SignInScreen(),
+        binding: SignInBinding(),
         transition: Transition.rightToLeft,
         transitionDuration: const Duration(milliseconds: 300)),
     GetPage(
         name: Routes.signUp,
-        page: () => const SignUpScreen(),
+        page: () => SignUpScreen(),
+        binding: SignUpBinding(),
         transition: Transition.downToUp,
         transitionDuration: const Duration(milliseconds: 300)),
     GetPage(
@@ -114,6 +134,70 @@ class AppRoutes {
       name: Routes.adding_an_employee_Screen,
       page: () => adding_an_employee_Screen(),
     ),
+    GetPage(
+      name: Routes.settingsScreen,
+      page: () => SettingsScreen(),
+    ),
+    GetPage(
+      name: Routes.unitsOfMeasureScreen,
+      page: () => UnitsOfMeasureScreen(),
+    ),
+    GetPage(
+      name: Routes.notificationsSettingsScreen,
+      page: () => NotificationsSettingsScreen(),
+    ),
+    GetPage(
+      name: Routes.languageScreen,
+      page: () => LanguageScreen(),
+    ),
+    GetPage(
+      name: Routes.contactUsScreen,
+      page: () => ContactUsScreen(),
+    ),
+    GetPage(
+      name: Routes.privacyPolicyScreen,
+      page: () => PrivacyPolicyScreen(),
+    ),
+    GetPage(
+      name: Routes.editProfileScreen,
+      page: () => EditProfileScreen(),
+    ),
+    GetPage(
+      name: Routes.reviewsScreen,
+      page: () => ReviewsScreen(),
+    ),
+    GetPage(
+      name: Routes.writeReviewsScreen,
+      page: () => WriteReviewsScreen(),
+    ),
+    GetPage(
+      name: Routes.paymentScreen,
+      page: () => PaymentScreen(),
+    ),
+    GetPage(
+      name: Routes.editCardScreen,
+      page: () => EditCardScreen(),
+    ),
+    GetPage(
+      name: Routes.addNewCardScreen,
+      page: () => AddNewCardScreen(),
+    ),
+    GetPage(
+      name: Routes.paymentCompletedScreen,
+      page: () => PaymentCompletedScreen(),
+    ),
+    GetPage(
+      name: Routes.proProfileScreen,
+      page: () => ProProfileScreen(),
+    ),
+    GetPage(
+      name: Routes.profileScreen,
+      page: () => ProfileScreen(),
+    ),
+    GetPage(
+      name: Routes.howToLoginScreen,
+      page: () => HowToLoginScreen(),
+    ),
   ];
 }
 
@@ -138,4 +222,20 @@ class Routes {
   static const chooseGoal = '/chooseGoal';
   static const chooseLevel = '/chooseLevel';
   static const adding_an_employee_Screen = '/adding_an_employee_Screen';
+  static const settingsScreen = '/settingsScreen';
+  static const unitsOfMeasureScreen = '/unitsOfMeasureScreen';
+  static const notificationsSettingsScreen = '/notificationsSettingsScreen';
+  static const languageScreen = '/languageScreen';
+  static const contactUsScreen = '/contactUsScreen';
+  static const privacyPolicyScreen = '/privacyPolicyScreen';
+  static const editProfileScreen = '/editProfileScreen';
+  static const reviewsScreen = '/reviewsScreen';
+  static const writeReviewsScreen = '/WriteReviewsScreen';
+  static const paymentScreen = '/paymentScreen';
+  static const editCardScreen = '/editCardScreen';
+  static const addNewCardScreen = '/addNewCardScreen';
+  static const paymentCompletedScreen = '/paymentCompletedScreen';
+  static const proProfileScreen = '/proProfileScreen';
+  static const profileScreen = '/profileScreen';
+  static const howToLoginScreen = '/howToLoginScreen';
 }

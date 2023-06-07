@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../../../component/app_bar.dart';
+import '../../../component/app_bars/app_bar.dart';
 import '../../../component/my_counter.dart';
 import '../../../constants/colors.dart';
 
@@ -20,11 +20,14 @@ class All_employee_Screen extends StatelessWidget {
             const SizedBox(
               height: 70,
             ),
-            MyCounter(itemsLength: 6, id: "ID", 
-            name: "fullname", description: "dateofbirth"),
+            MyCounter(
+                itemsLength: 6,
+                id: "ID",
+                name: "fullname",
+                description: "dateofbirth"),
             SizedBox(
               height: 11,
-            ), 
+            ),
           ],
         ),
       ),

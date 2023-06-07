@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:systemgym/component/app_bar.dart';
+import '../../../component/app_bars/app_bar.dart';
+
 import 'package:systemgym/component/my_counter.dart';
 import 'package:systemgym/constants/colors.dart';
 

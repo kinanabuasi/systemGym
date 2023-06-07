@@ -1,22 +1,30 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
 
 class UploadImageWidget extends StatelessWidget {
-  const UploadImageWidget({
-    super.key,
-  });
+  double radius;
+  double circleWidth, circleHeight;
+  String bacImage;
+  UploadImageWidget(
+      {super.key,
+      this.radius = 47,
+      this.circleWidth = 94,
+      this.circleHeight = 94,
+      this.bacImage = 'assets/images/black_avatar.png'});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 94,
-      height: 94,
+      width: circleWidth,
+      height: circleHeight,
       child: Stack(
         children: [
-          const CircleAvatar(
-            backgroundImage: AssetImage('assets/images/black_avatar.png'),
-            radius: 47,
+          CircleAvatar(
+            backgroundImage: AssetImage(bacImage),
+            radius: radius,
           ),
           Positioned(
             bottom: 0,

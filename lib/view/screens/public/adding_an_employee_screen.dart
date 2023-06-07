@@ -24,13 +24,12 @@ class adding_an_employee_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: mainColor,
       appBar: const MyAppBar(whiteText: "Adding an", yellowText: " employee"),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
           width: double.infinity,
-          
+          color: mainColor,
           child: Column(
             children: [
               const SizedBox(
@@ -110,7 +109,7 @@ class adding_an_employee_Screen extends StatelessWidget {
                   hint: "employee status",
                   list: adding_an_employee_controller.employeeStatus,
                   value: adding_an_employee_controller.selectedEmployeeStatus),
-              const SizedBox(height: 16),
+              const SizedBox(height: 42),
               MyTextFormField(
                   validator: () {},
                   hintText: "The beginning of the shift",
@@ -135,8 +134,17 @@ class adding_an_employee_Screen extends StatelessWidget {
                     fontWeight: FontWeight.w700),
                 function: () {
                   adding_an_employee_controller.onItemSave();
-                  return ShowTopSnackBar(
-                      "Good job, New Employee is added successfully", context);
+                  return showTopSnackBar(
+                    Overlay.of(context),
+                    CustomSnackBar.success(
+                      message: "Good job, New Employee is added successfully",
+                      textStyle:
+                          TextStyle(color: mainColor, fontFamily: "Poppins"),
+                      backgroundColor: yellowColor,
+                      icon: const Icon(Icons.sentiment_very_satisfied,
+                          color: mainColor, size: 120),
+                    ),
+                  );
                 },
               ),
               const SizedBox(

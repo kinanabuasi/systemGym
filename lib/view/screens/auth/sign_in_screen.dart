@@ -7,9 +7,13 @@ import '../../../component/linear_gradient.dart';
 import '../../../component/buttons/my_buttons.dart';
 import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
+import '../../../logic/controllers/auth/sign_in_controller.dart';
+import '../../../services/fields_validators.dart';
 
 class SignInScreen extends StatelessWidget {
-  const SignInScreen({super.key});
+  final signInController = Get.find<SignInController>();
+
+  SignInScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,24 +54,31 @@ class SignInScreen extends StatelessWidget {
               const SizedBox(
                 height: 60,
               ),
-              MyTextFormField(
-                  validator: () {},
-                  hintText: "Email",
-                  prefixIcon: const Icon(
-                    Icons.email,
-                    color: whiteGrey,
-                  )),
-              const SizedBox(
-                height: 16,
+              Form(
+                key: signInController.formKey,
+                child: Column(children: [
+                  MyTextFormField(
+                      controller: signInController.emailController,
+                      validator: FieldsValidators.emailValidator,
+                      hintText: "Email",
+                      prefixIcon: const Icon(
+                        Icons.email,
+                        color: whiteGrey,
+                      )),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  MyTextFormField(
+                      controller: signInController.passwordController,
+                      obsecure: true,
+                      validator: FieldsValidators.passwordValidator,
+                      hintText: "Password",
+                      prefixIcon: const Icon(
+                        Icons.lock,
+                        color: whiteGrey,
+                      )),
+                ]),
               ),
-              MyTextFormField(
-                  obsecure: true,
-                  validator: () {},
-                  hintText: "Password",
-                  prefixIcon: const Icon(
-                    Icons.lock,
-                    color: whiteGrey,
-                  )),
               const SizedBox(height: 15),
               InkWell(
                 onTap: () {
@@ -92,7 +103,9 @@ class SignInScreen extends StatelessWidget {
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
-                  function: () {}),
+                  function: () {
+                    signInController.validateLogin();
+                  }),
               const SizedBox(
                 height: 16,
               ),
