@@ -12,8 +12,8 @@ class MyButton extends StatelessWidget {
     super.key,
     required this.color,
     required this.widget,
-    required this.function, 
-     this.Circular=10,
+    required this.function,
+    this.Circular = 10,
   });
 
   @override
@@ -23,12 +23,12 @@ class MyButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(Circular!)),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(Circular!)),
             backgroundColor: color,
           ),
           onPressed: function,
-          child: Padding(padding: const EdgeInsets.all(8.0), child: widget)),
+          child: widget),
     );
   }
 }
