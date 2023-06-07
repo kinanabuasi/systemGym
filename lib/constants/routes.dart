@@ -3,7 +3,10 @@
 import 'package:get/get.dart';
 import 'package:systemgym/logic/bindings/other/add_products_binding.dart';
 import 'package:systemgym/view/screens/other/add_products_screen.dart';
+import '../logic/bindings/auth/sign_in_binding.dart';
+import '../logic/bindings/auth/sign_up_bindind.dart';
 import '../logic/bindings/auth/verification_binding.dart';
+import '../view/screens/auth/how_to_login_screen.dart';
 import '../view/screens/auth/player_auth/choose_age_screen.dart';
 import '../view/screens/auth/player_auth/choose_gender_screen.dart';
 import '../view/screens/auth/forgot_password_screen.dart';
@@ -53,12 +56,14 @@ class AppRoutes {
     ),
     GetPage(
         name: Routes.signIn,
-        page: () => const SignInScreen(),
+        page: () => SignInScreen(),
+        binding: SignInBinding(),
         transition: Transition.rightToLeft,
         transitionDuration: const Duration(milliseconds: 300)),
     GetPage(
         name: Routes.signUp,
-        page: () => const SignUpScreen(),
+        page: () => SignUpScreen(),
+        binding: SignUpBinding(),
         transition: Transition.downToUp,
         transitionDuration: const Duration(milliseconds: 300)),
     GetPage(
@@ -186,8 +191,12 @@ class AppRoutes {
       page: () => ProProfileScreen(),
     ),
     GetPage(
-      name: Routes.ProfileScreen,
+      name: Routes.profileScreen,
       page: () => ProfileScreen(),
+    ),
+    GetPage(
+      name: Routes.howToLoginScreen,
+      page: () => HowToLoginScreen(),
     ),
   ];
 }
@@ -227,5 +236,6 @@ class Routes {
   static const addNewCardScreen = '/addNewCardScreen';
   static const paymentCompletedScreen = '/paymentCompletedScreen';
   static const proProfileScreen = '/proProfileScreen';
-  static const ProfileScreen = '/ProfileScreen';
+  static const profileScreen = '/profileScreen';
+  static const howToLoginScreen = '/howToLoginScreen';
 }
