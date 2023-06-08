@@ -26,10 +26,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: person_daily_program_Screen(),
+
+//         home: person_daily_program_Screen(),
+
+       
+
         theme: ThemeData(fontFamily: 'Poppins'),
-        // initialRoute: Routes.splashScreen,
-        // getPages: AppRoutes.routes
-        );
+        initialRoute: Routes.splashScreen,
+        getPages: AppRoutes.routes);
   }
 }
