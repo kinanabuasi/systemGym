@@ -1,0 +1,1983 @@
+{
+	"info": {
+		"_postman_id": "84dc169c-2355-4999-84a5-f21528de2274",
+		"name": "Sports_Club",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23104166",
+		"_collection_link": "https://dark-crater-786872.postman.co/workspace/Team-Workspace~6fba5313-fe9b-47fb-8896-9c970312ca96/collection/23104166-84dc169c-2355-4999-84a5-f21528de2274?action=share&creator=23104166&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\"           : \"users\",\r\n    \"username\"           : \"mohamedhhh2\",\r\n    \"email\"          : \"Shahin444888@gmail.com\",\r\n    \"password\"       : \"123456789\",\r\n    \"password_confirmation\" : \"123456789\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/user/create",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// let jsonData = JSON.parse(responseBody);\r",
+									"// postman.setEnvironmentVariable(\"API TOKEN\", jsonData.data.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"device_token\"   : \"fsdsdfsfsdsfdsfsdsdfsfsdsfsdsfsdsdfsfsdsfds\",\r\n    \"device_type\"    : \"android\",\r\n    \"email\"          : \"admin@admin.com\",\r\n    \"password\"       : \"12345678\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "location",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/location",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/location/show?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"location",
+								"show"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/location/delete?id=2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"location",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"absssss\",\r\n    \"email\":\"asssddd@gh.com\",\r\n    \"password\":\"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/user/add",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/show/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"show",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_by_id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/update/2?name=hhhhhhhhh&email=ghhhhh@gmail.com&password=123456789",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"update",
+								"2"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "hhhhhhhhh"
+								},
+								{
+									"key": "email",
+									"value": "ghhhhh@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "123456789"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/delete/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subLocation",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/SubLocation",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"SubLocation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/SubLocation/show?id=5",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"SubLocation",
+								"show"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/SubLocation/delete?id=5",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"SubLocation",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "team",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/team",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"team"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n      \"number\": \"1\",\r\n      \"description\": \"mohamed\",\r\n     \"coach_id\": \"1\",\r\n      \"player_id\": \"1\",\r\n      \"photos\": [{}]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/team/add",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"team",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/team/show?id=2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"team",
+								"show"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_by_id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n      \"number\": \"1\",\r\n      \"description\": \"mohamed\",\r\n     \"coach_id\": \"1\",\r\n      \"player_id\": \"1\",\r\n      \"photos\": [{}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/team/update?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"team",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/team/delete?id=2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"team",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prize",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/Prize",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"Prize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/Prize/show?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"Prize",
+								"show"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/Prize/delete?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"Prize",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tournament",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/tournament",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"tournament"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name_ar\": \"wwwwwww\",\r\n \"name_en\": \"wwwwwww\",\r\n\"description\": \"Sit est illum quo\",\r\n\"number\": \"650\",\r\n\"start_time\": \"2023-06-08\",\r\n\"end_time\": \"2023-06-08\",\r\n\"tournament_type_id\": \"2\",\r\n\"prize_type_id\": \"1\",\r\n\"championship_levels_id\": \"2\",\r\n\"coach_id\": \"1\",\r\n\"player_id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/tournament/add",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"tournament",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/tournament/show?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"tournament",
+								"show"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_by_id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n\"description\": \"Sit est illum quo\",\r\n\"number\": \"650\",\r\n\"start_time\": \"2023-06-08\",\r\n\"end_time\": \"2023-06-08\",\r\n\"tournament_type_id\": \"2\",\r\n\"prize_type_id\": \"1\",\r\n\"championship_levels_id\": \"2\",\r\n\"coach_id\": \"1\",\r\n\"player_id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/tournament/update?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"tournament",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "nationality",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/nationality",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"nationality"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/nationality/show/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"nationality",
+								"show",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/delete/3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "gender",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/gender",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"gender"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/gender/show?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"gender",
+								"show"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/gender/delete?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"gender",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accounting",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/accounting",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"accounting"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n    \"coach_id\":\"1\",\r\n    \"player_id\":\"1\",\r\n    \"subtype_id\":\"1\",\r\n    \"discounts\":\"sdsdddrrrrrr\",\r\n    \"draws\":\"1ww\",\r\n    \"Payment_trainee_id\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/accounting/add",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"accounting",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/accounting/show?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"accounting",
+								"show"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/accounting/delete?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"accounting",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_by_id Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n    \"coach_id\":\"1\",\r\n    \"player_id\":\"1\",\r\n    \"subtype_id\":\"1\",\r\n    \"discounts\":\"sdsdddrrrrrr\",\r\n    \"draws\":\"1ww\",\r\n    \"Payment_trainee_id\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/accounting/update?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"accounting",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sections",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/section",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"section"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n\"number\": \"51\",\r\n\"section_description\": \"Qui voluptatem Nisi\",\r\n\"department_address\": \"Vel iste voluptatem\",\r\n\"photos\": [{}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/section/add",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"section",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/section/show?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"section",
+								"show"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_by_id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n\"number\": \"51\",\r\n\"section_description\": \"Qui voluptatem Nisi\",\r\n\"department_address\": \"Vel iste voluptatem\",\r\n\"photos\": [{}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/section/update?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"section",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/section/delete?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"section",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/product",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n\"description\": \"Aperiam asperiores q\",\r\n\"price\": \"571\",\r\n\"product_types_id\": \"3\",\r\n\"photos\": [{}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/product/add",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"product",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/product/show?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"product",
+								"show"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_by_id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n\"description\": \"Aperiam asperiores q\",\r\n\"price\": \"571\",\r\n\"product_types_id\": \"3\",\r\n\"photos\": [{}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/product/update?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"product",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/product/delete?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"product",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subscripe",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/subscripe",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"subscripe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/product/show?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"product",
+								"show"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/subscripe/delete?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"subscripe",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "employee",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/subscripe",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"subscripe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n\"email\": \"vogymypovo@mailinator.com\",\r\n\"password\": \"Pa$$w0rd!\",\r\n\"number\": \"134\",\r\n\"description\": \"Ullamco fugiat omni\",\r\n\"section_id\": \"1\",\r\n\"full_description\": \"Quas sequi impedit\",\r\n\"emp_id\": \"93\",\r\n\"date_of_birth\": \"2023-06-07\",\r\n\"photos\": [{}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/employee/add",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"employee",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/employee/show?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"employee",
+								"show"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_by_id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n\"email\": \"vogymypovo@mailinator.com\",\r\n\"password\": \"Pa$$w0rd!\",\r\n\"number\": \"134\",\r\n\"description\": \"Ullamco fugiat omni\",\r\n\"section_id\": \"1\",\r\n\"full_description\": \"Quas sequi impedit\",\r\n\"emp_id\": \"93\",\r\n\"date_of_birth\": \"2023-06-07\",\r\n\"photos\": [{}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/employee/update?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"employee",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/employee/delete?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"employee",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Food",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/subscripe",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"subscripe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n\"number\": \"564\",\r\n\"description\": \"Laudantium anim ex\",\r\n\"start_time\": \"2023-06-22\",\r\n\"end_time\": \"2023-06-22\",\r\n\"foodsystem_id\": \"1\",\r\n\"photos\": [{}]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/Food/add",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"Food",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/Food/show?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"Food",
+								"show"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_by_id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n\"number\": \"564\",\r\n\"description\": \"Laudantium anim ex\",\r\n\"start_time\": \"2023-06-22\",\r\n\"end_time\": \"2023-06-22\",\r\n\"foodsystem_id\": \"1\",\r\n\"photos\": [{}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/Food/update?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"Food",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/Food/delete?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"Food",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "player",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/player",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"player"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n\"user_name\": \"duhupary\",\r\n\"phone\": \"+1 (596) 499-7726\",\r\n\"email\": \"xefa@mailinator.com\",\r\n\"password\": \"Pa$$w0rd!\",\r\n\"subscription_number\": \"775\",\r\n\"postal_code\": \"Quos mollitia dolore\",\r\n\"salary_month\": \"6\",\r\n\"total\": \"Reiciendis dolore la\",\r\n\"player_description\": \"Mollitia mollit aliq\",\r\n\"genders_id\": \"1\",\r\n\"nationality_id\": \"106\",\r\n\"location_id\": \"1\",\r\n\"sub_location_id\": \"1\",\r\n\"subtype_id\": \"3\",\r\n\"coachs_id\": \"1\",\r\n\"profs_id\": \"2\",\r\n\"date_of_birth\": \"2023-06-09\",\r\n\"weight\": \"Vel voluptatibus est\",\r\n\"height\": \"Dolorem explicabo F\",\r\n\"link_website\": \"https://www.virimehotu.org.au\",\r\n\"link_facebook\": \"https://www.duzasasoqezi.tv\",\r\n\"link_instagram\": \"https://www.tusuhosomi.org.uk\",\r\n\"link_twitter\": \"https://www.jepatanaso.ws\",\r\n\"link_youtupe\": \"https://www.myki.me\",\r\n\"photos\": [{}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/player/add",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"player",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/player/show?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"player",
+								"show"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_by_id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n\"user_name\": \"duhupary\",\r\n\"phone\": \"+1 (596) 499-7726\",\r\n\"email\": \"xefa@mailinator.com\",\r\n\"password\": \"Pa$$w0rd!\",\r\n\"subscription_number\": \"775\",\r\n\"postal_code\": \"Quos mollitia dolore\",\r\n\"salary_month\": \"6\",\r\n\"total\": \"Reiciendis dolore la\",\r\n\"player_description\": \"Mollitia mollit aliq\",\r\n\"genders_id\": \"1\",\r\n\"nationality_id\": \"106\",\r\n\"location_id\": \"1\",\r\n\"sub_location_id\": \"1\",\r\n\"subtype_id\": \"3\",\r\n\"coachs_id\": \"1\",\r\n\"profs_id\": \"2\",\r\n\"date_of_birth\": \"2023-06-09\",\r\n\"weight\": \"Vel voluptatibus est\",\r\n\"height\": \"Dolorem explicabo F\",\r\n\"link_website\": \"https://www.virimehotu.org.au\",\r\n\"link_facebook\": \"https://www.duzasasoqezi.tv\",\r\n\"link_instagram\": \"https://www.tusuhosomi.org.uk\",\r\n\"link_twitter\": \"https://www.jepatanaso.ws\",\r\n\"link_youtupe\": \"https://www.myki.me\",\r\n\"photos\": [{}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/player/update?id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"player",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/delete/3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coachs",
+			"item": [
+				{
+					"name": "show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/coach",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"coach"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n\"user_name\": \"sexykymelu\",\r\n\"phone\": \"+1 (276) 972-3074\",\r\n\"email\": \"codeti@mailinator.com\",\r\n\"password\": \"Pa$$w0rd!\",\r\n\"subscription_number\": \"482\",\r\n\"salary\": \"Nostrud velit pariat\",\r\n\"coach_description\": \"Qui sit dolores mini\",\r\n\"genders_id\": \"2\",\r\n\"nationality_id\": \"75\",\r\n\"location_id\": \"1\",\r\n\"sub_location_id\": \"2\",\r\n\"employment_type_id\": \"1\",\r\n\"profs_id\": \"2\",\r\n\"date_of_birth\": \"2023-06-09\",\r\n\"start_time\": \"2023-06-09\",\r\n\"end_time\": \"2023-06-09\",\r\n\"link_website\": \"https://www.jalojej.cc\",\r\n\"link_facebook\": \"https://www.jicohumipe.tv\",\r\n\"link_twitter\": \"https://www.vimagatozyde.mobi\",\r\n\"link_youtupe\": \"https://www.voricugypa.mobi\",\r\n\"photos\": [{}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/coach/add",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"coach",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/coach/show?id=7",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"coach",
+								"show"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_by_id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name_ar\": \"wwwwwww\",\r\n      \"name_en\": \"wwwwwww\",\r\n\"user_name\": \"sexykymelu\",\r\n\"phone\": \"+1 (276) 972-3074\",\r\n\"email\": \"codeti@mailinator.com\",\r\n\"password\": \"Pa$$w0rd!\",\r\n\"subscription_number\": \"482\",\r\n\"salary\": \"Nostrud velit pariat\",\r\n\"coach_description\": \"Qui sit dolores mini\",\r\n\"genders_id\": \"2\",\r\n\"nationality_id\": \"75\",\r\n\"location_id\": \"1\",\r\n\"sub_location_id\": \"2\",\r\n\"employment_type_id\": \"1\",\r\n\"profs_id\": \"2\",\r\n\"date_of_birth\": \"2023-06-09\",\r\n\"start_time\": \"2023-06-09\",\r\n\"end_time\": \"2023-06-09\",\r\n\"link_website\": \"https://www.jalojej.cc\",\r\n\"link_facebook\": \"https://www.jicohumipe.tv\",\r\n\"link_twitter\": \"https://www.vimagatozyde.mobi\",\r\n\"link_youtupe\": \"https://www.voricugypa.mobi\",\r\n\"photos\": [{}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/coach/update?id=7",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"coach",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/delete/3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "1|RcEIVbBAhslPXxyAoUxpDqsLQLdwcwZUCWkguc0O",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
