@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/logic/controllers/other/add_products_controller.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
-import '../../../component/app_bar.dart';
+import '../../../component/app_bars/app_bar.dart';
 import '../../../component/buttons/my_buttons.dart';
 import '../../../component/drop_down.dart';
 import '../../../component/my_text.dart';
@@ -36,7 +36,7 @@ class Adding_a_training_section_Screen extends StatelessWidget {
               const SizedBox(
                 height: 18,
               ),
-              const UploadImageWidget(),
+               UploadImageWidget(),
               const SizedBox(
                 height: 14,
               ),
