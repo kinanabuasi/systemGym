@@ -13,6 +13,8 @@ import 'package:systemgym/view/screens/public/meal_details_screen.dart';
 import 'package:systemgym/view/screens/public/person_daily_program_screen.dart';
 import 'package:systemgym/view/screens/public/profile_details_screen.dart';
 import 'constants/routes.dart';
+import 'test.dart';
+import 'view/screens/public/sessions_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,12 +29,17 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
 
-//         home: person_daily_program_Screen(),
+        home:
+        VideoPlayerPage(videoUrl: 'https://youtu.be/YGrtghEmwUI?list=PLbJF4g421wqn7Di5kpxFHh0gXnCJpNoKA',),
+        // Sessions_Screen(),
+        // VideoSlider(),
+        //  person_daily_program_Screen(),
 
        
 
         theme: ThemeData(fontFamily: 'Poppins'),
-        initialRoute: Routes.splashScreen,
-        getPages: AppRoutes.routes);
+        // initialRoute: Routes.splashScreen,
+        // getPages: AppRoutes.routes
+        );
   }
 }
