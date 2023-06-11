@@ -79,12 +79,13 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
+                KeyboardType: TextInputType.datetime,
                 hintText: "#Subscription number",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
               ),
               const SizedBox(
-                height: 17,
+                height: 16,
               ),
               MyTextFormField(
                   multiLines: true,
@@ -101,10 +102,11 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                   prefixIcon: Image.asset("assets/images/yellow_dot.png")),
               const SizedBox(height: 19),
               MyTextFormField(
+                  KeyboardType: TextInputType.datetime,
                   validator: () {},
                   hintText: "date of birth",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
-              const SizedBox(height: 23),
+              const SizedBox(height: 16),
               DropDownButton(
                   hint: "Subtype",
                   list: adding_an_employee_controller.Section,
@@ -157,6 +159,7 @@ class Adding_a_trainer_Screen extends StatelessWidget {
               const SizedBox(height: 16),
               MyTextFormField(
                   validator: () {},
+                  KeyboardType: TextInputType.datetime,
                   hintText: "Postal code",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
