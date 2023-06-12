@@ -25,7 +25,7 @@ import '../view/screens/profile/edit_profile_screen.dart';
 import '../view/screens/profile/pro_profile_screen.dart';
 import '../view/screens/profile/profilee_screen.dart';
 import '../view/screens/public/add_new_department_screen.dart';
-import '../view/screens/public/adding_an_employee.dart';
+import '../view/screens/public/adding_an_employee_screen.dart';
 import '../view/screens/public/all_department_screen.dart';
 import '../view/screens/public/insight_screen.dart';
 import '../view/screens/public/modify_club_settings_screen.dart';
