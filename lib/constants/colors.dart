@@ -14,3 +14,5 @@ const Color otherWhite = Color(0xffF6F6F6);
 const Color blackWithOpacity = Color(0xff2C2C2E);
 
 const Color red = Color(0xffff2424);
+const Color orange = Color(0xffE79332);
+const Color green = Color(0xff34C759);
