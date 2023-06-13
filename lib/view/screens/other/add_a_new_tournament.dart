@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../component/app_bars/app_bar.dart';
-
 import 'package:systemgym/constants/colors.dart';
 import 'package:systemgym/logic/controllers/other/add_a_new_tournament_controller.dart';
 
+import '../../../component/app_bars/app_bar.dart';
 import '../../../component/buttons/my_buttons.dart';
 import '../../../component/drop_down.dart';
 import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
 
-class AddANewTournamentScreen extends StatelessWidget {
-  AddANewTournamentScreen({Key? key}) : super(key: key);
-  AddANewTournamentController controller =
-      Get.put(AddANewTournamentController());
+class AddANewTournamentScreen extends StatefulWidget {
+  const AddANewTournamentScreen({Key? key}) : super(key: key);
+
+  @override
+  State<AddANewTournamentScreen> createState() => _AddANewTournamentScreenState();
+}
+
+class _AddANewTournamentScreenState extends State<AddANewTournamentScreen> {
+  AddANewTournamentController controller = Get.put(AddANewTournamentController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,10 +42,7 @@ class AddANewTournamentScreen extends StatelessWidget {
               ),
               const Text(
                 "upload image",
-                style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
-                    color: yellowColor),
+                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: yellowColor),
               ),
               const SizedBox(
                 height: 30,
@@ -70,24 +72,15 @@ class AddANewTournamentScreen extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(
-                  hint: "Tournament type",
-                  list: controller.items,
-                  value: controller.productType),
+              DropDownButton(hint: "Tournament type", list: controller.items, value: controller.productType),
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(
-                  hint: "Add trainees",
-                  list: controller.items,
-                  value: controller.productType),
+              DropDownButton(hint: "Add trainees", list: controller.items, value: controller.productType),
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(
-                  hint: "Add trainers",
-                  list: controller.items,
-                  value: controller.productType),
+              DropDownButton(hint: "Add trainers", list: controller.items, value: controller.productType),
               const SizedBox(
                 height: 16,
               ),
@@ -107,25 +100,15 @@ class AddANewTournamentScreen extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(
-                  hint: "Award type",
-                  list: controller.items,
-                  value: controller.productType),
+              DropDownButton(hint: "Award type", list: controller.items, value: controller.productType),
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(
-                  hint: "Championship level",
-                  list: controller.items,
-                  value: controller.productType),
+              DropDownButton(hint: "Championship level", list: controller.items, value: controller.productType),
               const SizedBox(height: 16),
               MyButton(
                 color: yellowColor,
-                widget: MyText(
-                    text: "Create now",
-                    color: black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700),
+                widget: MyText(text: "Create now", color: black, fontSize: 18, fontWeight: FontWeight.w700),
                 function: () {},
               ),
               const SizedBox(

@@ -1,18 +1,11 @@
 // ignore_for_file: unused_field, avoid_print
 
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:systemgym/constants/api_links.dart';
-import 'package:http/http.dart' as http;
-import '../../../constants/colors.dart';
-import '../../../constants/routes.dart';
 
 class ModifyClubSettingsController extends GetxController {
   TextEditingController clubNameController = TextEditingController();
-  TextEditingController commercialRegistrationNumberController =
-      TextEditingController();
+  TextEditingController commercialRegistrationNumberController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();

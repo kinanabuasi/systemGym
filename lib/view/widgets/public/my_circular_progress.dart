@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 import '../../../constants/colors.dart';
 
-class MyCircularProgress extends StatelessWidget {
-  double value;
-  double height;
-  double width;
-  Widget widget;
-  Color valueColor;
+class MyCircularProgress extends StatefulWidget {
+  final double value;
+  final double height;
+  final double width;
+  final Widget widget;
+  final Color valueColor;
 
-  MyCircularProgress({
+  const MyCircularProgress({
     Key? key,
     required this.value,
     required this.height,
@@ -20,21 +20,25 @@ class MyCircularProgress extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<MyCircularProgress> createState() => _MyCircularProgressState();
+}
+
+class _MyCircularProgressState extends State<MyCircularProgress> {
+  @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         SizedBox(
-          height: height,
-          width: width,
-          child: CircularProgressIndicator(
-              value: value, backgroundColor: darkGrey, color: valueColor),
+          height: widget.height,
+          width: widget.width,
+          child: CircularProgressIndicator(value: widget.value, backgroundColor: darkGrey, color: widget.valueColor),
         ),
         Positioned(
           left: 0,
           top: 0,
           right: 0,
           bottom: 0,
-          child: widget,
+          child: widget.widget,
         ),
       ],
     );

@@ -1,10 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:systemgym/view/screens/auth/introduction_screen.dart';
+import 'package:flutter/material.dart';
 
 import '../../../constants/colors.dart';
-import '../profile/profilee_screen.dart';
-import '../public/home/notifications_screen.dart';
 import '../public/insight_screen.dart';
 
 class SplashScreen extends StatelessWidget {

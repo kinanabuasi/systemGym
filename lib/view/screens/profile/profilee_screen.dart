@@ -5,14 +5,19 @@ import '../../../component/app_bars/settings_app_bar.dart';
 import '../../../constants/colors.dart';
 import '../../widgets/public/my_circular_progress.dart';
 
-class ProfileScreen extends StatelessWidget {
-  ProfileScreen({super.key});
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: black,
-        appBar: SettingAppBar(title: ""),
+        appBar: const SettingAppBar(title: ""),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
@@ -39,26 +44,14 @@ class ProfileScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      MyText(
-                          text: "Joined",
-                          color: whiteGrey,
-                          fontSize: 11,
-                          fontWeight: FontWeight.normal),
-                      MyText(
-                          text: "2 mon ago",
-                          color: whiteGrey,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600),
+                      MyText(text: "Joined", color: whiteGrey, fontSize: 11, fontWeight: FontWeight.normal),
+                      MyText(text: "2 mon ago", color: whiteGrey, fontSize: 15, fontWeight: FontWeight.w600),
                     ],
                   )
                 ],
               ),
               const SizedBox(height: 10),
-              MyText(
-                  text: "SARAH\nWEGAN",
-                  color: white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold),
+              MyText(text: "SARAH\nWEGAN", color: white, fontSize: 30, fontWeight: FontWeight.bold),
               const SizedBox(height: 15),
               const Divider(
                 color: darkGrey,
@@ -71,13 +64,8 @@ class ProfileScreen extends StatelessWidget {
                       children: [
                         ListTile(
                           onTap: () {},
-                          trailing:
-                              const Icon(Icons.chevron_right, color: white),
-                          title: MyText(
-                              text: listTileString[index],
-                              color: white,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600),
+                          trailing: const Icon(Icons.chevron_right, color: white),
+                          title: MyText(text: listTileString[index], color: white, fontSize: 15, fontWeight: FontWeight.w600),
                         ),
                         const Divider(color: darkGrey)
                       ],
@@ -87,8 +75,7 @@ class ProfileScreen extends StatelessWidget {
               Container(
                 width: double.infinity,
                 height: 90,
-                decoration: BoxDecoration(
-                    color: darkGrey, borderRadius: BorderRadius.circular(20)),
+                decoration: BoxDecoration(color: darkGrey, borderRadius: BorderRadius.circular(20)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(children: [
@@ -97,27 +84,13 @@ class ProfileScreen extends StatelessWidget {
                       children: [
                         Container(
                           width: 50,
-                          decoration: BoxDecoration(
-                              color: red,
-                              borderRadius: BorderRadius.circular(10)),
+                          decoration: BoxDecoration(color: red, borderRadius: BorderRadius.circular(10)),
                           child: Center(
-                            child: MyText(
-                                text: "Pro",
-                                color: whiteGrey,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600),
+                            child: MyText(text: "Pro", color: whiteGrey, fontSize: 15, fontWeight: FontWeight.w600),
                           ),
                         ),
-                        MyText(
-                            text: "Upgrade to Premium",
-                            color: whiteGrey,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w600),
-                        MyText(
-                            text: "This subscription is auto-renewable",
-                            color: whiteGrey,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400),
+                        MyText(text: "Upgrade to Premium", color: whiteGrey, fontSize: 17, fontWeight: FontWeight.w600),
+                        MyText(text: "This subscription is auto-renewable", color: whiteGrey, fontSize: 13, fontWeight: FontWeight.w400),
                       ],
                     ),
                     const Spacer(),
@@ -139,11 +112,7 @@ class ProfileScreen extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    MyText(
-                        text: "Sign Out",
-                        color: red,
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600),
+                    MyText(text: "Sign Out", color: red, fontSize: 17, fontWeight: FontWeight.w600),
                     const SizedBox(
                       height: 10,
                     ),

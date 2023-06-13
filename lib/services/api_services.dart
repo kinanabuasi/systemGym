@@ -1,15 +1,11 @@
 import 'dart:convert';
 
-import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-
-import '../constants/routes.dart';
 
 class ApiServices {
   Future<Map<dynamic, dynamic>> getRequest(String url) async {
     try {
-      var response = await http
-          .get(Uri.parse(url), headers: {'Content-Type': 'application/json'});
+      var response = await http.get(Uri.parse(url), headers: {'Content-Type': 'application/json'});
 
       if (response.statusCode == 200) {
         var responsebody = jsonDecode(response.body);
@@ -27,9 +23,9 @@ class ApiServices {
     print("post");
 
     try {
-      var response =
-          await http.post(Uri.parse(url), body: json.encode(map), headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
+      var response = await http.post(Uri.parse(url), body: json.encode(map), headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
       });
       if (response.statusCode == 200) {
         print("success");
@@ -70,8 +66,7 @@ class ApiServices {
 
   Future<Map<String, dynamic>> apiDelete(url) async {
     try {
-      var response =
-          await http.delete(Uri.parse('$url'), headers: <String, String>{
+      var response = await http.delete(Uri.parse('$url'), headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       });
 

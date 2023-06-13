@@ -1,9 +1,10 @@
 // ignore_for_file: annotate_overrides, use_key_in_widget_constructors, prefer_const_constructors, avoid_unnecessary_containers, unused_import, unused_local_variable
 
-import 'package:get/get.dart';
-import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:video_player/video_player.dart';
+
 import '../../../constants/colors.dart';
 
 class VideoController extends GetxController {
@@ -11,8 +12,7 @@ class VideoController extends GetxController {
 
   Future<void> onInit() async {
     super.onInit();
-    videoPlayerController =
-        VideoPlayerController.asset('assets/images/test.mp4');
+    videoPlayerController = VideoPlayerController.asset('assets/images/test.mp4');
     await videoPlayerController.initialize();
     videoPlayerController.setLooping(true);
   }
@@ -40,8 +40,7 @@ class VideoSlider extends StatelessWidget {
               Expanded(
                 child: Chewie(
                   controller: ChewieController(
-                    videoPlayerController:
-                        videoController.videoPlayerController,
+                    videoPlayerController: videoController.videoPlayerController,
                     autoPlay: false,
                     looping: true,
                     showControls: true,
@@ -92,8 +91,7 @@ class VideoPlayerPage extends StatelessWidget {
                 children: [
                   Obx(
                     () => IconButton(
-                      icon: Icon(
-                          isPlaying.value ? Icons.pause : Icons.play_arrow),
+                      icon: Icon(isPlaying.value ? Icons.pause : Icons.play_arrow),
                       onPressed: () => isPlaying.toggle(),
                       color: Colors.white,
                     ),
