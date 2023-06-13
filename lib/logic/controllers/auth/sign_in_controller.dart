@@ -2,15 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:systemgym/constants/api_links.dart';
-
-import '../../../services/api_services.dart';
+import 'package:systemgym/data/remote/auth_remote.dart';
 
 class SignInController extends GetxController {
   TextEditingController passwordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final AuthRemoteDataSource _authRemoteDataSource = AuthRemoteDataSource();
 
   /*  validateLogin() {
     var formData = formKey.currentState;
@@ -22,12 +21,9 @@ class SignInController extends GetxController {
     var formData = formKey.currentState;
 
     if (formData?.validate() == true) {
-      var url = ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login;
-
-      Map map = {'email': emailController.text, 'password': passwordController.text};
-
-      ApiServices().postRequest(url, map);
-
+      Map<String, dynamic> map = {'email': emailController.text, 'password': passwordController.text};
+      final data = await _authRemoteDataSource.userLogin(map);
+      data.fold((l) => null, (r) => null);
       update();
     }
   }
