@@ -1,6 +1,8 @@
-class PlayerDataModel {
+import 'name_model.dart';
+
+class PlayerModel {
   int? id;
-  Name? name;
+  NameModel? name;
   String? userName;
   String? email;
   String? subscriptionNumber;
@@ -28,7 +30,7 @@ class PlayerDataModel {
   String? createdAt;
   String? updatedAt;
 
-  PlayerDataModel(
+  PlayerModel(
       {this.id,
       this.name,
       this.userName,
@@ -58,9 +60,9 @@ class PlayerDataModel {
       this.createdAt,
       this.updatedAt});
 
-  PlayerDataModel.fromJson(Map<String, dynamic> json) {
+  PlayerModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    name = json['name'] != null ? Name.fromJson(json['name']) : null;
+    name = json['name'] != null ? NameModel.fromJson(json['name']) : null;
     userName = json['user_name'];
     email = json['email'];
     subscriptionNumber = json['subscription_number'];
@@ -121,25 +123,6 @@ class PlayerDataModel {
     data['coachs_id'] = coachsId;
     data['created_at'] = createdAt;
     data['updated_at'] = updatedAt;
-    return data;
-  }
-}
-
-class Name {
-  String? en;
-  String? ar;
-
-  Name({this.en, this.ar});
-
-  Name.fromJson(Map<String, dynamic> json) {
-    en = json['en'];
-    ar = json['ar'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['en'] = en;
-    data['ar'] = ar;
     return data;
   }
 }

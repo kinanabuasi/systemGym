@@ -41,8 +41,9 @@ dependencies:
   flutter_slidable: ^3.0.0
   flutter_svg: ^2.0.5
   flutter_switch: ^0.3.2
+  fluttertoast: ^8.2.2
   get: ^4.6.5
-  # http: ^0.13.6
+  get_storage: ^2.1.1
   logger: ^1.4.0
   numberpicker: ^2.1.2
   smooth_page_indicator: ^1.1.0

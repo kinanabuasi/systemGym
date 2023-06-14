@@ -30,4 +30,14 @@ class ClubeRemoteDataSource {
       return Left(SomthingWrongFailures());
     }
   }
+
+  Future<Either<Failures, Unit>> deleteClub(int id) async {
+    try {
+      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      _log.i(response.data);
+      return const Right(unit);
+    } catch (e) {
+      return Left(SomthingWrongFailures());
+    }
+  }
 }

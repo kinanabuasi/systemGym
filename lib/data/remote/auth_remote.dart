@@ -12,6 +12,7 @@ import '../../services/network.dart';
 class AuthRemoteDataSource {
   final NetworkManager _networkManager = NetworkManager(Dio());
   final log = logger(AuthRemoteDataSource);
+
   Future<Either<Failures, UserModel>> userLogin(Map<String, dynamic> data) async {
     try {
       final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, data: data, headers: AppHeaders.headers);
