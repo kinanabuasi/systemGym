@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../data/remote/club_remote.dart';
+
 class ModifyClubSettingsController extends GetxController {
   TextEditingController clubNameController = TextEditingController();
   TextEditingController commercialRegistrationNumberController = TextEditingController();
@@ -18,6 +20,7 @@ class ModifyClubSettingsController extends GetxController {
   TextEditingController instagramController = TextEditingController();
   TextEditingController twitterController = TextEditingController();
   TextEditingController youtupeController = TextEditingController();
+  final ClubeRemoteDataSource _clubeRemoteDataSource = ClubeRemoteDataSource();
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -25,7 +28,9 @@ class ModifyClubSettingsController extends GetxController {
     var formData = formKey.currentState;
 
     if (formData?.validate() == true) {
-      print("success");
+      final Map<String, dynamic> clubeData = initClubeSetting();
+      final data = await _clubeRemoteDataSource.saveClubeSettings(clubeData);
+      data.fold((l) => null, (r) => null);
       /* print("before check");
 
       var headers = {'Content-Type': 'application/json'};
@@ -79,5 +84,24 @@ class ModifyClubSettingsController extends GetxController {
       print("after check"); */
       update();
     }
+  }
+
+  Map<String, dynamic> initClubeSetting() {
+    return {
+      '1': clubNameController.text.trim(),
+      '2': commercialRegistrationNumberController.text.trim(),
+      '3': phoneNumberController.text.trim(),
+      '4': emailController.text.trim(),
+      '5': descriptionController.text.trim(),
+      '6': clubAddressController.text.trim(),
+      '7': countryController.text.trim(),
+      '8': stateController.text.trim(),
+      '9': postalCodeController.text.trim(),
+      '10': clubWebsiteController.text.trim(),
+      '11': facebookController.text.trim(),
+      '12': instagramController.text.trim(),
+      '13': twitterController.text.trim(),
+      '14': youtupeController.text.trim(),
+    };
   }
 }
