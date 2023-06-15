@@ -3,10 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/constants/colors.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
+
+import '../../../data/remote/employee_remote.dart';
 
 class Adding_an_employee_controller extends GetxController {
 // var employees = <Employee>[].obs;
+  final EmployeeRemoteDataSource employeeRemoteDataSource = EmployeeRemoteDataSource();
   var isLoading = true.obs;
   var IDController = TextEditingController();
   var FullNameController = TextEditingController();
@@ -59,6 +63,41 @@ class Adding_an_employee_controller extends GetxController {
 
     update();
   }
+
+  Map<String, dynamic> initEmployee() {
+    return {
+      "name_ar": FullNameController.text.trim(),
+      "name_en": FullNameController.text.trim(),
+      "email": TotalSalaryController.text.trim(),
+      "password": TotalSalaryController.text.trim(),
+      "number": IDController.text.trim(),
+      "description": TotalSalaryController.text.trim(),
+      "section_id": SectionController.text.trim(),
+      "full_description": TotalSalaryController.text.trim(),
+      "emp_id": NationalNumberController.text.trim(),
+      "date_of_birth": DateOfBirthController.text.trim(),
+    };
+  }
+
+  addEmployee() async {
+    isLoading.value = true;
+    Map<String, dynamic> empData = initEmployee();
+    final data = await employeeRemoteDataSource.addEmployee(empData);
+    data.fold((l) => null, (r) {
+      onItemSave();
+      return showTopSnackBar(
+        Overlay.of(Get.context!),
+        const CustomSnackBar.success(
+          message: "Good job, New Employee is added successfully",
+          textStyle: TextStyle(color: mainColor, fontFamily: "Poppins"),
+          backgroundColor: yellowColor,
+          icon: Icon(Icons.sentiment_very_satisfied, color: mainColor, size: 120),
+        ),
+      );
+    });
+    isLoading.value = false;
+  }
+
 //   @override
 // void onInit() {
 // fetchEmployees();
@@ -76,19 +115,4 @@ class Adding_an_employee_controller extends GetxController {
 // isLoading(false);
 // }
 // }
-}
-
-class Employee {
-  String id;
-  String fullName;
-  double totalSalary;
-  String section;
-  String DateOfBirth;
-
-  Employee(
-      {required this.id,
-      required this.fullName,
-      required this.totalSalary,
-      required this.section,
-      required this.DateOfBirth});
 }

@@ -101,16 +101,7 @@ class adding_an_employee_Screen extends GetView<Adding_an_employee_controller> {
                 color: yellowColor,
                 widget: MyText(text: "Create now", color: black, fontSize: 16, fontWeight: FontWeight.w700),
                 function: () {
-                  controller.onItemSave();
-                  return showTopSnackBar(
-                    Overlay.of(context),
-                    CustomSnackBar.success(
-                      message: "Good job, New Employee is added successfully",
-                      textStyle: TextStyle(color: mainColor, fontFamily: "Poppins"),
-                      backgroundColor: yellowColor,
-                      icon: const Icon(Icons.sentiment_very_satisfied, color: mainColor, size: 120),
-                    ),
-                  );
+                  controller.addEmployee();
                 },
               ),
               const SizedBox(

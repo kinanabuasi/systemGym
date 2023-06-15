@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:systemgym/logic/controllers/other/add_products_controller.dart';
 
 import '../../../component/app_bars/app_bar.dart';
-
 import '../../../component/buttons/my_buttons.dart';
 import '../../../component/drop_down.dart';
 import '../../../component/my_text.dart';
@@ -13,14 +12,12 @@ import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
 import '../../../constants/colors.dart';
 
-class AddProductScreen extends StatelessWidget {
-  AddProductScreen({Key? key}) : super(key: key);
-  AddProductsController controller = Get.put(AddProductsController());
+class AddProductScreen extends GetView<AddProductsController> {
+  const AddProductScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          const MyAppBar(whiteText: "ADD", yellowText: " products/services"),
+      appBar: const MyAppBar(whiteText: "ADD", yellowText: " products/services"),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 40.0),
         width: double.infinity,
@@ -36,18 +33,12 @@ class AddProductScreen extends StatelessWidget {
             ),
             const Text(
               "upload image",
-              style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                  color: yellowColor),
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: yellowColor),
             ),
             const SizedBox(
               height: 30,
             ),
-            DropDownButton(
-                hint: "Product Type",
-                list: controller.items,
-                value: controller.productType),
+            DropDownButton(hint: "Product Type", list: controller.items, value: controller.productType),
             const SizedBox(
               height: 16,
             ),
@@ -76,11 +67,7 @@ class AddProductScreen extends StatelessWidget {
             const Spacer(),
             MyButton(
               color: yellowColor,
-              widget: MyText(
-                  text: "Create now",
-                  color: black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700),
+              widget: MyText(text: "Create now", color: black, fontSize: 18, fontWeight: FontWeight.w700),
               function: () {},
             ),
             const SizedBox(
