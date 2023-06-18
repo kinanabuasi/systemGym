@@ -7,10 +7,13 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../data/remote/employee_remote.dart';
+import '../../../data/remote/section_remote.dart';
+import 'All_section_controller.dart';
 
 class Adding_an_employee_controller extends GetxController {
 // var employees = <Employee>[].obs;
   final EmployeeRemoteDataSource employeeRemoteDataSource = EmployeeRemoteDataSource();
+  final AllSectionController allSectionController = Get.put(AllSectionController());
   var isLoading = true.obs;
   var IDController = TextEditingController();
   var FullNameController = TextEditingController();

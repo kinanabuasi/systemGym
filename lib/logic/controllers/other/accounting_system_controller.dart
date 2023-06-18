@@ -12,7 +12,15 @@ class AccountingSystemController extends GetxController {
   String? productType2;
 
   Map<String, dynamic> initData() {
-    return {"number": "22", "coach_id": "1", "player_id": "1", "subtype_id": "1", "discounts": "sdsdddrrrrrr", "draws": "1ww", "Payment_trainee_id": "1"};
+    return {
+      "number": "22",
+      "coach_id": "1",
+      "player_id": "1",
+      "subtype_id": "1",
+      "discounts": "sdsdddrrrrrr",
+      "draws": "1ww",
+      "Payment_trainee_id": "1",
+    };
   }
 
   addTournamentData() async {

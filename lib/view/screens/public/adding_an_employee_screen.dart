@@ -17,9 +17,14 @@ import '../../../constants/fonts.dart';
 import '../../../logic/controllers/public/adding_an_employee_controller.dart';
 import '../../widgets/public/trainer_detail_widgets/top_snackbar.dart';
 
-class adding_an_employee_Screen extends GetView<Adding_an_employee_controller> {
+class adding_an_employee_Screen extends StatefulWidget {
   adding_an_employee_Screen({Key? key}) : super(key: key);
+  @override
+  State<adding_an_employee_Screen> createState() => _adding_an_employee_ScreenState();
+}
 
+class _adding_an_employee_ScreenState extends State<adding_an_employee_Screen> {
+  final controller = Get.put<Adding_an_employee_controller>(Adding_an_employee_controller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(

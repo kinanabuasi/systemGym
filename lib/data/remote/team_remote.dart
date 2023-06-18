@@ -12,7 +12,7 @@ class TeamRemoteDataSource {
   final NetworkManager _networkManager = NetworkManager(Dio());
   final _log = logger(TeamRemoteDataSource);
 
-  Future<Either<Failures, TeamModel>> addCoash(Map<String, dynamic> data) async {
+  Future<Either<Failures, TeamModel>> addTeam(Map<String, dynamic> data) async {
     try {
       final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, data: data, headers: AppHeaders.headers);
       _log.i(response.data);

@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       //  person_daily_program_Screen(),
 
       theme: ThemeData(fontFamily: 'Poppins'),
-      initialRoute: Routes.signIn,
+      initialRoute: Routes.adding_an_employee_Screen,
       getPages: AppRoutes.routes,
       // getPages: AppRoutes.routes
     );

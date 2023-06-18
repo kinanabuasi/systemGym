@@ -5,10 +5,11 @@ import 'package:get/get.dart';
 import 'package:systemgym/constants/colors.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
+import '../../../data/remote/section_remote.dart';
 import '../../../data/remote/tournament_remote.dart';
 
 class Adding_training_section_controller extends GetxController {
-  final TournamentRemoteDataSource _tournamentRemoteDataSource = TournamentRemoteDataSource();
+  final SectionRemoteDataSource _sectionRemoteDataSource = SectionRemoteDataSource();
   final RxBool isLoading = false.obs;
   var IDController = TextEditingController();
   var TrainingDepartmentTitleController = TextEditingController();
@@ -24,7 +25,7 @@ class Adding_training_section_controller extends GetxController {
   addTraningSection() async {
     isLoading.value = true;
     Map<String, dynamic> traningdData = intiData();
-    final data = await _tournamentRemoteDataSource.addTournament(traningdData);
+    final data = await _sectionRemoteDataSource.addSection(traningdData);
     data.fold((l) => null, (r) => null);
     isLoading.value = false;
   }

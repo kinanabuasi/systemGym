@@ -12,7 +12,7 @@ class SectionRemoteDataSource {
   final NetworkManager _networkManager = NetworkManager(Dio());
   final _log = logger(SectionRemoteDataSource);
 
-  Future<Either<Failures, SectionModel>> addCoash(Map<String, dynamic> data) async {
+  Future<Either<Failures, SectionModel>> addSection(Map<String, dynamic> data) async {
     try {
       final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, data: data, headers: AppHeaders.headers);
       _log.i(response.data);
@@ -45,7 +45,7 @@ class SectionRemoteDataSource {
     }
   }
 
-  Future<Either<Failures, Unit>> deleteCoash(int id) async {
+  Future<Either<Failures, Unit>> deleteSection(int id) async {
     try {
       final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
       _log.i(response.data);
