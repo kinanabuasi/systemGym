@@ -23,8 +23,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../../../logic/controllers/public/sessions_controller.dart';
 import '../../../view/widgets/public/MediaQuery.dart';
 
-class Sessions_Screen extends StatelessWidget {
-  Sessions_Screen({Key? key}) : super(key: key);
+class SessionsScreen extends StatelessWidget {
+  SessionsScreen({Key? key}) : super(key: key);
   Sessions_controller sessions_controller = Get.put(Sessions_controller());
   @override
   Widget build(BuildContext context) {
@@ -192,7 +192,6 @@ class Sessions_Screen extends StatelessWidget {
                           image: DecorationImage(
                             image: NetworkImage(i),
                             fit: BoxFit.cover,
-                            
                           ),
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                         ),

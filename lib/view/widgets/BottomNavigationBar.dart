@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../screens/public/DietPlan_screen.dart';
+import '../screens/public/diet_plan_screen.dart';
 import '../screens/public/home/Home_view.dart';
 import '../screens/public/notifications_screen.dart';
 import '../screens/public/sessions_screen.dart';
@@ -11,17 +11,15 @@ import '../screens/public/sessions_screen.dart';
 class CustomBottomNavigationBar extends StatelessWidget {
   CustomBottomNavigationBar({super.key});
 
-
-final RxInt currentIndex = 0.obs;
+  final RxInt currentIndex = 0.obs;
 
   final List<Widget> pagesChildren = [
-   Home_View_Screen(),
-    Sessions_Screen(),
-    DietPlan_screen(),
+    Home_View_Screen(),
+    SessionsScreen(),
+    DietPlanScreen(),
     Notification_screen(),
-    
   ];
-   final List<String> pagesTitles = [
+  final List<String> pagesTitles = [
     'Home',
     'Sessions',
     'Notifications',
@@ -32,17 +30,18 @@ final RxInt currentIndex = 0.obs;
     return const Placeholder();
   }
 }
+
 Widget getIconForPage(int index) {
-    switch (index) {
-      case 0:
-        return Icon(Icons.home);
-      case 1:
-        return Icon(Icons.schedule);
-      case 2:
-        return Icon(Icons.notifications);
-      case 3:
-        return Icon(Icons.restaurant_menu);
-      default:
-        return SizedBox.shrink();
-    }
+  switch (index) {
+    case 0:
+      return Icon(Icons.home);
+    case 1:
+      return Icon(Icons.schedule);
+    case 2:
+      return Icon(Icons.notifications);
+    case 3:
+      return Icon(Icons.restaurant_menu);
+    default:
+      return SizedBox.shrink();
   }
+}
