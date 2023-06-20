@@ -15,6 +15,7 @@ import '../../../component/upload_image_widget.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/fonts.dart';
 import '../../../logic/controllers/public/adding_an_employee_controller.dart';
+import '../../widgets/drop_down_widget.dart';
 import '../../widgets/public/trainer_detail_widgets/top_snackbar.dart';
 
 class adding_an_employee_Screen extends StatefulWidget {

@@ -6,7 +6,11 @@ import 'package:systemgym/constants/colors.dart';
 import 'package:systemgym/view/screens/auth/player_auth/choose_gender_screen.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
+import '../../../data/remote/coash_remote.dart';
+
 class Adding_a_coach_controller extends GetxController {
+  final CoachRemoteDataSource _coachRemoteDataSource = CoachRemoteDataSource();
+  RxBool isLoading = false.obs;
   var FullNameController = TextEditingController();
   var UserNameController = TextEditingController();
   var PasswordController = TextEditingController();
@@ -90,32 +94,36 @@ class Adding_a_coach_controller extends GetxController {
     update();
   }
 
-  initCoach() {
+  Map<String, dynamic> initCoach() {
     return {
-      {
-        "name_ar": UserNameController.text.trim(),
-        "name_en": UserNameController.text.trim(),
-        "user_name": FullNameController.text.trim(),
-        "phone": PhoneNumberController.text.trim(),
-        "email": EmailController.text.trim(),
-        "password": PasswordController.text.trim(),
-        "subscription_number": SubscriptionNumberController.text.trim(),
-        "salary": SalaryController.text.trim(),
-        "coach_description": '',
-        "genders_id": selectedGender,
-        "nationality_id": NationalityController.text.trim(),
-        "location_id": GovernorateController.text.trim(),
-        "sub_location_id": AddressController.text.trim(),
-        "employment_type_id": '',
-        "profs_id": '',
-        "date_of_birth": '',
-        "start_time": '',
-        "end_time": '',
-        "link_website": WebsiteController.text.trim(),
-        "link_facebook": FacebookController.text.trim(),
-        "link_twitter": TwitterController.text.trim(),
-        "link_youtupe": YouTubeController.text.trim(),
-      }
+      "name_ar": UserNameController.text.trim(),
+      "name_en": UserNameController.text.trim(),
+      "user_name": FullNameController.text.trim(),
+      "phone": PhoneNumberController.text.trim(),
+      "email": EmailController.text.trim(),
+      "password": PasswordController.text.trim(),
+      "subscription_number": SubscriptionNumberController.text.trim(),
+      "salary": SalaryController.text.trim(),
+      "coach_description": '',
+      "genders_id": selectedGender,
+      "nationality_id": NationalityController.text.trim(),
+      "location_id": GovernorateController.text.trim(),
+      "sub_location_id": AddressController.text.trim(),
+      "employment_type_id": '',
+      "profs_id": '',
+      "date_of_birth": '',
+      "start_time": '',
+      "end_time": '',
+      "link_website": WebsiteController.text.trim(),
+      "link_facebook": FacebookController.text.trim(),
+      "link_twitter": TwitterController.text.trim(),
+      "link_youtupe": YouTubeController.text.trim(),
     };
+  }
+
+  addCoach() async {
+    Map<String, dynamic> coachData = initCoach();
+    final data = await _coachRemoteDataSource.addCoash(coachData);
+    data.fold((l) => null, (r) => null);
   }
 }
