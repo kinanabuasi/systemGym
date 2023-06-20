@@ -27,15 +27,21 @@ import '../view/screens/profile/profilee_screen.dart';
 import '../view/screens/public/add_new_department_screen.dart';
 import '../view/screens/public/adding_an_employee_screen.dart';
 import '../view/screens/public/all_department_screen.dart';
+import '../view/screens/public/diet_plan_screen.dart';
 import '../view/screens/public/insight_screen.dart';
 import '../view/screens/public/modify_club_settings_screen.dart';
 import '../view/screens/public/payment/add_new_card_screen.dart';
 import '../view/screens/public/payment/edit_card_screen.dart';
 import '../view/screens/public/payment/payment_completed_screen.dart';
 import '../view/screens/public/payment/payment_screen.dart';
+import '../view/screens/public/player_screens/fitness_trainers_screen.dart';
+import '../view/screens/public/player_screens/home_player_screen.dart';
+import '../view/screens/public/player_screens/notifications_player_screen.dart';
+import '../view/screens/public/player_screens/workout_categories_screen.dart';
 import '../view/screens/public/reviews/reviews_screen.dart';
 import '../view/screens/public/reviews/write_review_screen.dart';
 import '../view/screens/public/trainer_detail_screen.dart';
+import '../view/screens/public/trainer_screens/home_tainer_screen.dart';
 import '../view/screens/public/workout_plan_today_screen.dart';
 import '../view/screens/settings/contact_us_screen.dart';
 import '../view/screens/settings/language_screen.dart';
@@ -205,6 +211,30 @@ class AppRoutes {
       name: Routes.insightScreen,
       page: () => InsightScreen(),
     ),
+    GetPage(
+      name: Routes.notificationsPlayerScreen,
+      page: () => NotificationsPlayerScreen(),
+    ),
+    GetPage(
+      name: Routes.fitnessTrainersScreen,
+      page: () => FitnessTrainersScreen(),
+    ),
+    GetPage(
+      name: Routes.dietPlanScreen,
+      page: () => DietPlanScreen(),
+    ),
+    GetPage(
+      name: Routes.workoutCategoriesScreen,
+      page: () => WorkoutCategoriesScreen(),
+    ),
+    GetPage(
+      name: Routes.homePlayerScreen,
+      page: () => HomePlayerScreen(),
+    ),
+    GetPage(
+      name: Routes.homeTrainerScreen,
+      page: () => HomeTrainerScreen(),
+    ),
   ];
 }
 
@@ -246,4 +276,10 @@ class Routes {
   static const profileScreen = '/profileScreen';
   static const howToLoginScreen = '/howToLoginScreen';
   static const insightScreen = '/insightScreen';
+  static const notificationsPlayerScreen = '/notificationsPlayerScreen';
+  static const workoutCategoriesScreen = '/workoutCategoriesScreen';
+  static const fitnessTrainersScreen = '/fitnessTrainersScreen';
+  static const dietPlanScreen = '/dietPlanScreen';
+  static const homePlayerScreen = '/homePlayerScreen';
+  static const homeTrainerScreen = '/homeTrainerScreen';
 }
