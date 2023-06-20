@@ -11,9 +11,25 @@ import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
 import '../../../constants/colors.dart';
+import '../../../data/remote/club_remote.dart';
 
-class AddNewDepartmentScreen extends StatelessWidget {
-  AddNewDepartmentScreen({Key? key}) : super(key: key);
+class AddNewDepartmentScreen extends StatefulWidget {
+  const AddNewDepartmentScreen({Key? key}) : super(key: key);
+
+  @override
+  State<AddNewDepartmentScreen> createState() => _AddNewDepartmentScreenState();
+}
+
+class _AddNewDepartmentScreenState extends State<AddNewDepartmentScreen> {
+  final ClubeRemoteDataSource _clubeRemoteDataSource = ClubeRemoteDataSource();
+  final TextEditingController departmentName = TextEditingController();
+  final TextEditingController departmentDesc = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,10 +49,7 @@ class AddNewDepartmentScreen extends StatelessWidget {
             ),
             const Text(
               "upload image",
-              style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                  color: yellowColor),
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: yellowColor),
             ),
             const SizedBox(
               height: 30,
@@ -58,11 +71,7 @@ class AddNewDepartmentScreen extends StatelessWidget {
             const Spacer(),
             MyButton(
               color: yellowColor,
-              widget: MyText(
-                  text: "Create now",
-                  color: black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700),
+              widget: MyText(text: "Create now", color: black, fontSize: 18, fontWeight: FontWeight.w700),
               function: () {},
             ),
             const SizedBox(
@@ -72,5 +81,18 @@ class AddNewDepartmentScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  addDebartment() async {
+    final Map<String, dynamic> initDepatrment = departmentData();
+    final data = await _clubeRemoteDataSource.addDepartment(initDepatrment);
+    data.fold((l) => null, (r) => null);
+  }
+
+  Map<String, dynamic> departmentData() {
+    return {
+      '12': departmentName.text.trim(),
+      '13': departmentDesc.text.trim(),
+    };
   }
 }

@@ -13,17 +13,17 @@ class HowToLoginScreen extends StatelessWidget {
         backgroundColor: mainColor,
         body: Column(
           children: [
-            SizedBox(height: 200),
+            const SizedBox(height: 200),
             TextButton(
                 onPressed: () {
                   Get.toNamed(Routes.signInAsPlayer);
                 },
-                child: Text("As Player")),
+                child: const Text("As Player")),
             TextButton(
                 onPressed: () {
                   Get.toNamed(Routes.signIn);
                 },
-                child: Text("As Trainer")),
+                child: const Text("As Trainer")),
           ],
         ));
   }

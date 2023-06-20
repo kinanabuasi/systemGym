@@ -6,7 +6,6 @@ import '../../../../component/linear_gradient.dart';
 import '../../../../component/my_text.dart';
 import '../../../../component/text_form/my_text_form_field.dart';
 import '../../../../constants/colors.dart';
-import '../../../../constants/routes.dart';
 import '../../../../logic/controllers/auth/player_auth/sign_in_as_player_controller.dart';
 import '../../../../services/fields_validators.dart';
 import '../../../widgets/auth/introduction_screen_widget.dart';
@@ -46,16 +45,11 @@ class SignInAsPlayerScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          const LinearGradientContainer(
-                              beginAlignment: Alignment.bottomCenter),
+                          const LinearGradientContainer(beginAlignment: Alignment.bottomCenter),
                           Positioned(
                             bottom: 120,
                             left: 20,
-                            child: MyText(
-                                text: "Welcome Back,\nSarah",
-                                color: white,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold),
+                            child: MyText(text: "Welcome Back,\nSarah", color: white, fontSize: 30, fontWeight: FontWeight.bold),
                           )
                         ],
                       )),
@@ -70,38 +64,29 @@ class SignInAsPlayerScreen extends StatelessWidget {
                         children: [
                           Form(
                             key: signInAsPlayerController.formKey,
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  MyTextFormField(
-                                    enabledBorderColor: darkGrey,
-                                    focusedBorderColor: secondYellowColor,
-                                    textColor: white,
-                                    fillColor: Colors.transparent,
-                                    controller: signInAsPlayerController
-                                        .emailController,
-                                    validator: FieldsValidators.emailValidator,
-                                    hintText: "Email",
-                                  ),
-                                  const SizedBox(height: 5),
-                                  MyTextFormField(
-                                    controller: signInAsPlayerController
-                                        .passwordController,
-                                    enabledBorderColor: darkGrey,
-                                    focusedBorderColor: secondYellowColor,
-                                    textColor: white,
-                                    fillColor: Colors.transparent,
-                                    validator:
-                                        FieldsValidators.passwordValidator,
-                                    hintText: "Password",
-                                  ),
-                                  const SizedBox(height: 10),
-                                  MyText(
-                                      text: "Forgot Password?",
-                                      color: secondYellowColor,
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.normal)
-                                ]),
+                            child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+                              MyTextFormField(
+                                enabledBorderColor: darkGrey,
+                                focusedBorderColor: secondYellowColor,
+                                textColor: white,
+                                fillColor: Colors.transparent,
+                                controller: signInAsPlayerController.emailController,
+                                validator: FieldsValidators.emailValidator,
+                                hintText: "Email",
+                              ),
+                              const SizedBox(height: 5),
+                              MyTextFormField(
+                                controller: signInAsPlayerController.passwordController,
+                                enabledBorderColor: darkGrey,
+                                focusedBorderColor: secondYellowColor,
+                                textColor: white,
+                                fillColor: Colors.transparent,
+                                validator: FieldsValidators.passwordValidator,
+                                hintText: "Password",
+                              ),
+                              const SizedBox(height: 10),
+                              MyText(text: "Forgot Password?", color: secondYellowColor, fontSize: 13, fontWeight: FontWeight.normal)
+                            ]),
                           ),
                           SizedBox(
                             height: 40,
@@ -109,17 +94,8 @@ class SignInAsPlayerScreen extends StatelessWidget {
                             child: MyButton(
                                 color: yellowColor,
                                 widget: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    MyText(
-                                        text: "Login",
-                                        color: mainColor,
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.bold),
-                                    const Icon(Icons.chevron_right,
-                                        color: mainColor)
-                                  ],
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [MyText(text: "Login", color: mainColor, fontSize: 17, fontWeight: FontWeight.bold), const Icon(Icons.chevron_right, color: mainColor)],
                                 ),
                                 function: () {
                                   signInAsPlayerController.validateLogin();

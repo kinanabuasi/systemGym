@@ -10,10 +10,16 @@ import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
 
-class ChampionshipResultsScreen extends StatelessWidget {
-  ChampionshipResultsScreen({Key? key}) : super(key: key);
-  ChampionshipResultsController controller =
-      Get.put(ChampionshipResultsController());
+class ChampionshipResultsScreen extends StatefulWidget {
+  const ChampionshipResultsScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ChampionshipResultsScreen> createState() => _ChampionshipResultsScreenState();
+}
+
+class _ChampionshipResultsScreenState extends State<ChampionshipResultsScreen> {
+  ChampionshipResultsController controller = Get.put(ChampionshipResultsController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,10 +42,7 @@ class ChampionshipResultsScreen extends StatelessWidget {
               ),
               const Text(
                 "upload image",
-                style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
-                    color: yellowColor),
+                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: yellowColor),
               ),
               const SizedBox(
                 height: 30,
@@ -52,10 +55,7 @@ class ChampionshipResultsScreen extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(
-                  hint: "player name",
-                  list: controller.items,
-                  value: controller.productType),
+              DropDownButton(hint: "player name", list: controller.items, value: controller.productType),
               const SizedBox(
                 height: 16,
               ),
@@ -75,10 +75,7 @@ class ChampionshipResultsScreen extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(
-                  hint: "player score",
-                  list: controller.items2,
-                  value: controller.productType2),
+              DropDownButton(hint: "player score", list: controller.items2, value: controller.productType2),
               const SizedBox(
                 height: 16,
               ),
@@ -99,11 +96,7 @@ class ChampionshipResultsScreen extends StatelessWidget {
               const SizedBox(height: 16),
               MyButton(
                 color: yellowColor,
-                widget: MyText(
-                    text: "Create now",
-                    color: black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700),
+                widget: MyText(text: "Create now", color: black, fontSize: 18, fontWeight: FontWeight.w700),
                 function: () {},
               ),
               const SizedBox(

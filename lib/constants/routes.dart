@@ -3,14 +3,16 @@
 import 'package:get/get.dart';
 import 'package:systemgym/logic/bindings/other/add_products_binding.dart';
 import 'package:systemgym/view/screens/other/add_products_screen.dart';
+
 import '../logic/bindings/auth/sign_in_binding.dart';
 import '../logic/bindings/auth/sign_up_bindind.dart';
 import '../logic/bindings/auth/verification_binding.dart';
+import '../logic/bindings/public/modify_club_settings_binding.dart';
+import '../view/screens/auth/forgot_password_screen.dart';
 import '../view/screens/auth/how_to_login_screen.dart';
+import '../view/screens/auth/introduction_screen.dart';
 import '../view/screens/auth/player_auth/choose_age_screen.dart';
 import '../view/screens/auth/player_auth/choose_gender_screen.dart';
-import '../view/screens/auth/forgot_password_screen.dart';
-import '../view/screens/auth/introduction_screen.dart';
 import '../view/screens/auth/player_auth/choose_goal_screen.dart';
 import '../view/screens/auth/player_auth/choose_height_screen.dart';
 import '../view/screens/auth/player_auth/choose_level_screen.dart';
@@ -22,10 +24,11 @@ import '../view/screens/auth/splash_screen.dart';
 import '../view/screens/auth/verification_screen.dart';
 import '../view/screens/profile/edit_profile_screen.dart';
 import '../view/screens/profile/pro_profile_screen.dart';
-import '../view/screens/profile/profile_screen.dart';
+import '../view/screens/profile/profilee_screen.dart';
 import '../view/screens/public/add_new_department_screen.dart';
 import '../view/screens/public/adding_an_employee_screen.dart';
 import '../view/screens/public/all_department_screen.dart';
+import '../view/screens/public/insight_screen.dart';
 import '../view/screens/public/modify_club_settings_screen.dart';
 import '../view/screens/public/payment/add_new_card_screen.dart';
 import '../view/screens/public/payment/edit_card_screen.dart';
@@ -54,23 +57,9 @@ class AppRoutes {
       name: Routes.introduction,
       page: () => IntroductionScreen(),
     ),
-    GetPage(
-        name: Routes.signIn,
-        page: () => SignInScreen(),
-        binding: SignInBinding(),
-        transition: Transition.rightToLeft,
-        transitionDuration: const Duration(milliseconds: 300)),
-    GetPage(
-        name: Routes.signUp,
-        page: () => SignUpScreen(),
-        binding: SignUpBinding(),
-        transition: Transition.downToUp,
-        transitionDuration: const Duration(milliseconds: 300)),
-    GetPage(
-        name: Routes.forgotPassword,
-        page: () => const ForgotPasswordScreen(),
-        transition: Transition.fadeIn,
-        transitionDuration: const Duration(milliseconds: 300)),
+    GetPage(name: Routes.signIn, page: () => SignInScreen(), binding: SignInBinding(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 300)),
+    GetPage(name: Routes.signUp, page: () => SignUpScreen(), binding: SignUpBinding(), transition: Transition.downToUp, transitionDuration: const Duration(milliseconds: 300)),
+    GetPage(name: Routes.forgotPassword, page: () => const ForgotPasswordScreen(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 300)),
     GetPage(
         name: Routes.verificationScreen,
         page: () => const VerificationScreen(),
@@ -84,6 +73,7 @@ class AppRoutes {
     ),
     GetPage(
       name: Routes.modifyClubSettings,
+      binding: ModifyClubSettingsBinding(),
       page: () => ModifyClubSettingsScreen(),
     ),
     GetPage(
@@ -198,6 +188,10 @@ class AppRoutes {
       name: Routes.howToLoginScreen,
       page: () => HowToLoginScreen(),
     ),
+    GetPage(
+      name: Routes.insightScreen,
+      page: () => InsightScreen(),
+    ),
   ];
 }
 
@@ -238,4 +232,5 @@ class Routes {
   static const proProfileScreen = '/proProfileScreen';
   static const profileScreen = '/profileScreen';
   static const howToLoginScreen = '/howToLoginScreen';
+  static const insightScreen = '/insightScreen';
 }

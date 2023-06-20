@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:systemgym/component/app_bars/app_bar.dart';
-import 'package:systemgym/component/my_counter.dart';
 import 'package:systemgym/constants/colors.dart';
+import 'package:systemgym/logic/controllers/public/All_tournamen_controller.dart';
 
-class AllTournamentScreen extends StatelessWidget {
+import '../../widgets/contact_info.dart';
+import '../../widgets/progress_indicator.dart';
+
+class AllTournamentScreen extends GetView<AllTournamenController> {
   const AllTournamentScreen({Key? key}) : super(key: key);
 
   @override
@@ -14,13 +18,20 @@ class AllTournamentScreen extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(height: 50),
-          MyCounter(
-            haveBlackArrow: true,
-            itemsLength: 4,
-            description: "#date",
-            id: "#ID",
-            name: "#name tournament",
-          ),
+          Obx(() => Visibility(
+                visible: controller.isLoading.value,
+                replacement: const ProgressIndicatorWidget(),
+                child: ListView.separated(
+                    itemBuilder: (context, i) => ContactInfo(
+                          id: controller.allTournamen[i].id.toString(),
+                          name: controller.allTournamen[i].name!.en!,
+                          description: controller.allTournamen[i].description ?? '',
+                        ),
+                    separatorBuilder: (context, i) => const SizedBox(
+                          height: 45,
+                        ),
+                    itemCount: controller.allTournamen.length),
+              )),
         ],
       ),
     );

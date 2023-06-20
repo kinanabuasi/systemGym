@@ -4,28 +4,27 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/logic/controllers/other/add_products_controller.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
-import '../../../component/app_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
+
+import '../../../component/app_bars/app_bar.dart';
 import '../../../component/buttons/my_buttons.dart';
 import '../../../component/drop_down.dart';
 import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
 import '../../../constants/colors.dart';
-import 'package:top_snackbar_flutter/top_snack_bar.dart';
-
 import '../../../constants/fonts.dart';
+import '../../../logic/controllers/public/add_a_training_section_controller.dart';
 import '../../../logic/controllers/public/adding_an_employee_controller.dart';
 import '../../widgets/public/trainer_detail_widgets/top_snackbar.dart';
 
-class Adding_a_training_section_Screen extends StatelessWidget {
+class Adding_a_training_section_Screen extends GetView<Adding_training_section_controller> {
   Adding_a_training_section_Screen({Key? key}) : super(key: key);
-  Adding_an_employee_controller adding_an_employee_controller =
-      Get.put(Adding_an_employee_controller());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          const MyAppBar(whiteText: "Add a", yellowText: " training section"),
+      appBar: const MyAppBar(whiteText: "Add a", yellowText: " training section"),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -36,23 +35,19 @@ class Adding_a_training_section_Screen extends StatelessWidget {
               const SizedBox(
                 height: 18,
               ),
-              const UploadImageWidget(),
+              UploadImageWidget(),
               const SizedBox(
                 height: 14,
               ),
               const Text(
                 "Upload image",
-                style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
-                    color: yellowColor,
-                    fontFamily: "Poppins"),
+                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: yellowColor, fontFamily: "Poppins"),
               ),
               const SizedBox(
                 height: 30,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.IDController,
+                controller: controller.IDController,
                 validator: () {},
                 hintText: "#ID",
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
@@ -61,7 +56,7 @@ class Adding_a_training_section_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.FullNameController,
+                controller: controller.TrainingDepartmentTitleController,
                 hintText: "Training department title",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
@@ -70,6 +65,7 @@ class Adding_a_training_section_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
+                  controller: controller.DescriptionOfTheTrainingSectionController,
                   multiLines: true,
                   validator: () {},
                   hintText: "Description of the training section",
@@ -85,9 +81,8 @@ class Adding_a_training_section_Screen extends StatelessWidget {
                   fontfamily: Poppins,
                 ),
                 function: () {
-                  adding_an_employee_controller.onItemSave();
-                  return ShowTopSnackBar(
-                      "Good job, New Training section is added successfully", context); 
+                  controller.onItemSave();
+                  ShowTopSnackBar("Good job, New Training section is added successfully", context);
                 },
               ),
               const SizedBox(
