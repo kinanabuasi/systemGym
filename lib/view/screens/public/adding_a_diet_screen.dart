@@ -14,13 +14,14 @@ import '../../../constants/colors.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../constants/fonts.dart';
+import '../../../logic/controllers/public/adding_a_diet_controller.dart';
 import '../../../logic/controllers/public/adding_an_employee_controller.dart';
 import '../../widgets/public/trainer_detail_widgets/top_snackbar.dart';
 
 class Adding_a_diet_Screen extends StatelessWidget {
   Adding_a_diet_Screen({Key? key}) : super(key: key);
-  Adding_an_employee_controller adding_an_employee_controller =
-      Get.put(Adding_an_employee_controller());
+  Adding_a_diet_controller adding_a_diet_controller =
+      Get.put(Adding_a_diet_controller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +52,7 @@ class Adding_a_diet_Screen extends StatelessWidget {
                 height: 30,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.IDController,
+                controller:adding_a_diet_controller.IDController,
                 validator: () {},
                 hintText: "#ID",
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
@@ -61,18 +62,20 @@ class Adding_a_diet_Screen extends StatelessWidget {
               ),
               DropDownButton(
                   hint: "meal rating",
-                  list: adding_an_employee_controller.employeeStatus,
-                  value: adding_an_employee_controller.selectedEmployeeStatus),
+                  list: adding_a_diet_controller.MealRating,
+                  value: adding_a_diet_controller.selectedMealRating),
               const SizedBox(
                 height: 16,
               ),
               MyTextFormField(
+                controller:adding_a_diet_controller.DescriptionOfTheDietController,
                   multiLines: true,
                   validator: () {},
                   hintText: "Description of the diet",
                   prefixIcon: Image.asset("assets/images/yellow_dot.png")),
               const SizedBox(height: 13),
                MyTextFormField(
+                controller:adding_a_diet_controller.ComponentsOfTheDietController,
                   multiLines: true,
                   validator: () {},
                   hintText: "components of the diet",
@@ -81,7 +84,7 @@ class Adding_a_diet_Screen extends StatelessWidget {
                 height: 13,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.IDController,
+                controller:adding_a_diet_controller.BeginningOfTheDietTimeController,
                 KeyboardType: TextInputType.number,
                 validator: () {},
                 hintText: "beginning of the diet time",
@@ -91,7 +94,7 @@ class Adding_a_diet_Screen extends StatelessWidget {
                 height: 13,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.IDController,
+                controller:adding_a_diet_controller.DietTimeIsOverController,
                 KeyboardType: TextInputType.number,
                 validator: () {},
                 hintText: "Diet time is over",
@@ -110,7 +113,7 @@ class Adding_a_diet_Screen extends StatelessWidget {
                   fontfamily: Poppins,
                 ),
                 function: () {
-                  adding_an_employee_controller.onItemSave();
+                  adding_a_diet_controller.onItemSave();
                   return ShowTopSnackBar(
                       "Good job, New diet is added successfully",
                       context);

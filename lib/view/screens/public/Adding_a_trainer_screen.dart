@@ -11,16 +11,16 @@ import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
 import '../../../constants/colors.dart';
-import 'package:top_snackbar_flutter/top_snack_bar.dart';
-
+import 'package:top_snackbar_flutter/top_snack_bar.dart'; 
 import '../../../constants/fonts.dart';
+import '../../../logic/controllers/public/adding_a_trainer_controller.dart';
 import '../../../logic/controllers/public/adding_an_employee_controller.dart';
 import '../../widgets/public/trainer_detail_widgets/top_snackbar.dart';
 
 class Adding_a_trainer_Screen extends StatelessWidget {
   Adding_a_trainer_Screen({Key? key}) : super(key: key);
-  Adding_an_employee_controller adding_an_employee_controller =
-      Get.put(Adding_an_employee_controller());
+  Adding_a_trainer_controller adding_a_trainer_controller =
+      Get.put(Adding_a_trainer_controller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +51,7 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                 height: 30,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.IDController,
+                controller: adding_a_trainer_controller.FullNameController,
                 validator: () {},
                 hintText: "full name",
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
@@ -60,7 +60,7 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.FullNameController,
+                controller: adding_a_trainer_controller.UserNameController,
                 hintText: "@username",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
@@ -69,7 +69,7 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.DateOfBirthController,
+                controller: adding_a_trainer_controller.PhoneNumberController,
                 KeyboardType: TextInputType.datetime,
                 hintText: "phone number",
                 validator: () {},
@@ -79,6 +79,7 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
+                controller: adding_a_trainer_controller.SubscriptionNumberController,
                 KeyboardType: TextInputType.datetime,
                 hintText: "#Subscription number",
                 validator: () {},
@@ -88,6 +89,7 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
+                controller: adding_a_trainer_controller.EmailController,
                   multiLines: true,
                   validator: () {},
                   hintText: "email",
@@ -96,12 +98,14 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                 height: 21,
               ),
               MyTextFormField(
+                controller: adding_a_trainer_controller.AboutTheTrainerController,
                   multiLines: true,
                   validator: () {},
                   hintText: "About the trainer",
                   prefixIcon: Image.asset("assets/images/yellow_dot.png")),
               const SizedBox(height: 19),
               MyTextFormField(
+                controller: adding_a_trainer_controller.DateOfBirthController,
                   KeyboardType: TextInputType.datetime,
                   validator: () {},
                   hintText: "date of birth",
@@ -109,81 +113,94 @@ class Adding_a_trainer_Screen extends StatelessWidget {
               const SizedBox(height: 16),
               DropDownButton(
                   hint: "Subtype",
-                  list: adding_an_employee_controller.Section,
-                  value: adding_an_employee_controller.selectedSection),
+                  list: adding_a_trainer_controller.Subtype,
+                  value: adding_a_trainer_controller.selectedSubtype),
               const SizedBox(height: 21),
               MyTextFormField(
+                controller: adding_a_trainer_controller.TheMonthlySubscriptionValue$Controller,
                   validator: () {},
                   hintText: "The monthly subscription value \$",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
               MyTextFormField(
+                controller: adding_a_trainer_controller.TotalSubscriptionValueController,
                   validator: () {},
                   hintText: "Total subscription value",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
               MyTextFormField(
+                controller: adding_a_trainer_controller.HeightController,
                   validator: () {},
                   hintText: "height",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 17),
               MyTextFormField(
+                controller: adding_a_trainer_controller.WeightController,
                   validator: () {},
                   hintText: "weight",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
               DropDownButton(
                   hint: "Professional degree",
-                  list: adding_an_employee_controller.employeeStatus,
-                  value: adding_an_employee_controller.selectedEmployeeStatus),
+                  list: adding_a_trainer_controller.ProfessionalDegree,
+                  value: adding_a_trainer_controller.selectedProfessionalDegree),
               const SizedBox(height: 16),
               MyTextFormField(
+
                   validator: () {},
                   hintText: "Nationality",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
               DropDownButton(
                   hint: "gender",
-                  list: adding_an_employee_controller.employeeStatus,
-                  value: adding_an_employee_controller.selectedEmployeeStatus),
+                  list: adding_a_trainer_controller.Gender,
+                  value: adding_a_trainer_controller.selectedGender,),
               const SizedBox(height: 16),
               MyTextFormField(
+                controller: adding_a_trainer_controller.AddressController,
                   validator: () {},
                   hintText: "address",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
               MyTextFormField(
+                controller: adding_a_trainer_controller.GovernorateController,
                   validator: () {},
                   hintText: "Governorate",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
               MyTextFormField(
+                controller: adding_a_trainer_controller.PostalCodeController,
                   validator: () {},
                   KeyboardType: TextInputType.datetime,
                   hintText: "Postal code",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
               MyTextFormField(
+                controller: adding_a_trainer_controller.PostalCodeController,
                   validator: () {},
                   hintText: "website",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
               MyTextFormField(
+                controller: adding_a_trainer_controller.FacebookController,
                   validator: () {},
                   hintText: "Facebook",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
               MyTextFormField(
+                controller: adding_a_trainer_controller.TwitterController,
                   validator: () {},
                   hintText: "Twitter",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
               MyTextFormField(
+                controller: adding_a_trainer_controller.InstagramController,
                   validator: () {},
                   hintText: "Instagram",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
               MyTextFormField(
+                controller: adding_a_trainer_controller.YouTubeController,
                   validator: () {},
                   hintText: "YouTube",
                   prefixIcon: Image.asset("assets/images/yellow_check.png")),
@@ -196,11 +213,11 @@ class Adding_a_trainer_Screen extends StatelessWidget {
                     fontSize: 16,
                     fontWeight: FontWeight.w700),
                 function: () {
-                  adding_an_employee_controller.onItemSave();
+                  adding_a_trainer_controller.onItemSave();
                   return showTopSnackBar(
                     Overlay.of(context),
                     CustomSnackBar.success(
-                      message: "Good job, New Employee is added successfully",
+                      message: "Good job, a new trainer is added successfully",
                       textStyle:
                           TextStyle(color: mainColor, fontFamily: "Poppins"),
                       backgroundColor: yellowColor,

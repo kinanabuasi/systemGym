@@ -1,13 +1,16 @@
 // ignore_for_file: must_be_immutable, camel_case_types, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:systemgym/logic/controllers/public/All_coach_controller.dart';
 
 import '../../../component/app_bars/app_bar.dart';
 import '../../../component/my_counter.dart';
 import '../../../constants/colors.dart';
 
+
 class All_coach_Screen extends StatelessWidget {
-  const All_coach_Screen({Key? key}) : super(key: key);
+   All_coach_Screen({Key? key}) : super(key: key);
+   late AllCoachController allCoachController;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +25,9 @@ class All_coach_Screen extends StatelessWidget {
             ),
             MyCounter(
                 itemsLength: 6,
-                id: "ID",
-                name: "fullname",
-                description: "dateofbirth"),
+                id: allCoachController.subscriptionNumber!,
+                name: allCoachController.fullName!,
+                description: allCoachController.dateOfBirth!),
             SizedBox(
               height: 11,
             ),

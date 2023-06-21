@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import '../../../component/app_bars/app_bar.dart';
 import '../../../component/my_counter.dart';
 import '../../../constants/colors.dart';
+import '../../../logic/controllers/public/all_diet_controller.dart';
 
-class All_trainers_Screen extends StatelessWidget {
-  const All_trainers_Screen({Key? key}) : super(key: key);
+class All_Diet_Screen extends StatelessWidget {
+   All_Diet_Screen({Key? key}) : super(key: key);
+   late AllDietController allDietController;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,11 +22,14 @@ class All_trainers_Screen extends StatelessWidget {
             const SizedBox(
               height: 70,
             ),
-            MyCounter(itemsLength: 6, id: "#ID", 
-            name: "#dietName", description: "dateofbirth"),
+            MyCounter(
+                itemsLength: 6,
+                id: allDietController.ID,
+                name: allDietController.NameOfTheDiet,
+                description: allDietController.DescriptionOfTheDiet),
             SizedBox(
               height: 11,
-            ), 
+            ),
           ],
         ),
       ),

@@ -137,7 +137,7 @@ class adding_an_employee_Screen extends StatelessWidget {
                   return showTopSnackBar(
                     Overlay.of(context),
                     CustomSnackBar.success(
-                      message: "Good job, New Employee is added successfully",
+                      message: "Good job, a new employee is added successfully",
                       textStyle:
                           TextStyle(color: mainColor, fontFamily: "Poppins"),
                       backgroundColor: yellowColor,

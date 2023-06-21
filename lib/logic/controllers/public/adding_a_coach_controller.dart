@@ -12,7 +12,7 @@ class Adding_a_coach_controller extends GetxController {
   var PhoneNumberController = TextEditingController();
   var SubscriptionNumberController = TextEditingController();
   var EmailController = TextEditingController();
-  var AboutTheTrainerController = TextEditingController();
+  var AboutTheCoachController = TextEditingController();
   var DateOfBirthController = TextEditingController();
   var CoachStatusController = TextEditingController();
   var StateController = TextEditingController();
@@ -69,7 +69,7 @@ class Adding_a_coach_controller extends GetxController {
     PhoneNumberController.clear();
     SubscriptionNumberController.clear();
     EmailController.clear();
-    AboutTheTrainerController.clear();
+    AboutTheCoachController.clear();
     DateOfBirthController.clear();
     CoachStatusController.clear();
     StateController.clear();

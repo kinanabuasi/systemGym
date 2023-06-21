@@ -12,15 +12,14 @@ import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
 import '../../../constants/colors.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
-
 import '../../../constants/fonts.dart';
-import '../../../logic/controllers/public/adding_an_employee_controller.dart';
+import '../../../logic/controllers/public/add_a_training_controller.dart';
 import '../../widgets/public/trainer_detail_widgets/top_snackbar.dart';
 
 class Adding_a_training_Screen extends StatelessWidget {
   Adding_a_training_Screen({Key? key}) : super(key: key);
-  Adding_an_employee_controller adding_an_employee_controller =
-      Get.put(Adding_an_employee_controller());
+  Adding_a_Training_controller adding_a_Training_controller =
+      Get.put(Adding_a_Training_controller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +51,7 @@ class Adding_a_training_Screen extends StatelessWidget {
                 height: 30,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.IDController,
+                controller: adding_a_Training_controller.TheNameOfTheTrainingSetController,
                 validator: () {},
                 hintText: "The name of the training set",
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
@@ -61,7 +60,7 @@ class Adding_a_training_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.FullNameController,
+                controller: adding_a_Training_controller.trainingNumberController,
                 KeyboardType: TextInputType.datetime,
                 hintText: "training number",
                 validator: () {},
@@ -71,7 +70,7 @@ class Adding_a_training_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.FullNameController,
+                controller: adding_a_Training_controller.TrainingNameController,
                 hintText: "Training name",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
@@ -80,6 +79,7 @@ class Adding_a_training_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
+                controller: adding_a_Training_controller.TrainingDescriptionController,
                   multiLines: true,
                   validator: () {},
                   hintText: "Training description",
@@ -88,7 +88,7 @@ class Adding_a_training_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.IDController,
+                controller: adding_a_Training_controller.VideoLinkFromTheSiteController,
                 validator: () {},
                 hintText: "Video - link from the site",
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
@@ -97,7 +97,7 @@ class Adding_a_training_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.FullNameController,
+                controller: adding_a_Training_controller.trainingTimeController,
                 hintText: "training time",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
@@ -106,7 +106,7 @@ class Adding_a_training_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.FullNameController,
+                controller: adding_a_Training_controller.TheNumberOfIterationsController,
                 KeyboardType: TextInputType.datetime,
                 hintText: "The number of iterations",
                 validator: () {},
@@ -123,9 +123,9 @@ class Adding_a_training_Screen extends StatelessWidget {
                   fontfamily: Poppins,
                 ),
                 function: () {
-                  adding_an_employee_controller.onItemSave();
+                  adding_a_Training_controller.onItemSave();
                   return ShowTopSnackBar(
-                      "Good job, New Training is added successfully",
+                      "Good job, a New Training is added successfully",
                       context);
                 },
               ),

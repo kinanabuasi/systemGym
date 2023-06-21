@@ -14,13 +14,13 @@ import '../../../constants/colors.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../constants/fonts.dart';
-import '../../../logic/controllers/public/adding_an_employee_controller.dart';
+import '../../../logic/controllers/public/add_a_training_section_controller.dart';
 import '../../widgets/public/trainer_detail_widgets/top_snackbar.dart';
 
 class Adding_a_training_section_Screen extends StatelessWidget {
   Adding_a_training_section_Screen({Key? key}) : super(key: key);
-  Adding_an_employee_controller adding_an_employee_controller =
-      Get.put(Adding_an_employee_controller());
+  Adding_a_TrainingSection_controller adding_a_TrainingSection_controller =
+      Get.put(Adding_a_TrainingSection_controller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +52,7 @@ class Adding_a_training_section_Screen extends StatelessWidget {
                 height: 30,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.IDController,
+                controller: adding_a_TrainingSection_controller.IDController,
                 validator: () {},
                 hintText: "#ID",
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
@@ -61,7 +61,7 @@ class Adding_a_training_section_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
-                controller: adding_an_employee_controller.FullNameController,
+                controller: adding_a_TrainingSection_controller.TrainingDepartmentTitleController,
                 hintText: "Training department title",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
@@ -85,7 +85,7 @@ class Adding_a_training_section_Screen extends StatelessWidget {
                   fontfamily: Poppins,
                 ),
                 function: () {
-                  adding_an_employee_controller.onItemSave();
+                  adding_a_TrainingSection_controller.onItemSave();
                   return ShowTopSnackBar(
                       "Good job, New Training section is added successfully", context); 
                 },

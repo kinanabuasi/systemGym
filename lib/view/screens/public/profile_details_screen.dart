@@ -15,12 +15,12 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../constants/fonts.dart';
 import '../../../logic/controllers/public/adding_an_employee_controller.dart';
+import '../../../logic/controllers/public/profile_details_controller.dart';
 import '../../widgets/public/trainer_detail_widgets/top_snackbar.dart';
 
 class profile_details_Screen extends StatelessWidget {
   profile_details_Screen({Key? key}) : super(key: key);
-  Adding_an_employee_controller adding_an_employee_controller =
-      Get.put(Adding_an_employee_controller());
+  Profile_details_controller profile_details_controller =Get.put(Profile_details_controller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -220,7 +220,6 @@ class profile_details_Screen extends StatelessWidget {
                     fontSize: 16,
                     fontWeight: FontWeight.w700),
                 function: () {
-                  adding_an_employee_controller.onItemSave();
                 },
               ),
               const SizedBox(

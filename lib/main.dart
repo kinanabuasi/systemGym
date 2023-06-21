@@ -27,19 +27,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
 
-        home:
-        VideoPlayerPage(videoUrl: 'https://youtu.be/YGrtghEmwUI?list=PLbJF4g421wqn7Di5kpxFHh0gXnCJpNoKA',),
-        // Sessions_Screen(),
-        // VideoSlider(),
-        //  person_daily_program_Screen(),
+      home:
+          // VideoPlayerPage(
+          //   videoUrl:
+          //       'https://youtu.be/YGrtghEmwUI?list=PLbJF4g421wqn7Di5kpxFHh0gXnCJpNoKA',
+          // ),
+          Sessions_Screen(),
+      // VideoSlider(),
+      // person_daily_program_Screen(),
 
-       
-
-        theme: ThemeData(fontFamily: 'Poppins'),
-        // initialRoute: Routes.splashScreen,
-        // getPages: AppRoutes.routes
-        );
+      theme: ThemeData(fontFamily: 'Poppins'),
+      // initialRoute: Routes.splashScreen,
+      // getPages: AppRoutes.routes
+    );
   }
 }

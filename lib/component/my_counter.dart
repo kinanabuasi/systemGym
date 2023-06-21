@@ -8,7 +8,7 @@ class MyCounter extends StatelessWidget {
   final int itemsLength;
   final String id, name, description;
   bool haveBlackArrow;
-  MyCounter(
+  MyCounter(  
       {super.key,
       required this.itemsLength,
       required this.id,

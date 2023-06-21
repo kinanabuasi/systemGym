@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:systemgym/constants/colors.dart'; 
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
-class Adding_a_coach_controller extends GetxController { 
+class Adding_a_TrainingSection_controller extends GetxController { 
 
   var IDController = TextEditingController();
   var TrainingDepartmentTitleController = TextEditingController();

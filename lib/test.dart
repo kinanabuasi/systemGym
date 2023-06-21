@@ -45,6 +45,32 @@ class VideoSlider extends StatelessWidget {
                     autoPlay: false,
                     looping: true,
                     showControls: true,
+                    materialProgressColors: ChewieProgressColors(
+                      playedColor: mainColor,
+                      // handleColor: Colors.redAccent,
+                      // backgroundColor: Colors.grey,
+                      // bufferedColor: Colors.lightGreen,
+                    ),
+                    // customControls: CupertinoControlCenter(
+                    //   backgroundColor: Colors.black.withOpacity(0.7),
+                    //   barHeight: 50.0, // Set the height of the bottom bar here
+                    //   iconColor: Colors.white,
+                    //   children: [
+                    //     CupertinoButton(
+                    //       child: Icon(Icons.play_arrow),
+                    //       onPressed: () {
+                    //         // Play button logic
+                    //       },
+                    //     ),
+                    //     CupertinoButton(
+                    //       child: Icon(Icons.pause),
+                    //       onPressed: () {
+                    //         // Pause button logic
+                    //       },
+                    //     ),
+                    //     // Add other control icons here
+                    //   ],
+                    // ),
                   ),
                 ),
               ),

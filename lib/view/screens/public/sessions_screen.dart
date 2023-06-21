@@ -76,10 +76,10 @@ class Sessions_Screen extends StatelessWidget {
             CarouselSlider(
               options: CarouselOptions(
                 height: getMobileHeight(context, 150.0),
-                viewportFraction: 0.4,
+                // viewportFraction: 0.4,
                 enableInfiniteScroll: false,
-                initialPage: 1,
-                animateToClosest: false,
+                initialPage: 0,
+                animateToClosest: true,
               ),
               items:
                   sessions_controller.videoPlayerControllers.map((controller) {
@@ -96,18 +96,18 @@ class Sessions_Screen extends StatelessWidget {
                           videoPlayerController: controller,
                           autoPlay: false,
                           looping: true,
-                          showControls: false,
+                          // showControls: false,
                           materialProgressColors: ChewieProgressColors(
-                            playedColor: Colors.red,
-                            handleColor: yellowColor,
-                            backgroundColor: mainColor,
-                            bufferedColor: Colors.lightGreen,
-                          ),
+                              // playedColor: Colors.red,
+                              // handleColor: yellowColor,
+                              // backgroundColor: mainColor,
+                              // bufferedColor: Colors.lightGreen,
+                              ),
                           customControls: Container(
-                              width: 310,
-                              height: 35,
+                              // width: 310,
+                              // height: 35,
                               decoration: BoxDecoration(
-                                color: mainColor,
+                                // color: mainColor,
                                 borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(15),
                                     bottomRight: Radius.circular(15)),
@@ -115,16 +115,16 @@ class Sessions_Screen extends StatelessWidget {
                               child: Row(
                                 children: [
                                   VideoProgressIndicator(
-                                    sessions_controller.videoPlayerControllers
-                                        as VideoPlayerController,
+                                    sessions_controller
+                                        .videoPlayerControllers[0],
                                     allowScrubbing: true,
                                     colors: VideoProgressColors(
-                                      playedColor: Colors.white,
-                                      bufferedColor:
-                                          Colors.white.withOpacity(0.5),
-                                      backgroundColor:
-                                          Colors.grey.withOpacity(0.5),
-                                    ),
+                                        // playedColor: Colors.white,
+                                        // bufferedColor:
+                                        //     Colors.white.withOpacity(0.5),
+                                        // backgroundColor:
+                                        //     Colors.grey.withOpacity(0.5),
+                                        ),
                                   ),
                                   SizedBox(width: 8.0),
                                   // Consumer<ChewieController>(
@@ -176,7 +176,7 @@ class Sessions_Screen extends StatelessWidget {
             ),
             CarouselSlider(
               options: CarouselOptions(
-                height: getMobileHeight(context, 104.0),
+                height: getMobileHeight(context, 115.19),
                 viewportFraction: 0.25,
                 enableInfiniteScroll: false,
                 initialPage: 2,
@@ -186,13 +186,13 @@ class Sessions_Screen extends StatelessWidget {
                 return Builder(
                   builder: (BuildContext context) {
                     return Container(
-                        width: getMobileWidth(context, 100.0),
+                        width: getMobileWidth(context, 76.8),
                         margin: EdgeInsets.symmetric(horizontal: 4.0),
                         decoration: BoxDecoration(
+                          shape: BoxShape.circle,
                           image: DecorationImage(
                             image: NetworkImage(i),
                             fit: BoxFit.cover,
-                            
                           ),
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                         ),
@@ -200,10 +200,10 @@ class Sessions_Screen extends StatelessWidget {
                           children: [
                             Padding(
                               padding: EdgeInsets.only(
-                                top: getMobileHeight(context, 75.0),
-                                right: getMobileWidth(context, 19.0),
-                                left: getMobileWidth(context, 19.0),
-                              ),
+                                  // top: getMobileHeight(context, 75.0),
+                                  // right: getMobileWidth(context, 19.0),
+                                  // left: getMobileWidth(context, 19.0),
+                                  ),
                               child: MyText(
                                 text: 'text',
                                 color: white,

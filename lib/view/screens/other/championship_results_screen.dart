@@ -1,9 +1,10 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/component/app_bars/app_bar.dart';
 import 'package:systemgym/constants/colors.dart';
-import 'package:systemgym/logic/controllers/other/championship_results_controller.dart';
-
+import 'package:systemgym/logic/controllers/other/championship_results_controller.dart'; 
 import '../../../component/buttons/my_buttons.dart';
 import '../../../component/drop_down.dart';
 import '../../../component/my_text.dart';
@@ -14,6 +15,7 @@ class ChampionshipResultsScreen extends StatelessWidget {
   ChampionshipResultsScreen({Key? key}) : super(key: key);
   ChampionshipResultsController controller =
       Get.put(ChampionshipResultsController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,6 +47,7 @@ class ChampionshipResultsScreen extends StatelessWidget {
                 height: 30,
               ),
               MyTextFormField(
+                controller: controller.idController,
                 hintText: "#ID",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
@@ -53,13 +56,16 @@ class ChampionshipResultsScreen extends StatelessWidget {
                 height: 16,
               ),
               DropDownButton(
-                  hint: "player name",
-                  list: controller.items,
-                  value: controller.productType),
+                hint: "player name",
+                list: controller.items,
+                value: controller.productType,
+               
+              ),
               const SizedBox(
                 height: 16,
               ),
               MyTextFormField(
+                controller: controller.phoneNumberController,
                 hintText: "phone number - autofill",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_dot.png"),
@@ -68,6 +74,7 @@ class ChampionshipResultsScreen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
+                controller: controller.emailController,
                 hintText: "E-mail - autofill",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_dot.png"),
@@ -76,13 +83,16 @@ class ChampionshipResultsScreen extends StatelessWidget {
                 height: 16,
               ),
               DropDownButton(
-                  hint: "player score",
-                  list: controller.items2,
-                  value: controller.productType2),
+                hint: "player score",
+                list: controller.items2,
+                value: controller.productType2,
+                
+              ),
               const SizedBox(
                 height: 16,
               ),
               MyTextFormField(
+                controller: controller.performanceEvaluationController,
                 hintText: "Performance evaluation",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_dot.png"),
@@ -91,6 +101,7 @@ class ChampionshipResultsScreen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
+                controller: controller.playerNotesController,
                 multiLines: true,
                 hintText: "Player notes",
                 validator: () {},
@@ -104,7 +115,7 @@ class ChampionshipResultsScreen extends StatelessWidget {
                     color: black,
                     fontSize: 18,
                     fontWeight: FontWeight.w700),
-                function: () {},
+                function: controller.createNow,
               ),
               const SizedBox(
                 height: 50,

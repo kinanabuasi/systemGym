@@ -1,13 +1,15 @@
-// ignore_for_file: must_be_immutable, camel_case_types, prefer_const_constructors
+// ignore_for_file: must_be_immutable, camel_case_types, prefer_const_constructors, non_constant_identifier_names, unused_import
 
 import 'package:flutter/material.dart';
 
 import '../../../component/app_bars/app_bar.dart';
 import '../../../component/my_counter.dart';
 import '../../../constants/colors.dart';
+import '../../../logic/controllers/public/All_employees_controller.dart';
 
 class All_employee_Screen extends StatelessWidget {
-  const All_employee_Screen({Key? key}) : super(key: key);
+   All_employee_Screen({Key? key}) : super(key: key);
+  late AllEmployeeController allEmployeeController;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +24,9 @@ class All_employee_Screen extends StatelessWidget {
             ),
             MyCounter(
                 itemsLength: 6,
-                id: "ID",
-                name: "fullname",
-                description: "dateofbirth"),
+                id: allEmployeeController.id,
+                name: allEmployeeController.fullName,
+                description: allEmployeeController.DateOfBirth),
             SizedBox(
               height: 11,
             ),

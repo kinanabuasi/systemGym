@@ -78,17 +78,4 @@ class Adding_an_employee_controller extends GetxController {
 // }
 }
 
-class Employee {
-  String id;
-  String fullName;
-  double totalSalary;
-  String section;
-  String DateOfBirth;
 
-  Employee(
-      {required this.id,
-      required this.fullName,
-      required this.totalSalary,
-      required this.section,
-      required this.DateOfBirth});
-}
