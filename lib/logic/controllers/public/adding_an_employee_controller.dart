@@ -8,13 +8,16 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../data/remote/employee_remote.dart';
 import '../../../data/remote/section_remote.dart';
+import '../../../model/section_model.dart';
 import 'All_section_controller.dart';
 
 class Adding_an_employee_controller extends GetxController {
 // var employees = <Employee>[].obs;
   final EmployeeRemoteDataSource employeeRemoteDataSource = EmployeeRemoteDataSource();
+  final SectionRemoteDataSource _sectionRemoteDataSource = SectionRemoteDataSource();
   final AllSectionController allSectionController = Get.put(AllSectionController());
   var isLoading = true.obs;
+  late SectionModel selectedSectionModel;
   var IDController = TextEditingController();
   var FullNameController = TextEditingController();
   var DateOfBirthController = TextEditingController();
@@ -99,6 +102,20 @@ class Adding_an_employee_controller extends GetxController {
       );
     });
     isLoading.value = false;
+  }
+
+  Future<List<SectionModel>> getAllSection() async {
+    final data = await _sectionRemoteDataSource.allSection();
+    data.fold((l) {
+      return [];
+    }, (r) {
+      return r;
+    });
+    return [];
+  }
+
+  selectSection(SectionModel sectionModel) {
+    selectedSectionModel = sectionModel;
   }
 
 //   @override

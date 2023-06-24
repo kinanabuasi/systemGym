@@ -9,8 +9,9 @@ import '../../../logic/controllers/public/All_coach_controller.dart';
 import '../../widgets/contact_info.dart';
 import '../../widgets/progress_indicator.dart';
 
-class All_coach_Screen extends GetView<AllCoachController> {
-  const All_coach_Screen({Key? key}) : super(key: key);
+class All_coach_Screen extends StatelessWidget {
+  final AllCoachController _controller = Get.put(AllCoachController());
+  All_coach_Screen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,18 +20,18 @@ class All_coach_Screen extends GetView<AllCoachController> {
         width: double.infinity,
         color: mainColor,
         child: Obx(() => Visibility(
-              visible: controller.isLoading.value,
+              visible: _controller.isLoading.value,
               replacement: ProgressIndicatorWidget(),
               child: ListView.separated(
                   itemBuilder: (context, i) => ContactInfo(
-                        id: controller.allCoach[i].id.toString(),
-                        name: controller.allCoach[i].name!.en!,
-                        description: controller.allCoach[i].coachDescription ?? '',
+                        id: _controller.allCoach[i].id.toString(),
+                        name: _controller.allCoach[i].name!.en!,
+                        description: _controller.allCoach[i].coachDescription ?? '',
                       ),
                   separatorBuilder: (context, i) => SizedBox(
                         height: 45,
                       ),
-                  itemCount: controller.allCoach.length),
+                  itemCount: _controller.allCoach.length),
             )),
       ),
     );
