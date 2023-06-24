@@ -9,8 +9,8 @@ class NavBarController extends GetxController {
 
   List pages = [
     person_daily_program_Screen(),
-    Sessions_Screen(),
-    Sessions_Screen(),
+    SessionsScreen(),
+    SessionsScreen(),
     NotificatiosScreen(),
   ];
   RxInt index = 1.obs;
