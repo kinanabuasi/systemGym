@@ -14,7 +14,7 @@ class SublocationRemoteDataSource {
 
   Future<Either<Failures, SubLocationModel>> addCoash(Map<String, dynamic> data) async {
     try {
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, data: data, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, data: data, headers: AppHeaders.headers);
       _log.i(response.data);
       SubLocationModel subLocationModel = SubLocationModel.fromJson(response.data['data']);
       return Right(subLocationModel);
@@ -25,7 +25,7 @@ class SublocationRemoteDataSource {
 
   Future<Either<Failures, List<SubLocationModel>>> allSublocation() async {
     try {
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
       List<SubLocationModel> data = List.from(response.data.map((e) => SubLocationModel.fromJson(e)));
       return Right(data);
@@ -36,7 +36,7 @@ class SublocationRemoteDataSource {
 
   Future<Either<Failures, List<SubLocationModel>>> updataSublocation(int id) async {
     try {
-      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
       List<SubLocationModel> data = List.from(response.data.map((e) => SubLocationModel.fromJson(e)));
       return Right(data);
@@ -47,7 +47,7 @@ class SublocationRemoteDataSource {
 
   Future<Either<Failures, Unit>> deleteSubLocation(int id) async {
     try {
-      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
       return const Right(unit);
     } catch (e) {

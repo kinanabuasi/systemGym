@@ -3,49 +3,60 @@ import 'package:dio/dio.dart';
 
 import '../../constants/api_links.dart';
 import '../../constants/headers.dart';
-import '../../model/food_model.dart';
+import '../../model/category_model.dart';
 import '../../services/failures.dart';
 import '../../services/logger.dart';
 import '../../services/network.dart';
 
-class FoodRemoteDataSource {
+class CategoryRemoteDataSource {
   final NetworkManager _networkManager = NetworkManager(Dio());
-  final _log = logger(FoodRemoteDataSource);
+  final _log = logger(CategoryRemoteDataSource);
 
-  Future<Either<Failures, FoodModel>> addFood(Map<String, dynamic> data) async {
+  Future<Either<Failures, CategoryModel>> addCategory(Map<String, dynamic> data) async {
     try {
       final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, data: data, headers: AppHeaders.headers);
       _log.i(response.data);
-      FoodModel foodModel = FoodModel.fromJson(response.data['data']);
-      return Right(foodModel);
+      CategoryModel categoryModel = CategoryModel.fromJson(response.data['data']);
+      return Right(categoryModel);
     } catch (e) {
       return Left(SomthingWrongFailures());
     }
   }
 
-  Future<Either<Failures, List<FoodModel>>> allFood() async {
+  Future<Either<Failures, CategoryModel>> categoryById(Map<String, dynamic> data) async {
+    try {
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, data: data, headers: AppHeaders.headers);
+      _log.i(response.data);
+      CategoryModel categoryModel = CategoryModel.fromJson(response.data);
+      return Right(categoryModel);
+    } catch (e) {
+      return Left(SomthingWrongFailures());
+    }
+  }
+
+  Future<Either<Failures, List<CategoryModel>>> allCategory() async {
     try {
       final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
-      List<FoodModel> data = List.from(response.data.map((e) => FoodModel.fromJson(e)));
+      List<CategoryModel> data = List.from(response.data.map((e) => CategoryModel.fromJson(e)));
       return Right(data);
     } catch (e) {
       return Left(SomthingWrongFailures());
     }
   }
 
-  Future<Either<Failures, List<FoodModel>>> updataFood(int id) async {
+  Future<Either<Failures, List<CategoryModel>>> updataCategory(int id) async {
     try {
       final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
-      List<FoodModel> data = List.from(response.data.map((e) => FoodModel.fromJson(e)));
+      List<CategoryModel> data = List.from(response.data.map((e) => CategoryModel.fromJson(e)));
       return Right(data);
     } catch (e) {
       return Left(SomthingWrongFailures());
     }
   }
 
-  Future<Either<Failures, Unit>> deleteFood(int id) async {
+  Future<Either<Failures, Unit>> deleteCategory(int id) async {
     try {
       final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);

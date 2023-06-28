@@ -1,12 +1,16 @@
 // ignore_for_file: must_be_immutable, camel_case_types, unused_import, prefer_const_constructors_in_immutables, non_constant_identifier_names, prefer_const_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
 import 'dart:math';
+
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/logic/controllers/other/add_products_controller.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:video_player/video_player.dart';
+
 import '../../../component/app_bars/app_bar.dart';
 import '../../../component/buttons/my_buttons.dart';
 import '../../../component/drop_down.dart';
@@ -14,12 +18,9 @@ import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
 import '../../../constants/colors.dart';
-import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import '../../../constants/fonts.dart';
 import '../../../logic/controllers/public/adding_an_employee_controller.dart';
 import '../../../logic/controllers/public/person_daily_program_controller.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-
 import '../../../logic/controllers/public/sessions_controller.dart';
 import '../../../view/widgets/public/MediaQuery.dart';
 
@@ -47,8 +48,7 @@ class SessionsScreen extends StatelessWidget {
               height: getMobileHeight(context, 48.0),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                image: DecorationImage(
-                    image: AssetImage("assets/images/person5.png")),
+                image: DecorationImage(image: AssetImage("assets/images/person5.png")),
               ),
             ),
           ]),
@@ -81,8 +81,7 @@ class SessionsScreen extends StatelessWidget {
                 initialPage: 1,
                 animateToClosest: false,
               ),
-              items:
-                  sessions_controller.videoPlayerControllers.map((controller) {
+              items: sessions_controller.videoPlayerControllers.map((controller) {
                 return Builder(
                   builder: (BuildContext context) {
                     return Container(
@@ -108,22 +107,17 @@ class SessionsScreen extends StatelessWidget {
                               height: 35,
                               decoration: BoxDecoration(
                                 color: mainColor,
-                                borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(15),
-                                    bottomRight: Radius.circular(15)),
+                                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15)),
                               ),
                               child: Row(
                                 children: [
                                   VideoProgressIndicator(
-                                    sessions_controller.videoPlayerControllers
-                                        as VideoPlayerController,
+                                    sessions_controller.videoPlayerControllers as VideoPlayerController,
                                     allowScrubbing: true,
                                     colors: VideoProgressColors(
                                       playedColor: Colors.white,
-                                      bufferedColor:
-                                          Colors.white.withOpacity(0.5),
-                                      backgroundColor:
-                                          Colors.grey.withOpacity(0.5),
+                                      bufferedColor: Colors.white.withOpacity(0.5),
+                                      backgroundColor: Colors.grey.withOpacity(0.5),
                                     ),
                                   ),
                                   SizedBox(width: 8.0),

@@ -3,49 +3,60 @@ import 'package:dio/dio.dart';
 
 import '../../constants/api_links.dart';
 import '../../constants/headers.dart';
-import '../../model/food_model.dart';
+import '../../model/champoines_ship_model.dart';
 import '../../services/failures.dart';
 import '../../services/logger.dart';
 import '../../services/network.dart';
 
-class FoodRemoteDataSource {
+class ChampoinesShipRemoteDataSource {
   final NetworkManager _networkManager = NetworkManager(Dio());
-  final _log = logger(FoodRemoteDataSource);
+  final _log = logger(ChampoinesShipRemoteDataSource);
 
-  Future<Either<Failures, FoodModel>> addFood(Map<String, dynamic> data) async {
+  Future<Either<Failures, ChampoinesShipModel>> addChampoinesShip(Map<String, dynamic> data) async {
     try {
       final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, data: data, headers: AppHeaders.headers);
       _log.i(response.data);
-      FoodModel foodModel = FoodModel.fromJson(response.data['data']);
-      return Right(foodModel);
+      ChampoinesShipModel champoinesShipModel = ChampoinesShipModel.fromJson(response.data['data']);
+      return Right(champoinesShipModel);
     } catch (e) {
       return Left(SomthingWrongFailures());
     }
   }
 
-  Future<Either<Failures, List<FoodModel>>> allFood() async {
+  Future<Either<Failures, ChampoinesShipModel>> champoinesShipById(Map<String, dynamic> data) async {
+    try {
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, data: data, headers: AppHeaders.headers);
+      _log.i(response.data);
+      ChampoinesShipModel activityModel = ChampoinesShipModel.fromJson(response.data);
+      return Right(activityModel);
+    } catch (e) {
+      return Left(SomthingWrongFailures());
+    }
+  }
+
+  Future<Either<Failures, List<ChampoinesShipModel>>> allChampoinesShip() async {
     try {
       final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
-      List<FoodModel> data = List.from(response.data.map((e) => FoodModel.fromJson(e)));
+      List<ChampoinesShipModel> data = List.from(response.data.map((e) => ChampoinesShipModel.fromJson(e)));
       return Right(data);
     } catch (e) {
       return Left(SomthingWrongFailures());
     }
   }
 
-  Future<Either<Failures, List<FoodModel>>> updataFood(int id) async {
+  Future<Either<Failures, List<ChampoinesShipModel>>> updataChampoinesShip(int id) async {
     try {
       final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
-      List<FoodModel> data = List.from(response.data.map((e) => FoodModel.fromJson(e)));
+      List<ChampoinesShipModel> data = List.from(response.data.map((e) => ChampoinesShipModel.fromJson(e)));
       return Right(data);
     } catch (e) {
       return Left(SomthingWrongFailures());
     }
   }
 
-  Future<Either<Failures, Unit>> deleteFood(int id) async {
+  Future<Either<Failures, Unit>> deleteChampoinesShip(int id) async {
     try {
       final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);

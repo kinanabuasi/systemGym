@@ -14,7 +14,7 @@ class PrizeRemoteDataSource {
 
   Future<Either<Failures, PrizeModel>> addPrize(Map<String, dynamic> data) async {
     try {
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, data: data, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, data: data, headers: AppHeaders.headers);
       _log.i(response.data);
       PrizeModel prizeModel = PrizeModel.fromJson(response.data['data']);
       return Right(prizeModel);
@@ -25,7 +25,7 @@ class PrizeRemoteDataSource {
 
   Future<Either<Failures, List<PrizeModel>>> allPrize() async {
     try {
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
       List<PrizeModel> data = List.from(response.data.map((e) => PrizeModel.fromJson(e)));
       return Right(data);
@@ -36,7 +36,7 @@ class PrizeRemoteDataSource {
 
   Future<Either<Failures, List<PrizeModel>>> updataPrize(int id) async {
     try {
-      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
       List<PrizeModel> data = List.from(response.data.map((e) => PrizeModel.fromJson(e)));
       return Right(data);
@@ -47,7 +47,7 @@ class PrizeRemoteDataSource {
 
   Future<Either<Failures, Unit>> deletePrize(int id) async {
     try {
-      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
       return const Right(unit);
     } catch (e) {

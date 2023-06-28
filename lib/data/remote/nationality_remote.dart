@@ -14,7 +14,7 @@ class NationalityRemoteDataSource {
 
   Future<Either<Failures, NationalityModel>> addNationality(Map<String, dynamic> data) async {
     try {
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, data: data, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, data: data, headers: AppHeaders.headers);
       _log.i(response.data);
       NationalityModel nationalityModel = NationalityModel.fromJson(response.data['data']);
       return Right(nationalityModel);
@@ -25,7 +25,7 @@ class NationalityRemoteDataSource {
 
   Future<Either<Failures, List<NationalityModel>>> allNationality() async {
     try {
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
       List<NationalityModel> data = List.from(response.data.map((e) => NationalityModel.fromJson(e)));
       return Right(data);
@@ -36,7 +36,7 @@ class NationalityRemoteDataSource {
 
   Future<Either<Failures, List<NationalityModel>>> updataNationality(int id) async {
     try {
-      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
       List<NationalityModel> data = List.from(response.data.map((e) => NationalityModel.fromJson(e)));
       return Right(data);
@@ -47,7 +47,7 @@ class NationalityRemoteDataSource {
 
   Future<Either<Failures, Unit>> deleteNationality(int id) async {
     try {
-      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
       return const Right(unit);
     } catch (e) {

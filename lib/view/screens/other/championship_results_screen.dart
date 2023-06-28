@@ -5,10 +5,10 @@ import 'package:systemgym/constants/colors.dart';
 import 'package:systemgym/logic/controllers/other/championship_results_controller.dart';
 
 import '../../../component/buttons/my_buttons.dart';
-import '../../../component/drop_down.dart';
 import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
+import '../../widgets/drop_down_widget.dart';
 
 class ChampionshipResultsScreen extends StatefulWidget {
   const ChampionshipResultsScreen({Key? key}) : super(key: key);
@@ -47,15 +47,21 @@ class _ChampionshipResultsScreenState extends State<ChampionshipResultsScreen> {
               const SizedBox(
                 height: 30,
               ),
-              MyTextFormField(
-                hintText: "#ID",
-                validator: () {},
-                prefixIcon: Image.asset("assets/images/yellow_check.png"),
-              ),
+              // MyTextFormField(
+              //   hintText: "#ID",
+              //   validator: () {},
+              //   prefixIcon: Image.asset("assets/images/yellow_check.png"),
+              // ),
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(hint: "player name", list: controller.items, value: controller.productType),
+              DropDownWidget(
+                hint: "player name",
+                asyncData: controller.getAllPlayer(),
+                onChange: (p0) {
+                  controller.initPlayerData;
+                },
+              ),
               const SizedBox(
                 height: 16,
               ),
@@ -75,11 +81,17 @@ class _ChampionshipResultsScreenState extends State<ChampionshipResultsScreen> {
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(hint: "player score", list: controller.items2, value: controller.productType2),
+              MyTextFormField(
+                controller: controller.playerScoreCotroller,
+                hintText: "player score",
+                validator: () {},
+                prefixIcon: Image.asset("assets/images/yellow_dot.png"),
+              ),
               const SizedBox(
                 height: 16,
               ),
               MyTextFormField(
+                controller: controller.performanceEvolutionCotroller,
                 hintText: "Performance evaluation",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_dot.png"),
@@ -88,6 +100,7 @@ class _ChampionshipResultsScreenState extends State<ChampionshipResultsScreen> {
                 height: 16,
               ),
               MyTextFormField(
+                controller: controller.playerNotesCotroller,
                 multiLines: true,
                 hintText: "Player notes",
                 validator: () {},
@@ -97,7 +110,9 @@ class _ChampionshipResultsScreenState extends State<ChampionshipResultsScreen> {
               MyButton(
                 color: yellowColor,
                 widget: MyText(text: "Create now", color: black, fontSize: 18, fontWeight: FontWeight.w700),
-                function: () {},
+                function: () {
+                  // controller.a
+                },
               ),
               const SizedBox(
                 height: 50,

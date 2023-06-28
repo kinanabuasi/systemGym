@@ -20,6 +20,10 @@ class Adding_an_employee_controller extends GetxController {
   late SectionModel selectedSectionModel;
   var IDController = TextEditingController();
   var FullNameController = TextEditingController();
+  var UserNameController = TextEditingController();
+  var EmailController = TextEditingController();
+  var SubscriptioNumberController = TextEditingController();
+  var PasswordController = TextEditingController();
   var DateOfBirthController = TextEditingController();
   var NationalNumberController = TextEditingController();
   var AboutTheEmployeeController = TextEditingController();
@@ -58,6 +62,7 @@ class Adding_an_employee_controller extends GetxController {
     FullNameController.clear();
     DateOfBirthController.clear();
     NationalNumberController.clear();
+    SubscriptioNumberController.clear();
     AboutTheEmployeeController.clear();
     ComprehensiveOverviewController.clear();
     SectionController.clear();
@@ -66,22 +71,22 @@ class Adding_an_employee_controller extends GetxController {
     TheBeginningOfTheShiftController.clear();
     TheEndOfTheShiftController.clear();
     TotalSalaryController.clear();
-
     update();
   }
 
   Map<String, dynamic> initEmployee() {
     return {
-      "name_ar": FullNameController.text.trim(),
-      "name_en": FullNameController.text.trim(),
-      "email": TotalSalaryController.text.trim(),
-      "password": TotalSalaryController.text.trim(),
-      "number": IDController.text.trim(),
-      "description": TotalSalaryController.text.trim(),
-      "section_id": SectionController.text.trim(),
-      "full_description": TotalSalaryController.text.trim(),
-      "emp_id": NationalNumberController.text.trim(),
-      "date_of_birth": DateOfBirthController.text.trim(),
+      'date_of_birth': FullNameController.text.trim(),
+      'name_en': FullNameController.text.trim(),
+      'name_ar': FullNameController.text.trim(),
+      'full_description': FullNameController.text.trim(),
+      'section_id': FullNameController.text.trim(),
+      'description': FullNameController.text.trim(),
+      'emp_id': FullNameController.text.trim(),
+      'national_id': FullNameController.text.trim(),
+      'email': FullNameController.text.trim(),
+      'password': FullNameController.text.trim(),
+      'club_id': FullNameController.text.trim(),
     };
   }
 
