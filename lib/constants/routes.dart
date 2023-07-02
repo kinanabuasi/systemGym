@@ -275,6 +275,7 @@ class AppRoutes {
   ];
 }
 
+//routes
 class Routes {
   static const splashScreen = '/splashScreen';
   static const introduction = '/introduction';

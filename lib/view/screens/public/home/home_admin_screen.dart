@@ -36,6 +36,7 @@ class HomeAdminScreen extends StatelessWidget {
                               color: white,
                               fontSize: 16,
                               fontWeight: FontWeight.w600),
+                          //
                           MyText(
                               text: "Admin",
                               color: secondYellowColor,
