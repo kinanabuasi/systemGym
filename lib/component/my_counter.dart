@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 import 'my_text.dart';
 
@@ -19,6 +19,7 @@ class MyCounter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: itemsLength,
         shrinkWrap: true,
         itemBuilder: (context, index) {

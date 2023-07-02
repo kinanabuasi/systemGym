@@ -26,12 +26,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  MyCircularProgress(
+                  const MyCircularProgress(
                       valueColor: red,
                       height: 110,
                       width: 110,
                       value: 0.75,
-                      widget: const Padding(
+                      widget: Padding(
                         padding: EdgeInsets.all(12.0),
                         child: CircleAvatar(
                           backgroundImage: AssetImage(
@@ -44,14 +44,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      MyText(text: "Joined", color: whiteGrey, fontSize: 11, fontWeight: FontWeight.normal),
-                      MyText(text: "2 mon ago", color: whiteGrey, fontSize: 15, fontWeight: FontWeight.w600),
+                      MyText(
+                          text: "Joined",
+                          color: whiteGrey,
+                          fontSize: 11,
+                          fontWeight: FontWeight.normal),
+                      MyText(
+                          text: "2 mon ago",
+                          color: whiteGrey,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600),
                     ],
                   )
                 ],
               ),
               const SizedBox(height: 10),
-              MyText(text: "SARAH\nWEGAN", color: white, fontSize: 30, fontWeight: FontWeight.bold),
+              MyText(
+                  text: "SARAH\nWEGAN",
+                  color: white,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold),
               const SizedBox(height: 15),
               const Divider(
                 color: darkGrey,
@@ -64,8 +76,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         ListTile(
                           onTap: () {},
-                          trailing: const Icon(Icons.chevron_right, color: white),
-                          title: MyText(text: listTileString[index], color: white, fontSize: 15, fontWeight: FontWeight.w600),
+                          trailing:
+                              const Icon(Icons.chevron_right, color: white),
+                          title: MyText(
+                              text: listTileString[index],
+                              color: white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600),
                         ),
                         const Divider(color: darkGrey)
                       ],
@@ -75,7 +92,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Container(
                 width: double.infinity,
                 height: 90,
-                decoration: BoxDecoration(color: darkGrey, borderRadius: BorderRadius.circular(20)),
+                decoration: BoxDecoration(
+                    color: darkGrey, borderRadius: BorderRadius.circular(20)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(children: [
@@ -84,13 +102,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         Container(
                           width: 50,
-                          decoration: BoxDecoration(color: red, borderRadius: BorderRadius.circular(10)),
+                          decoration: BoxDecoration(
+                              color: red,
+                              borderRadius: BorderRadius.circular(10)),
                           child: Center(
-                            child: MyText(text: "Pro", color: whiteGrey, fontSize: 15, fontWeight: FontWeight.w600),
+                            child: MyText(
+                                text: "Pro",
+                                color: whiteGrey,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600),
                           ),
                         ),
-                        MyText(text: "Upgrade to Premium", color: whiteGrey, fontSize: 17, fontWeight: FontWeight.w600),
-                        MyText(text: "This subscription is auto-renewable", color: whiteGrey, fontSize: 13, fontWeight: FontWeight.w400),
+                        MyText(
+                            text: "Upgrade to Premium",
+                            color: whiteGrey,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600),
+                        MyText(
+                            text: "This subscription is auto-renewable",
+                            color: whiteGrey,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400),
                       ],
                     ),
                     const Spacer(),
@@ -112,7 +144,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    MyText(text: "Sign Out", color: red, fontSize: 17, fontWeight: FontWeight.w600),
+                    MyText(
+                        text: "Sign Out",
+                        color: red,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w600),
                     const SizedBox(
                       height: 10,
                     ),
