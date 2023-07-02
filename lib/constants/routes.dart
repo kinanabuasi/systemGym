@@ -25,10 +25,14 @@ import '../view/screens/auth/verification_screen.dart';
 import '../view/screens/profile/edit_profile_screen.dart';
 import '../view/screens/profile/pro_profile_screen.dart';
 import '../view/screens/profile/profilee_screen.dart';
+import '../view/screens/public/add_a_training_section_screen.dart';
 import '../view/screens/public/add_new_department_screen.dart';
+import '../view/screens/public/adding_a_coach_screen.dart';
+import '../view/screens/public/adding_a_diet_screen.dart';
 import '../view/screens/public/adding_an_employee_screen.dart';
 import '../view/screens/public/all_department_screen.dart';
 import '../view/screens/public/diet_plan_screen.dart';
+import '../view/screens/public/home/home_admin_screen.dart';
 import '../view/screens/public/insight_screen.dart';
 import '../view/screens/public/modify_club_settings_screen.dart';
 import '../view/screens/public/payment/add_new_card_screen.dart';
@@ -41,6 +45,8 @@ import '../view/screens/public/player_screens/notifications_player_screen.dart';
 import '../view/screens/public/player_screens/workout_categories_screen.dart';
 import '../view/screens/public/reviews/reviews_screen.dart';
 import '../view/screens/public/reviews/write_review_screen.dart';
+import '../view/screens/public/subscripe/subscribe_type_screen.dart';
+import '../view/screens/public/subscripe/subscripe_single_screen.dart';
 import '../view/screens/public/trainer_detail_screen.dart';
 import '../view/screens/public/trainer_screens/home_tainer_screen.dart';
 import '../view/screens/public/workout_plan_today_screen.dart';
@@ -63,9 +69,23 @@ class AppRoutes {
       name: Routes.introduction,
       page: () => IntroductionScreen(),
     ),
-    GetPage(name: Routes.signIn, page: () => SignInScreen(), binding: SignInBinding(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 300)),
-    GetPage(name: Routes.signUp, page: () => SignUpScreen(), binding: SignUpBinding(), transition: Transition.downToUp, transitionDuration: const Duration(milliseconds: 300)),
-    GetPage(name: Routes.forgotPassword, page: () => const ForgotPasswordScreen(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 300)),
+    GetPage(
+        name: Routes.signIn,
+        page: () => SignInScreen(),
+        binding: SignInBinding(),
+        transition: Transition.rightToLeft,
+        transitionDuration: const Duration(milliseconds: 300)),
+    GetPage(
+        name: Routes.signUp,
+        page: () => SignUpScreen(),
+        binding: SignUpBinding(),
+        transition: Transition.downToUp,
+        transitionDuration: const Duration(milliseconds: 300)),
+    GetPage(
+        name: Routes.forgotPassword,
+        page: () => const ForgotPasswordScreen(),
+        transition: Transition.fadeIn,
+        transitionDuration: const Duration(milliseconds: 300)),
     GetPage(
         name: Routes.verificationScreen,
         page: () => const VerificationScreen(),
@@ -222,6 +242,30 @@ class AppRoutes {
       name: Routes.homeTrainerScreen,
       page: () => HomeTrainerScreen(),
     ),
+    GetPage(
+      name: Routes.subscribeTypeScreen,
+      page: () => SubscribeTypeScreen(),
+    ),
+    GetPage(
+      name: Routes.subscribeSingleScreen,
+      page: () => SubscribeSingleScreen(),
+    ),
+    GetPage(
+      name: Routes.homeAdminScreen,
+      page: () => HomeAdminScreen(),
+    ),
+    GetPage(
+      name: Routes.addTrainingSectionScreen,
+      page: () => Adding_a_training_section_Screen(),
+    ),
+    GetPage(
+      name: Routes.addCoachScreen,
+      page: () => adding_a_coach_Screen(),
+    ),
+    GetPage(
+      name: Routes.addDietScreen,
+      page: () => Adding_a_diet_Screen(),
+    ),
   ];
 }
 
@@ -269,4 +313,10 @@ class Routes {
   static const dietPlanScreen = '/dietPlanScreen';
   static const homePlayerScreen = '/homePlayerScreen';
   static const homeTrainerScreen = '/homeTrainerScreen';
+  static const subscribeTypeScreen = '/subscribeTypeScreen';
+  static const subscribeSingleScreen = '/subscribeSingleScreen';
+  static const homeAdminScreen = '/homeAdminScreen';
+  static const addTrainingSectionScreen = '/addTrainingSectionScreen';
+  static const addCoachScreen = '/addCoachScreen';
+  static const addDietScreen = '/addDietScreen';
 }

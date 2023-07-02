@@ -45,10 +45,10 @@ class MyApp extends StatelessWidget {
       //  person_daily_program_Screen(),
 
       theme: ThemeData(fontFamily: 'Poppins'),
-      initialRoute: Routes.adding_an_employee_Screen,
+      initialRoute: Routes.homeAdminScreen,
       getPages: AppRoutes.routes,
 
-      home: HomeTrainerScreen(),
+      // home: HomeTrainerScreen(),
       // VideoPlayerPage(videoUrl: 'https://youtu.be/YGrtghEmwUI?list=PLbJF4g421wqn7Di5kpxFHh0gXnCJpNoKA',),
       // Sessions_Screen(),
       // VideoSlider(),

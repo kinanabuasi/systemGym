@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
         body: AnimatedSplashScreen(
       splash: Image.asset(
-        "assets/images/logo.png",
+        "assets/images/main_logo.png",
         fit: BoxFit.fill,
       ),
       nextScreen: InsightScreen(),
