@@ -7,6 +7,7 @@ import 'package:systemgym/view/screens/other/add_products_screen.dart';
 import '../logic/bindings/auth/sign_in_binding.dart';
 import '../logic/bindings/auth/sign_up_bindind.dart';
 import '../logic/bindings/auth/verification_binding.dart';
+import '../logic/bindings/public/add_team_binding.dart';
 import '../logic/bindings/public/modify_club_settings_binding.dart';
 import '../view/screens/auth/forgot_password_screen.dart';
 import '../view/screens/auth/how_to_login_screen.dart';
@@ -27,6 +28,7 @@ import '../view/screens/profile/pro_profile_screen.dart';
 import '../view/screens/profile/profilee_screen.dart';
 import '../view/screens/public/add_a_training_section_screen.dart';
 import '../view/screens/public/add_new_department_screen.dart';
+import '../view/screens/public/add_team_screen.dart';
 import '../view/screens/public/adding_a_coach_screen.dart';
 import '../view/screens/public/adding_a_diet_screen.dart';
 import '../view/screens/public/adding_an_employee_screen.dart';
@@ -266,9 +268,14 @@ class AppRoutes {
       name: Routes.addDietScreen,
       page: () => Adding_a_diet_Screen(),
     ),
+    GetPage(
+        name: Routes.addTeamScreen,
+        page: () => AddTeamScreen(),
+        binding: AddTeamBinding()),
   ];
 }
 
+//routes
 class Routes {
   static const splashScreen = '/splashScreen';
   static const introduction = '/introduction';
@@ -319,4 +326,5 @@ class Routes {
   static const addTrainingSectionScreen = '/addTrainingSectionScreen';
   static const addCoachScreen = '/addCoachScreen';
   static const addDietScreen = '/addDietScreen';
+  static const addTeamScreen = '/addTeamScreen';
 }
