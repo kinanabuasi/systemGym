@@ -49,11 +49,11 @@ class _AccountingSystemScreenState extends State<AccountingSystemScreen> {
               const SizedBox(
                 height: 30,
               ),
-              MyTextFormField(
-                hintText: "#ID",
-                validator: () {},
-                prefixIcon: Image.asset("assets/images/yellow_check.png"),
-              ),
+              // MyTextFormField(
+              //   hintText: "#ID",
+              //   validator: () {},
+              //   prefixIcon: Image.asset("assets/images/yellow_check.png"),
+              // ),
               const SizedBox(
                 height: 16,
               ),

@@ -54,4 +54,15 @@ class PlayerRemoteDataSource {
       return Left(SomthingWrongFailures());
     }
   }
+
+  Future<Either<Failures, PlayerModel>> employeeById(Map<String, dynamic> data) async {
+    try {
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.playerShow, data: data, headers: AppHeaders.headers);
+      _log.i(response.data);
+      PlayerModel employeeModel = PlayerModel.fromJson(response.data);
+      return Right(employeeModel);
+    } catch (e) {
+      return Left(SomthingWrongFailures());
+    }
+  }
 }

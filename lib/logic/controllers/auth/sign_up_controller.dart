@@ -16,18 +16,15 @@ class SignUpController extends GetxController {
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  // validateLogin() {
-  //   var formData = formKey.currentState;
-  //   if (formData?.validate() == true) {
-  //     Get.toNamed(Routes.workoutPlanToday);
-  //   }
-  // }
+  Map<String, dynamic> initData() {
+    return {'email': emailController.text, 'password': passwordController.text};
+  }
 
   Future<void> signup() async {
     var formData = formKey.currentState;
     if (formData?.validate() == true) {
       isLoading.value = true;
-      Map<String, dynamic> map = {'email': emailController.text, 'password': passwordController.text};
+      Map<String, dynamic> map = initData();
       final data = await _authRemoteDataSource.adminLogin(map);
       data.fold((l) => SnackbarUtil.showError(message: 'Wrong Data'), (r) => null);
       isLoading.value = false;

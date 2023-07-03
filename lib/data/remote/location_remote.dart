@@ -54,4 +54,15 @@ class LocationRemoteDataSource {
       return Left(SomthingWrongFailures());
     }
   }
+
+  Future<Either<Failures, LocationModel>> employeeById(Map<String, dynamic> data) async {
+    try {
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.locationById, data: data, headers: AppHeaders.headers);
+      _log.i(response.data);
+      LocationModel locationModel = LocationModel.fromJson(response.data);
+      return Right(locationModel);
+    } catch (e) {
+      return Left(SomthingWrongFailures());
+    }
+  }
 }

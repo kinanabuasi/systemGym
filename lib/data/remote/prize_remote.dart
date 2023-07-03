@@ -54,4 +54,15 @@ class PrizeRemoteDataSource {
       return Left(SomthingWrongFailures());
     }
   }
+
+  Future<Either<Failures, PrizeModel>> employeeById(Map<String, dynamic> data) async {
+    try {
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.PrizeById, data: data, headers: AppHeaders.headers);
+      _log.i(response.data);
+      PrizeModel employeeModel = PrizeModel.fromJson(response.data);
+      return Right(employeeModel);
+    } catch (e) {
+      return Left(SomthingWrongFailures());
+    }
+  }
 }

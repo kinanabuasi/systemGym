@@ -54,4 +54,16 @@ class NationalityRemoteDataSource {
       return Left(SomthingWrongFailures());
     }
   }
+
+  Future<Either<Failures, NationalityModel>> employeeById(Map<String, dynamic> data) async {
+    try {
+      final response =
+          await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.nationalityById, data: data, headers: AppHeaders.headers);
+      _log.i(response.data);
+      NationalityModel nationalityModel = NationalityModel.fromJson(response.data);
+      return Right(nationalityModel);
+    } catch (e) {
+      return Left(SomthingWrongFailures());
+    }
+  }
 }

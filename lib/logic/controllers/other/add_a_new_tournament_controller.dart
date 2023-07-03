@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/data/remote/player_remote.dart';
@@ -44,8 +45,8 @@ class AddANewTournamentController extends GetxController {
   final TextEditingController TournamentStartDateController = TextEditingController();
   final TextEditingController TheEndOfTheTournamentController = TextEditingController();
 
-  Map<String, dynamic> initData() {
-    return {
+  dio.FormData initData() {
+    return dio.FormData.fromMap({
       'coach_id[]': 2,
       'player_id[]': 2,
       'championship_levels_id': 1,
@@ -57,7 +58,7 @@ class AddANewTournamentController extends GetxController {
       'description': TournamentDescriptionController.text.trim(),
       'name_en': TournamentNameController.text.trim(),
       'name_ar': TournamentNameController.text.trim(),
-    };
+    });
   }
 
   Future<List<PlayerModel>> getAllPlayer() async {
@@ -95,7 +96,7 @@ class AddANewTournamentController extends GetxController {
 
   addTournamentData() async {
     isLoading.value = true;
-    Map<String, dynamic> tournamentData = initData();
+    dio.FormData tournamentData = initData();
     final data = await _tournamentRemoteDataSource.addTournament(tournamentData);
     data.fold((l) => null, (r) => null);
     isLoading.value = false;

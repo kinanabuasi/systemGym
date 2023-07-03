@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/constants/colors.dart';
 import 'package:systemgym/logic/controllers/other/add_a_new_tournament_controller.dart';
+import 'package:systemgym/services/time_picker.dart';
 import 'package:systemgym/view/widgets/drop_down_widget.dart';
 
 import '../../../component/app_bars/app_bar.dart';
@@ -10,7 +11,6 @@ import '../../../component/drop_down.dart';
 import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
-import '../../widgets/date_picker.dart';
 import '../../widgets/drop_down_multi_widget.dart';
 
 class AddANewTournamentScreen extends StatefulWidget {
@@ -92,7 +92,7 @@ class _AddANewTournamentScreenState extends State<AddANewTournamentScreen> {
               ),
               MyTextFormField(
                 ontap: () async {
-                  String date = await Get.to(() => const DatePickerWidget());
+                  String date = await TimePickDialog.selectTime(context);
                   controller.TheEndOfTheTournamentController.text = date;
                 },
                 hintText: "Tournament start date",
@@ -105,7 +105,7 @@ class _AddANewTournamentScreenState extends State<AddANewTournamentScreen> {
               ),
               MyTextFormField(
                 ontap: () async {
-                  String date = await Get.to(() => const DatePickerWidget());
+                  String date = await TimePickDialog.selectTime(context);
                   controller.TheEndOfTheTournamentController.text = date;
                 },
                 hintText: "The end of the tournament",

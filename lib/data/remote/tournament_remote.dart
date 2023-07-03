@@ -12,7 +12,7 @@ class TournamentRemoteDataSource {
   final NetworkManager _networkManager = NetworkManager(Dio());
   final _log = logger(TournamentRemoteDataSource);
 
-  Future<Either<Failures, TournamentModel>> addTournament(Map<String, dynamic> data) async {
+  Future<Either<Failures, TournamentModel>> addTournament(FormData data) async {
     try {
       final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, data: data, headers: AppHeaders.headers);
       _log.i(response.data);

@@ -54,4 +54,15 @@ class FoodRemoteDataSource {
       return Left(SomthingWrongFailures());
     }
   }
+
+  // Future<Either<Failures, FoodModel>> employeeById(Map<String, dynamic> data) async {
+  //   try {
+  //     final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.f, data: data, headers: AppHeaders.headers);
+  //     _log.i(response.data);
+  //     FoodModel foodModel = FoodModel.fromJson(response.data);
+  //     return Right(foodModel);
+  //   } catch (e) {
+  //     return Left(SomthingWrongFailures());
+  //   }
+  // }
 }

@@ -33,4 +33,15 @@ class ActivityRemoteDataSource {
       return Left(SomthingWrongFailures());
     }
   }
+
+  Future<Either<Failures, ActivityModel>> employeeById(Map<String, dynamic> data) async {
+    try {
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.employeeShow, data: data, headers: AppHeaders.headers);
+      _log.i(response.data);
+      ActivityModel employeeModel = ActivityModel.fromJson(response.data);
+      return Right(employeeModel);
+    } catch (e) {
+      return Left(SomthingWrongFailures());
+    }
+  }
 }

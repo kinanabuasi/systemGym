@@ -14,7 +14,7 @@ class SectionRemoteDataSource {
 
   Future<Either<Failures, SectionModel>> addSection(Map<String, dynamic> data) async {
     try {
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, data: data, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.sectionAdd, data: data, headers: AppHeaders.headers);
       _log.i(response.data);
       SectionModel sectionModel = SectionModel.fromJson(response.data['data']);
       return Right(sectionModel);

@@ -3,12 +3,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/constants/colors.dart';
+import 'package:systemgym/data/remote/nationality_remote.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
+import '../../../data/remote/coash_remote.dart';
+import '../../../model/nationality_model.dart';
+
 class Adding_a_trainer_controller extends GetxController {
+  final CoachRemoteDataSource _coachRemoteDataSource = CoachRemoteDataSource();
+  final NationalityRemoteDataSource _nationalityRemoteDataSource = NationalityRemoteDataSource();
+
+  RxBool isLoading = false.obs;
+
   var FullNameController = TextEditingController();
   var UserNameController = TextEditingController();
   var PhoneNumberController = TextEditingController();
+  var PasswordController = TextEditingController();
   var SubscriptionNumberController = TextEditingController();
   var EmailController = TextEditingController();
   var AboutTheTrainerController = TextEditingController();
@@ -22,6 +32,7 @@ class Adding_a_trainer_controller extends GetxController {
   var AddressController = TextEditingController();
   var GovernorateController = TextEditingController();
   var PostalCodeController = TextEditingController();
+  var TheBeginningOfTheShiftController = TextEditingController();
   var WebsiteController = TextEditingController();
   var FacebookController = TextEditingController();
   var TwitterController = TextEditingController();
@@ -31,6 +42,9 @@ class Adding_a_trainer_controller extends GetxController {
   String? selectedSubtype;
   String? selectedNationality;
   String? selectedProfessionalDegree;
+
+  late NationalityModel _nationalityModel;
+
   List Gender = [
     "Male",
     "Female",
@@ -92,33 +106,39 @@ class Adding_a_trainer_controller extends GetxController {
 
   Map<String, dynamic> initEmployee() {
     return {
-      'link_youtupe': YouTubeController.text.trim(),
-      'link_Instagram': InstagramController.text.trim(),
-      'link_twitter': TwitterController.text.trim(),
-      'link_facebook': FacebookController.text.trim(),
-      'link_website': WebsiteController.text.trim(),
-      'end_time': FullNameController.text.trim(),
-      'start_time': FullNameController.text.trim(),
-      'date_of_birth': FullNameController.text.trim(),
-      'postal_code': FullNameController.text.trim(),
-      'weight': FullNameController.text.trim(),
-      'height': FullNameController.text.trim(),
-      'profs_id': FullNameController.text.trim(),
-      'employment_type_id': FullNameController.text.trim(),
-      'sub_location_id': FullNameController.text.trim(),
-      'location_id': FullNameController.text.trim(),
-      'nationality_id': FullNameController.text.trim(),
-      'genders_id': FullNameController.text.trim(),
-      'coach_description': FullNameController.text.trim(),
-      'salary': FullNameController.text.trim(),
-      'password': FullNameController.text.trim(),
-      'email': FullNameController.text.trim(),
-      'phone': FullNameController.text.trim(),
-      'user_name': FullNameController.text.trim(),
-      'name_ar': FullNameController.text.trim(),
-      'name_en': FullNameController.text.trim(),
-      'subscription_number': FullNameController.text.trim(),
-      'club_id': FullNameController.text.trim(),
+      "name_ar": FullNameController.text.trim(),
+      "name_en": FullNameController.text.trim(),
+      "user_name": UserNameController.text.trim(),
+      "phone": PhoneNumberController.text.trim(),
+      "email": EmailController.text.trim(),
+      "password": PasswordController.text.trim(),
+      "subscription_number": SubscriptionNumberController.text.trim(),
+      "salary": TheMonthlySubscriptionValue$Controller.text.trim(),
+      "coach_description": AboutTheTrainerController.text.trim(),
+      "genders_id": selectedGender,
+      "nationality_id": _nationalityModel.id,
+      "location_id": GovernorateController.text.trim(),
+      "sub_location_id": AddressController.text.trim(),
+      "employment_type_id": '',
+      "profs_id": '',
+      "date_of_birth": DateOfBirthController.text.trim(),
+      "start_time": TheBeginningOfTheShiftController.text.trim(),
+      "end_time": TheBeginningOfTheShiftController.text.trim(),
+      "link_website": WebsiteController.text.trim(),
+      "link_facebook": FacebookController.text.trim(),
+      "link_twitter": TwitterController.text.trim(),
+      "link_youtupe": YouTubeController.text.trim(),
     };
+  }
+
+  Future<List<NationalityModel>> getNationality() async {
+    List<NationalityModel> nationalty = [];
+    final data = await _nationalityRemoteDataSource.allNationality();
+    data.fold((l) => null, (r) => nationalty = r);
+    return nationalty;
+  }
+
+  initNationalty(NationalityModel nationalityModel) {
+    _nationalityModel = nationalityModel;
   }
 }

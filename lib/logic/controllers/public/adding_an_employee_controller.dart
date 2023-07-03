@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:images_picker/images_picker.dart';
 import 'package:systemgym/constants/colors.dart';
+import 'package:systemgym/services/pick_image.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -12,62 +14,29 @@ import '../../../model/section_model.dart';
 import 'All_section_controller.dart';
 
 class Adding_an_employee_controller extends GetxController {
-// var employees = <Employee>[].obs;
   final EmployeeRemoteDataSource employeeRemoteDataSource = EmployeeRemoteDataSource();
   final SectionRemoteDataSource _sectionRemoteDataSource = SectionRemoteDataSource();
   final AllSectionController allSectionController = Get.put(AllSectionController());
   var isLoading = true.obs;
-  late SectionModel selectedSectionModel;
-  var IDController = TextEditingController();
+
   var FullNameController = TextEditingController();
-  var UserNameController = TextEditingController();
-  var EmailController = TextEditingController();
-  var SubscriptioNumberController = TextEditingController();
-  var PasswordController = TextEditingController();
-  var DateOfBirthController = TextEditingController();
+  var FullNameControllerAR = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
   var NationalNumberController = TextEditingController();
-  var AboutTheEmployeeController = TextEditingController();
-  var ComprehensiveOverviewController = TextEditingController();
-  var SectionController = TextEditingController();
-  var EmployeeStatusController = TextEditingController();
-  var StateController = TextEditingController();
+  var DescriptionController = TextEditingController();
+  var fullDescriptionController = TextEditingController();
   var TheBeginningOfTheShiftController = TextEditingController();
   var TheEndOfTheShiftController = TextEditingController();
   var TotalSalaryController = TextEditingController();
-  String? selectedSection;
-  String? selectedEmployeeStatus;
-  List Section = [
-    "50",
-    "100",
-    "200",
-    "1000",
-  ];
-  List employeeStatus = [
-    "S1",
-    "S2",
-    "S3",
-  ];
-  void onSectionChanged(String? val) {
-    selectedSection = val!;
-    update();
-  }
+  var DateOfBirthController = TextEditingController();
 
-  void onemployeeStatusChanged(String? val) {
-    selectedEmployeeStatus = val!;
-    update();
-  }
+  RxString imagePath = RxString('');
+  late SectionModel selectedSectionModel;
 
   void onItemSave() {
-    IDController.clear();
     FullNameController.clear();
-    DateOfBirthController.clear();
     NationalNumberController.clear();
-    SubscriptioNumberController.clear();
-    AboutTheEmployeeController.clear();
-    ComprehensiveOverviewController.clear();
-    SectionController.clear();
-    EmployeeStatusController.clear();
-    StateController.clear();
     TheBeginningOfTheShiftController.clear();
     TheEndOfTheShiftController.clear();
     TotalSalaryController.clear();
@@ -76,17 +45,19 @@ class Adding_an_employee_controller extends GetxController {
 
   Map<String, dynamic> initEmployee() {
     return {
-      'date_of_birth': FullNameController.text.trim(),
+      'date_of_birth': DateOfBirthController.text.trim(),
       'name_en': FullNameController.text.trim(),
-      'name_ar': FullNameController.text.trim(),
-      'full_description': FullNameController.text.trim(),
-      'section_id': FullNameController.text.trim(),
-      'description': FullNameController.text.trim(),
-      'emp_id': FullNameController.text.trim(),
-      'national_id': FullNameController.text.trim(),
-      'email': FullNameController.text.trim(),
-      'password': FullNameController.text.trim(),
-      'club_id': FullNameController.text.trim(),
+      'name_ar': FullNameControllerAR.text.trim(),
+      'full_description': fullDescriptionController.text.trim(),
+      'section_id': selectedSectionModel.id,
+      'description': DescriptionController.text.trim(),
+      'national_id': NationalNumberController.text.trim(),
+      'email': emailController.text.trim(),
+      'password': passwordController.text.trim(),
+      'emp_status': FullNameController.text.trim(),
+      'total_salary': TotalSalaryController.text.trim(),
+      'start_time_shift': TheBeginningOfTheShiftController.text.trim(),
+      'end_time_shift': TheEndOfTheShiftController.text.trim(),
     };
   }
 
@@ -110,34 +81,18 @@ class Adding_an_employee_controller extends GetxController {
   }
 
   Future<List<SectionModel>> getAllSection() async {
+    List<SectionModel> sections = [];
     final data = await _sectionRemoteDataSource.allSection();
-    data.fold((l) {
-      return [];
-    }, (r) {
-      return r;
-    });
-    return [];
+    data.fold((l) => null, (r) => sections = r);
+    return sections;
   }
 
   selectSection(SectionModel sectionModel) {
     selectedSectionModel = sectionModel;
   }
 
-//   @override
-// void onInit() {
-// fetchEmployees();
-// super.onInit();
-// }
-
-// void fetchEmployees() async {
-// try {
-// isLoading(true);
-// var employeeList = await ApiService.getEmployees();
-// if (employeeList != null) {
-// employees.assignAll(employeeList);
-// }
-// } finally {
-// isLoading(false);
-// }
-// }
+  selectImage() async {
+    List<Media>? media = await pickImagefromGallery(Get.context!);
+    imagePath.value = media?.first.path ?? '';
+  }
 }
