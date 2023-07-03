@@ -63,20 +63,14 @@ class HowToLoginScreen extends StatelessWidget {
                     child: CircleAvatar(
                       backgroundColor: secondYellowColor,
                       radius: 60,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/images/admin.png",
-                              height: 90,
-                              width: 90,
-                            ),
-                            MyText(
-                                text: "Admin",
-                                color: mainColor,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600)
-                          ]),
+                      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                        Image.asset(
+                          "assets/images/admin.png",
+                          height: 90,
+                          width: 90,
+                        ),
+                        MyText(text: "Admin", color: mainColor, fontSize: 17, fontWeight: FontWeight.w600)
+                      ]),
                     ),
                   ),
                   const SizedBox(
@@ -89,78 +83,15 @@ class HowToLoginScreen extends StatelessWidget {
                     child: CircleAvatar(
                       backgroundColor: red,
                       radius: 60,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/images/trainer1.png",
-                              height: 90,
-                              width: 90,
-                            ),
-                            MyText(
-                                text: "Trainer",
-                                color: mainColor,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600)
-                          ]),
+                      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                        Image.asset(
+                          "assets/images/trainer1.png",
+                          height: 90,
+                          width: 90,
+                        ),
+                        MyText(text: "Trainer", color: mainColor, fontSize: 17, fontWeight: FontWeight.w600)
+                      ]),
                     ),
-            Column(
-              children: [
-                InkWell(
-                  onTap: () {
-                    Get.toNamed(Routes.signIn);
-                  },
-                  child: CircleAvatar(
-                    backgroundColor: secondYellowColor,
-                    radius: 70,
-                    child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Image.asset(
-                        "assets/images/admin.png",
-                        height: 90,
-                        width: 90,
-                      ),
-                      MyText(text: "Admin", color: mainColor, fontSize: 17, fontWeight: FontWeight.w600)
-                    ]),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                InkWell(
-                  onTap: () {
-                    Get.toNamed(Routes.signIn);
-                  },
-                  child: CircleAvatar(
-                    backgroundColor: red,
-                    radius: 70,
-                    child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Image.asset(
-                        "assets/images/trainer1.png",
-                        height: 90,
-                        width: 90,
-                      ),
-                      MyText(text: "Trainer", color: mainColor, fontSize: 17, fontWeight: FontWeight.w600)
-                    ]),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                InkWell(
-                  onTap: () {
-                    Get.toNamed(Routes.signIn);
-                  },
-                  child: CircleAvatar(
-                    backgroundColor: green,
-                    radius: 70,
-                    child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Image.asset(
-                        "assets/images/player.png",
-                        height: 90,
-                        width: 90,
-                      ),
-                      MyText(text: "Player", color: mainColor, fontSize: 17, fontWeight: FontWeight.w600)
-                    ]),
                   ),
                   const SizedBox(
                     height: 20,
@@ -172,20 +103,14 @@ class HowToLoginScreen extends StatelessWidget {
                     child: CircleAvatar(
                       backgroundColor: green,
                       radius: 60,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/images/player.png",
-                              height: 90,
-                              width: 90,
-                            ),
-                            MyText(
-                                text: "Player",
-                                color: mainColor,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600)
-                          ]),
+                      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                        Image.asset(
+                          "assets/images/player.png",
+                          height: 90,
+                          width: 90,
+                        ),
+                        MyText(text: "Player", color: mainColor, fontSize: 17, fontWeight: FontWeight.w600)
+                      ]),
                     ),
                   ),
                 ],
