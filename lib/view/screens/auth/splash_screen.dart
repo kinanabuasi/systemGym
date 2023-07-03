@@ -5,6 +5,7 @@ import 'package:systemgym/constants/routes.dart';
 
 import '../../../constants/colors.dart';
 import '../public/insight_screen.dart';
+import 'introduction_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -28,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
         "assets/images/main_logo.png",
         fit: BoxFit.fill,
       ),
-      nextScreen: InsightScreen(),
+      nextScreen: IntroductionScreen(),
       splashTransition: SplashTransition.rotationTransition,
       splashIconSize: 200,
       duration: 2500,

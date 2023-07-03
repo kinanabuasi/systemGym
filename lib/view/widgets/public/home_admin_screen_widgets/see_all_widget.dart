@@ -5,7 +5,9 @@ import '../../../../constants/colors.dart';
 
 class SeeAllWidget extends StatelessWidget {
   final String whatToSeeAll;
-  const SeeAllWidget({super.key, required this.whatToSeeAll});
+  final Function() seeAllFunction;
+  const SeeAllWidget(
+      {super.key, required this.whatToSeeAll, required this.seeAllFunction});
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +19,16 @@ class SeeAllWidget extends StatelessWidget {
             fontSize: 16,
             fontWeight: FontWeight.w600),
         const Spacer(),
-        Padding(
-          padding: const EdgeInsets.only(right: 20.0),
-          child: MyText(
-              text: "see all",
-              color: secondYellowColor,
-              fontSize: 16,
-              fontWeight: FontWeight.w600),
+        InkWell(
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: MyText(
+                text: "see all",
+                color: secondYellowColor,
+                fontSize: 16,
+                fontWeight: FontWeight.w600),
+          ),
         ),
       ],
     );
