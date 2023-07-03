@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
       //  person_daily_program_Screen(),
 
       theme: ThemeData(fontFamily: 'Poppins'),
-      initialRoute: Routes.addTeamScreen,
+      initialRoute: Routes.splashScreen,
       getPages: AppRoutes.routes,
 
       // home: HomeTrainerScreen(),

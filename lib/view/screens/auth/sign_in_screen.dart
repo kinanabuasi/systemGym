@@ -47,7 +47,11 @@ class SignInScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              MyText(text: "S Y S T E M  G Y M", color: white, fontSize: 28, fontWeight: FontWeight.bold),
+              MyText(
+                  text: "S Y S T E M  G Y M",
+                  color: white,
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold),
               const SizedBox(
                 height: 60,
               ),
@@ -81,7 +85,11 @@ class SignInScreen extends StatelessWidget {
                 onTap: () {
                   Get.toNamed(Routes.forgotPassword);
                 },
-                child: MyText(text: "Forgot Password?", color: white, fontSize: 15, fontWeight: FontWeight.bold),
+                child: MyText(
+                    text: "Forgot Password?",
+                    color: white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 40,
@@ -90,10 +98,15 @@ class SignInScreen extends StatelessWidget {
                   color: yellowColor,
                   widget: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: MyText(text: "Sign In", color: black, fontSize: 18, fontWeight: FontWeight.bold),
+                    child: MyText(
+                        text: "Sign In",
+                        color: black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
                   ),
                   function: () {
-                    signInController.validateLogin();
+                    Get.toNamed(Routes.homeAdminScreen);
+                    //  signInController.validateLogin();
                   }),
               const SizedBox(
                 height: 16,
@@ -101,12 +114,20 @@ class SignInScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MyText(text: "Didn't have any account? ", color: white, fontSize: 15, fontWeight: FontWeight.normal),
+                  MyText(
+                      text: "Didn't have any account? ",
+                      color: white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.normal),
                   InkWell(
                     onTap: () {
                       Get.toNamed(Routes.signUp);
                     },
-                    child: MyText(text: "Sign up here", color: yellowColor, fontSize: 15, fontWeight: FontWeight.bold),
+                    child: MyText(
+                        text: "Sign up here",
+                        color: yellowColor,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -114,7 +135,9 @@ class SignInScreen extends StatelessWidget {
             ],
           ),
         ),
-        Obx(() => Visibility(visible: signInController.isLoading.value, child: const ProgressIndicatorWidget()))
+        Obx(() => Visibility(
+            visible: signInController.isLoading.value,
+            child: const ProgressIndicatorWidget()))
       ],
     ));
   }

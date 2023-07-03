@@ -23,9 +23,16 @@ import '../view/screens/auth/sign_in_screen.dart';
 import '../view/screens/auth/sign_up_screen.dart';
 import '../view/screens/auth/splash_screen.dart';
 import '../view/screens/auth/verification_screen.dart';
+import '../view/screens/other/accounting_system_screen.dart';
+import '../view/screens/other/add_a_new_tournament.dart';
+import '../view/screens/other/all_products_screen.dart';
+import '../view/screens/other/all_team_screen.dart';
+import '../view/screens/other/all_tournament_screen.dart';
 import '../view/screens/profile/edit_profile_screen.dart';
 import '../view/screens/profile/pro_profile_screen.dart';
 import '../view/screens/profile/profilee_screen.dart';
+import '../view/screens/public/All _employee_screen.dart';
+import '../view/screens/public/All_coach_screen.dart';
 import '../view/screens/public/add_a_training_section_screen.dart';
 import '../view/screens/public/add_new_department_screen.dart';
 import '../view/screens/public/add_team_screen.dart';
@@ -33,6 +40,9 @@ import '../view/screens/public/adding_a_coach_screen.dart';
 import '../view/screens/public/adding_a_diet_screen.dart';
 import '../view/screens/public/adding_an_employee_screen.dart';
 import '../view/screens/public/all_department_screen.dart';
+import '../view/screens/public/all_diet_screen.dart';
+import '../view/screens/public/all_trainers_sections_screen.dart';
+import '../view/screens/public/details_team_screen.dart';
 import '../view/screens/public/diet_plan_screen.dart';
 import '../view/screens/public/home/home_admin_screen.dart';
 import '../view/screens/public/insight_screen.dart';
@@ -58,6 +68,7 @@ import '../view/screens/settings/notifications_settings_screen.dart';
 import '../view/screens/settings/privacy_policy_screen.dart';
 import '../view/screens/settings/settings_screen.dart';
 import '../view/screens/settings/units_of_measure_screen.dart';
+import 'package:systemgym/view/screens/public/all_trainers_sections_screen.dart';
 
 class AppRoutes {
   static const splash = Routes.splashScreen;
@@ -272,6 +283,46 @@ class AppRoutes {
         name: Routes.addTeamScreen,
         page: () => AddTeamScreen(),
         binding: AddTeamBinding()),
+    GetPage(
+      name: Routes.detailesTeamScreen,
+      page: () => DetailesTeamScreen(),
+    ),
+    GetPage(
+      name: Routes.addANewTournamentScreen,
+      page: () => AddANewTournamentScreen(),
+    ),
+    GetPage(
+      name: Routes.accountingSystemScreen,
+      page: () => AccountingSystemScreen(),
+    ),
+    GetPage(
+      name: Routes.allEmployeeScreen,
+      page: () => All_employee_Screen(),
+    ),
+    GetPage(
+      name: Routes.allCoachScreen,
+      page: () => All_coach_Screen(),
+    ),
+    GetPage(
+      name: Routes.allTrainersScreen,
+      page: () => All_trainers_Screen(),
+    ),
+    GetPage(
+      name: Routes.allProductsScreen,
+      page: () => AllProductsScreen(),
+    ),
+    GetPage(
+      name: Routes.allTrainingsSectionScreen,
+      page: () => All_trainings_section_Screen(),
+    ),
+    GetPage(
+      name: Routes.allTeamScreen,
+      page: () => AllTeamScreen(),
+    ),
+    GetPage(
+      name: Routes.allTournamentScreen,
+      page: () => AllTournamentScreen(),
+    ),
   ];
 }
 
@@ -327,4 +378,14 @@ class Routes {
   static const addCoachScreen = '/addCoachScreen';
   static const addDietScreen = '/addDietScreen';
   static const addTeamScreen = '/addTeamScreen';
+  static const detailesTeamScreen = '/detailesTeamScreen';
+  static const addANewTournamentScreen = '/addANewTournamentScreen';
+  static const accountingSystemScreen = '/accountingSystemScreen';
+  static const allEmployeeScreen = '/allEmployeeScreen';
+  static const allCoachScreen = '/allCoachScreen';
+  static const allTrainersScreen = '/allTrainersScreen';
+  static const allProductsScreen = '/allProductsScreen';
+  static const allTrainingsSectionScreen = '/allTrainingsSectionScreen';
+  static const allTeamScreen = '/allTeamScreen';
+  static const allTournamentScreen = '/allTournamentScreen';
 }

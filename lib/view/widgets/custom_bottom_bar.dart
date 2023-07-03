@@ -79,7 +79,11 @@ class CustomBottomBar extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  CommonImageView(svgPath: bottomMenuList[index].icon, height: 28, width: 29, color: white),
+                  CommonImageView(
+                      svgPath: bottomMenuList[index].icon,
+                      height: 28,
+                      width: 29,
+                      color: white),
                   Padding(
                     padding: const EdgeInsets.all(7),
                     child: Text(
@@ -112,11 +116,11 @@ Widget getDefaultWidget() {
   return Container(
     color: Colors.white,
     padding: const EdgeInsets.all(10),
-    child: const Center(
+    child: Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: const [
           Text(
             'Please replace the respective Widget here',
             style: TextStyle(

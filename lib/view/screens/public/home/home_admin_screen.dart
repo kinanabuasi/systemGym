@@ -92,8 +92,11 @@ class HomeAdminScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 30),
-              const SeeAllWidget(
+              SeeAllWidget(
                 whatToSeeAll: 'All Employees',
+                seeAllFunction: () {
+                  Get.toNamed(Routes.allEmployeeScreen);
+                },
               ),
               const SizedBox(height: 10),
               const ShowAllWidget(
@@ -165,8 +168,11 @@ class HomeAdminScreen extends StatelessWidget {
                         ]),
                   )),
               const SizedBox(height: 20),
-              const SeeAllWidget(
+              SeeAllWidget(
                 whatToSeeAll: 'All Coaches',
+                seeAllFunction: () {
+                  Get.toNamed(Routes.allCoachScreen);
+                },
               ),
               const SizedBox(height: 10),
               const ShowAllWidget(
@@ -175,8 +181,11 @@ class HomeAdminScreen extends StatelessWidget {
                 name: "Stella",
               ),
               const SizedBox(height: 20),
-              const SeeAllWidget(
+              SeeAllWidget(
                 whatToSeeAll: 'All Trainers',
+                seeAllFunction: () {
+                  Get.toNamed(Routes.allTrainersScreen);
+                },
               ),
               const SizedBox(height: 10),
               const ShowAllWidget(
@@ -185,8 +194,11 @@ class HomeAdminScreen extends StatelessWidget {
                 name: "Amanka",
               ),
               const SizedBox(height: 20),
-              const SeeAllWidget(
+              SeeAllWidget(
                 whatToSeeAll: 'All Products',
+                seeAllFunction: () {
+                  Get.toNamed(Routes.allProductsScreen);
+                },
               ),
               const SizedBox(height: 10),
               SizedBox(
@@ -212,8 +224,11 @@ class HomeAdminScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const SeeAllWidget(
+              SeeAllWidget(
                 whatToSeeAll: 'All Sections',
+                seeAllFunction: () {
+                  Get.toNamed(Routes.allTrainingsSectionScreen);
+                },
               ),
               const SizedBox(height: 10),
               SizedBox(
@@ -250,8 +265,11 @@ class HomeAdminScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const SeeAllWidget(
+              SeeAllWidget(
                 whatToSeeAll: 'All Teams',
+                seeAllFunction: () {
+                  Get.toNamed(Routes.allTeamScreen);
+                },
               ),
               const SizedBox(height: 10),
               SizedBox(
@@ -288,8 +306,11 @@ class HomeAdminScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const SeeAllWidget(
+              SeeAllWidget(
                 whatToSeeAll: 'All Championships',
+                seeAllFunction: () {
+                  Get.toNamed(Routes.allTournamentScreen);
+                },
               ),
               const SizedBox(height: 10),
               SizedBox(
@@ -326,8 +347,9 @@ class HomeAdminScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const SeeAllWidget(
+              SeeAllWidget(
                 whatToSeeAll: 'All payments from trainers',
+                seeAllFunction: () {},
               ),
               const SizedBox(height: 10),
               Padding(
@@ -341,8 +363,9 @@ class HomeAdminScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const SeeAllWidget(
+              SeeAllWidget(
                 whatToSeeAll: 'All payments to coaches',
+                seeAllFunction: () {},
               ),
               const SizedBox(height: 10),
               Padding(
@@ -356,8 +379,9 @@ class HomeAdminScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const SeeAllWidget(
+              SeeAllWidget(
                 whatToSeeAll: 'All payments to employees',
+                seeAllFunction: () {},
               ),
               const SizedBox(height: 10),
               Padding(
