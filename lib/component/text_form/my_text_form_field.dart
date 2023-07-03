@@ -6,10 +6,10 @@ import '../../constants/colors.dart';
 
 // import '../../constants/fonts.dart';
 
-
 class MyTextFormField extends StatelessWidget {
   final Function validator;
   final String hintText;
+  final void Function()? ontap;
   Color fillColor;
   Color textColor;
   Color focusedBorderColor;
@@ -35,11 +35,13 @@ class MyTextFormField extends StatelessWidget {
     this.controller,
     this.KeyboardType = TextInputType.text,
     this.fontFamily = "Montserrat",
+    this.ontap,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: ontap,
       maxLines: multiLines ? 4 : 1,
       obscureText: obsecure,
       controller: controller,
@@ -48,36 +50,16 @@ class MyTextFormField extends StatelessWidget {
       keyboardType: KeyboardType,
       validator: (value) => validator(value),
       decoration: InputDecoration(
-          prefixIcon: multiLines
-              ? Container(
-                  height: 80,
-                  width: 10,
-                  alignment: Alignment.topCenter,
-                  child: prefixIcon)
-              : prefixIcon,
+          prefixIcon: multiLines ? Container(height: 80, width: 10, alignment: Alignment.topCenter, child: prefixIcon) : prefixIcon,
           fillColor: fillColor,
           hintText: hintText,
-          hintStyle: const TextStyle(
-              color: Colors.grey,
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
-              fontFamily: 'Montserrat'),
+          hintStyle: const TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500, fontFamily: 'Montserrat'),
           filled: true,
-          border: UnderlineInputBorder(
-              borderSide: const BorderSide(color: mainColor),
-              borderRadius: BorderRadius.circular(10)),
-          enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: enabledBorderColor),
-              borderRadius: BorderRadius.circular(10)),
-          focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: focusedBorderColor),
-              borderRadius: BorderRadius.circular(10)),
-          errorBorder: UnderlineInputBorder(
-              borderSide: const BorderSide(color: Colors.red),
-              borderRadius: BorderRadius.circular(10)),
-          focusedErrorBorder: UnderlineInputBorder(
-              borderSide: const BorderSide(color: Colors.red),
-              borderRadius: BorderRadius.circular(10))),
+          border: UnderlineInputBorder(borderSide: const BorderSide(color: mainColor), borderRadius: BorderRadius.circular(10)),
+          enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: enabledBorderColor), borderRadius: BorderRadius.circular(10)),
+          focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: focusedBorderColor), borderRadius: BorderRadius.circular(10)),
+          errorBorder: UnderlineInputBorder(borderSide: const BorderSide(color: Colors.red), borderRadius: BorderRadius.circular(10)),
+          focusedErrorBorder: UnderlineInputBorder(borderSide: const BorderSide(color: Colors.red), borderRadius: BorderRadius.circular(10))),
     );
   }
 }

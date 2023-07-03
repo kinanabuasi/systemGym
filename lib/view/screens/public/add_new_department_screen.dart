@@ -83,11 +83,11 @@ class _AddNewDepartmentScreenState extends State<AddNewDepartmentScreen> {
     );
   }
 
-  addDebartment() async {
-    final Map<String, dynamic> initDepatrment = departmentData();
-    final data = await _clubeRemoteDataSource.addDepartment(initDepatrment);
-    data.fold((l) => null, (r) => null);
-  }
+  // addDebartment() async {
+  //   final Map<String, dynamic> initDepatrment = departmentData();
+  //   final data = await _clubeRemoteDataSource.addDepartment(initDepatrment);
+  //   data.fold((l) => null, (r) => null);
+  // }
 
   Map<String, dynamic> departmentData() {
     return {

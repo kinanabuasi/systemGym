@@ -9,13 +9,13 @@ import '../../model/Location_model.dart';
 import '../../model/Sublocation_model.dart';
 import '../../model/section_model.dart';
 
-class DropDownWidget extends StatefulWidget {
+class DropDownMultiWidget extends StatefulWidget {
   final String hint;
   final Future<List<dynamic>>? asyncData;
   final List<dynamic> data;
   final Function(dynamic) onChange;
   final bool isLocal;
-  const DropDownWidget({
+  const DropDownMultiWidget({
     super.key,
     this.asyncData,
     required this.onChange,
@@ -25,10 +25,10 @@ class DropDownWidget extends StatefulWidget {
   });
 
   @override
-  State<DropDownWidget> createState() => _DropDownWidgetState();
+  State<DropDownMultiWidget> createState() => _DropDownMultiWidgetState();
 }
 
-class _DropDownWidgetState extends State<DropDownWidget> {
+class _DropDownMultiWidgetState extends State<DropDownMultiWidget> {
   // final _formKey = GlobalKey<FormState>();
 
   @override
@@ -40,7 +40,7 @@ class _DropDownWidgetState extends State<DropDownWidget> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        child: DropdownSearch<dynamic>(
+        child: DropdownSearch<dynamic>.multiSelection(
           // compareFn: (i1, i2) => i1.level1 == i2.level1,
           items: widget.data,
           asyncItems: (text) => widget.asyncData ?? Future.value([]),
@@ -71,7 +71,7 @@ class _DropDownWidgetState extends State<DropDownWidget> {
               ],
             ),
           ),
-          popupProps: PopupProps.menu(
+          popupProps: PopupPropsMultiSelection.menu(
             interceptCallBacks: true, //important line
             itemBuilder: (ctx, item, isSelected) {
               return ListTile(

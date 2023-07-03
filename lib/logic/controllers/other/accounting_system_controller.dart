@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import '../../../data/remote/accounting_remote.dart';
@@ -10,6 +11,12 @@ class AccountingSystemController extends GetxController {
   String? productType;
   List<String> items2 = ['Option 1', 'Option 2', 'Option 3'];
   String? productType2;
+
+  TextEditingController discountsController = TextEditingController();
+  TextEditingController drawsController = TextEditingController();
+  // TextEditingController discountsController = TextEditingController();
+  // TextEditingController discountsController = TextEditingController();
+  // TextEditingController discountsController = TextEditingController();
 
   Map<String, dynamic> initData() {
     return {
