@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/logic/controllers/other/add_products_controller.dart';
+import 'package:systemgym/view/widgets/drop_down_widget.dart';
 
 import '../../../component/app_bars/app_bar.dart';
 import '../../../component/buttons/my_buttons.dart';
-import '../../../component/drop_down.dart';
 import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
@@ -38,7 +38,7 @@ class AddProductScreen extends GetView<AddProductsController> {
             const SizedBox(
               height: 30,
             ),
-            DropDownButton(hint: "Product Type", list: controller.items, value: controller.productType),
+            DropDownWidget(hint: "Product Type", onChange: (p0) {}),
             const SizedBox(
               height: 16,
             ),

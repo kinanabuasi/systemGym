@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/constants/colors.dart';
 import 'package:systemgym/logic/controllers/other/add_a_new_tournament_controller.dart';
+import 'package:systemgym/services/time_picker.dart';
+import 'package:systemgym/view/widgets/drop_down_widget.dart';
 
 import '../../../component/app_bars/app_bar.dart';
 import '../../../component/buttons/my_buttons.dart';
@@ -9,6 +11,7 @@ import '../../../component/drop_down.dart';
 import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
+import '../../widgets/drop_down_multi_widget.dart';
 
 class AddANewTournamentScreen extends StatefulWidget {
   const AddANewTournamentScreen({Key? key}) : super(key: key);
@@ -47,15 +50,15 @@ class _AddANewTournamentScreenState extends State<AddANewTournamentScreen> {
               const SizedBox(
                 height: 30,
               ),
-              MyTextFormField(
-                hintText: "#ID",
-                validator: () {},
-                controller: controller.idController,
-                prefixIcon: Image.asset("assets/images/yellow_check.png"),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
+              // MyTextFormField(
+              //   hintText: "#ID",
+              //   validator: () {},
+              //   controller: controller.idController,
+              //   prefixIcon: Image.asset("assets/images/yellow_check.png"),
+              // ),
+              // const SizedBox(
+              //   height: 16,
+              // ),
               MyTextFormField(
                 hintText: "Tournament name",
                 validator: () {},
@@ -79,15 +82,19 @@ class _AddANewTournamentScreenState extends State<AddANewTournamentScreen> {
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(hint: "Add trainees", list: controller.items, value: controller.trainees),
+              DropDownMultiWidget(hint: "Add trainees", asyncData: controller.getAllPlayer(), onChange: (p0) => controller.initPalyers),
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(hint: "Add trainers", list: controller.items, value: controller.trainers),
+              DropDownMultiWidget(hint: "Add trainers", asyncData: controller.getAllCoash(), onChange: (p0) => controller.initCoach),
               const SizedBox(
                 height: 16,
               ),
               MyTextFormField(
+                ontap: () async {
+                  String date = await TimePickDialog.selectTime(context);
+                  controller.TheEndOfTheTournamentController.text = date;
+                },
                 hintText: "Tournament start date",
                 controller: controller.TournamentStartDateController,
                 validator: () {},
@@ -97,6 +104,10 @@ class _AddANewTournamentScreenState extends State<AddANewTournamentScreen> {
                 height: 16,
               ),
               MyTextFormField(
+                ontap: () async {
+                  String date = await TimePickDialog.selectTime(context);
+                  controller.TheEndOfTheTournamentController.text = date;
+                },
                 hintText: "The end of the tournament",
                 controller: controller.TheEndOfTheTournamentController,
                 validator: () {},
@@ -105,7 +116,7 @@ class _AddANewTournamentScreenState extends State<AddANewTournamentScreen> {
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(hint: "Award type", list: controller.items, value: controller.Award_type),
+              DropDownWidget(hint: "Award type", asyncData: controller.getAllPrize(), onChange: (p0) => controller.initPrize),
               const SizedBox(
                 height: 16,
               ),

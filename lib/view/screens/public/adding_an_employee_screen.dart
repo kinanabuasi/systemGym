@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/logic/controllers/other/add_products_controller.dart';
+import 'package:systemgym/services/pick_image.dart';
+import 'package:systemgym/view/widgets/date_picker.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -15,6 +17,7 @@ import '../../../component/upload_image_widget.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/fonts.dart';
 import '../../../logic/controllers/public/adding_an_employee_controller.dart';
+import '../../../services/time_picker.dart';
 import '../../widgets/drop_down_widget.dart';
 import '../../widgets/public/trainer_detail_widgets/top_snackbar.dart';
 
@@ -40,29 +43,32 @@ class _adding_an_employee_ScreenState extends State<adding_an_employee_Screen> {
               const SizedBox(
                 height: 18,
               ),
-              UploadImageWidget(),
+              Obx(() => UploadImageWidget(bacImage: '')),
               const SizedBox(
                 height: 14,
               ),
-              const Text(
-                "Upload image",
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: yellowColor, fontFamily: "Poppins"),
+              GestureDetector(
+                onTap: () {},
+                child: const Text(
+                  "Upload image",
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: yellowColor, fontFamily: "Poppins"),
+                ),
               ),
               const SizedBox(
                 height: 30,
               ),
-              MyTextFormField(
-                controller: controller.IDController,
-                validator: () {},
-                hintText: "#ID",
-                prefixIcon: Image.asset("assets/images/yellow_check.png"),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
+              // MyTextFormField(
+              //   controller: controller.IDController,
+              //   validator: () {},
+              //   hintText: "#ID",
+              //   prefixIcon: Image.asset("assets/images/yellow_check.png"),
+              // ),
+              // const SizedBox(
+              //   height: 16,
+              // ),
               MyTextFormField(
                 controller: controller.FullNameController,
-                hintText: "full name",
+                hintText: "Name en",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
               ),
@@ -70,6 +76,37 @@ class _adding_an_employee_ScreenState extends State<adding_an_employee_Screen> {
                 height: 16,
               ),
               MyTextFormField(
+                controller: controller.FullNameControllerAR,
+                hintText: "Name ar",
+                validator: () {},
+                prefixIcon: Image.asset("assets/images/yellow_check.png"),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              MyTextFormField(
+                controller: controller.emailController,
+                hintText: "Email",
+                validator: () {},
+                prefixIcon: Image.asset("assets/images/yellow_check.png"),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              MyTextFormField(
+                controller: controller.passwordController,
+                hintText: "Password",
+                validator: () {},
+                prefixIcon: Image.asset("assets/images/yellow_check.png"),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              MyTextFormField(
+                ontap: () async {
+                  String date = await Get.to(DatePickerWidget());
+                  controller.DateOfBirthController.text = date;
+                },
                 controller: controller.DateOfBirthController,
                 KeyboardType: TextInputType.datetime,
                 hintText: "date of birth",
@@ -80,6 +117,7 @@ class _adding_an_employee_ScreenState extends State<adding_an_employee_Screen> {
                 height: 16,
               ),
               MyTextFormField(
+                controller: controller.NationalNumberController,
                 hintText: "National Number",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
@@ -87,21 +125,54 @@ class _adding_an_employee_ScreenState extends State<adding_an_employee_Screen> {
               const SizedBox(
                 height: 16,
               ),
-              MyTextFormField(multiLines: true, validator: () {}, hintText: "About the employee", prefixIcon: Image.asset("assets/images/yellow_dot.png")),
+              MyTextFormField(
+                  controller: controller.DescriptionController,
+                  multiLines: true,
+                  validator: () {},
+                  hintText: "About the employee",
+                  prefixIcon: Image.asset("assets/images/yellow_dot.png")),
               const SizedBox(
                 height: 21,
               ),
-              MyTextFormField(multiLines: true, validator: () {}, hintText: "Comprehensive overview", prefixIcon: Image.asset("assets/images/yellow_dot.png")),
+              MyTextFormField(
+                  controller: controller.fullDescriptionController,
+                  multiLines: true,
+                  validator: () {},
+                  hintText: "Comprehensive overview",
+                  prefixIcon: Image.asset("assets/images/yellow_dot.png")),
               const SizedBox(height: 16),
-              DropDownButton(hint: "Section", list: controller.Section, value: controller.selectedSection),
+              DropDownWidget(
+                asyncData: controller.getAllSection(),
+                hint: "Section",
+                onChange: (p0) => controller.selectSection,
+              ),
               const SizedBox(height: 16),
-              DropDownButton(hint: "employee status", list: controller.employeeStatus, value: controller.selectedEmployeeStatus),
+              DropDownWidget(
+                hint: "employee status",
+                onChange: (p0) {},
+              ),
               const SizedBox(height: 42),
-              MyTextFormField(validator: () {}, hintText: "The beginning of the shift", prefixIcon: Image.asset("assets/images/yellow_check.png")),
+              MyTextFormField(
+                  ontap: () async {
+                    String time = await TimePickDialog.selectTime(context);
+                    controller.TheBeginningOfTheShiftController.text = time;
+                  },
+                  controller: controller.TheBeginningOfTheShiftController,
+                  validator: () {},
+                  hintText: "The beginning of the shift",
+                  prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
-              MyTextFormField(validator: () {}, hintText: "The end of the shift", prefixIcon: Image.asset("assets/images/yellow_check.png")),
+              MyTextFormField(
+                  ontap: () async {
+                    String time = await TimePickDialog.selectTime(context);
+                    controller.TheEndOfTheShiftController.text = time;
+                  },
+                  controller: controller.TheEndOfTheShiftController,
+                  validator: () {},
+                  hintText: "The end of the shift",
+                  prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 16),
-              MyTextFormField(validator: () {}, hintText: "total salary", prefixIcon: Image.asset("assets/images/yellow_check.png")),
+              MyTextFormField(controller: controller.TotalSalaryController, validator: () {}, hintText: "total salary", prefixIcon: Image.asset("assets/images/yellow_check.png")),
               const SizedBox(height: 88),
               MyButton(
                 color: yellowColor,

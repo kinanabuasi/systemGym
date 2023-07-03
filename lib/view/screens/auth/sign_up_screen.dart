@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../constants/colors.dart';
-import '../../../component/linear_gradient.dart';
 import '../../../component/buttons/my_buttons.dart';
+import '../../../component/linear_gradient.dart';
 import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
+import '../../../constants/colors.dart';
 import '../../../logic/controllers/auth/sign_up_controller.dart';
 import '../../../services/fields_validators.dart';
 
@@ -47,11 +47,7 @@ class SignUpScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    MyText(
-                        text: "S Y S T E M  G Y M",
-                        color: white,
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold),
+                    MyText(text: "S Y S T E M  G Y M", color: white, fontSize: 28, fontWeight: FontWeight.bold),
                     const SizedBox(
                       height: 20,
                     ),
@@ -105,8 +101,7 @@ class SignUpScreen extends StatelessWidget {
                             height: 10,
                           ),
                           MyTextFormField(
-                              controller: signUpController
-                                  .subsecriptionPeriodController,
+                              controller: signUpController.subsecriptionPeriodController,
                               validator: FieldsValidators.emptyValidator,
                               hintText: "Subscription period",
                               prefixIcon: const Icon(
@@ -123,14 +118,10 @@ class SignUpScreen extends StatelessWidget {
                         color: yellowColor,
                         widget: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: MyText(
-                              text: "Sign Up",
-                              color: black,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold),
+                          child: MyText(text: "Sign Up", color: black, fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         function: () {
-                          signUpController.validateLogin();
+                          signUpController.signup();
                         }),
                     const SizedBox(
                       height: 10,
@@ -138,20 +129,12 @@ class SignUpScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        MyText(
-                            text: "If you have an account? ",
-                            color: white,
-                            fontSize: 15,
-                            fontWeight: FontWeight.normal),
+                        MyText(text: "If you have an account? ", color: white, fontSize: 15, fontWeight: FontWeight.normal),
                         InkWell(
                           onTap: () {
                             Get.back();
                           },
-                          child: MyText(
-                              text: "Sign in here",
-                              color: yellowColor,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
+                          child: MyText(text: "Sign in here", color: yellowColor, fontSize: 15, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),

@@ -19,8 +19,8 @@ import 'package:systemgym/view/screens/public/player_screens/notifications_playe
 import 'package:systemgym/view/screens/public/player_screens/subscribe_screen.dart';
 import 'package:systemgym/view/screens/public/player_screens/workout_categories_screen.dart';
 import 'package:systemgym/view/screens/public/profile_details_screen.dart';
-
 import 'package:systemgym/view/screens/public/trainer_screens/home_tainer_screen.dart';
+
 import 'constants/routes.dart';
 import 'test.dart';
 import 'view/screens/public/sessions_screen.dart';
@@ -45,7 +45,8 @@ class MyApp extends StatelessWidget {
       //  person_daily_program_Screen(),
 
       theme: ThemeData(fontFamily: 'Poppins'),
-      initialRoute: Routes.addTeamScreen,
+
+      initialRoute: Routes.splashScreen,
       getPages: AppRoutes.routes,
 
       // home: HomeTrainerScreen(),

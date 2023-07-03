@@ -1,5 +1,7 @@
 // ignore_for_file: must_be_immutable
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
@@ -26,7 +28,7 @@ class UploadImageWidget extends StatelessWidget {
       child: Stack(
         children: [
           CircleAvatar(
-            backgroundImage: AssetImage(bacImage),
+            backgroundImage: FileImage(File(bacImage)),
             radius: radius,
           ),
           Positioned(
