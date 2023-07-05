@@ -9,12 +9,12 @@ class LanguageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Scaffold(
           backgroundColor: black,
           appBar: SettingAppBar(title: "LANGUAGE"),
           body: Column(
-            children: const [
+            children: [
               SizedBox(height: 20),
               MyRadioButton(title: "English", value: "english"),
               Padding(

@@ -14,7 +14,7 @@ class SectionRemoteDataSource {
 
   Future<Either<Failures, SectionModel>> addSection(Map<String, dynamic> data) async {
     try {
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, data: data, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.sectionAdd, data: data, headers: AppHeaders.headers);
       _log.i(response.data);
       SectionModel sectionModel = SectionModel.fromJson(response.data['data']);
       return Right(sectionModel);
@@ -25,7 +25,7 @@ class SectionRemoteDataSource {
 
   Future<Either<Failures, List<SectionModel>>> allSection() async {
     try {
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
       List<SectionModel> data = List.from(response.data.map((e) => SectionModel.fromJson(e)));
       return Right(data);
@@ -36,7 +36,7 @@ class SectionRemoteDataSource {
 
   Future<Either<Failures, List<SectionModel>>> updataSection(int id) async {
     try {
-      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
       List<SectionModel> data = List.from(response.data.map((e) => SectionModel.fromJson(e)));
       return Right(data);
@@ -47,7 +47,7 @@ class SectionRemoteDataSource {
 
   Future<Either<Failures, Unit>> deleteSection(int id) async {
     try {
-      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
       return const Right(unit);
     } catch (e) {

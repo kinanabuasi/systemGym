@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/logic/controllers/other/add_products_controller.dart';
+import 'package:systemgym/view/widgets/drop_down_widget.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -15,6 +16,7 @@ import '../../../component/upload_image_widget.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/fonts.dart';
 import '../../../logic/controllers/public/adding_a_diet_controller.dart';
+import '../../../services/time_picker.dart';
 import '../../widgets/public/trainer_detail_widgets/top_snackbar.dart';
 
 class Adding_a_diet_Screen extends StatelessWidget {
@@ -34,41 +36,74 @@ class Adding_a_diet_Screen extends StatelessWidget {
               const SizedBox(
                 height: 18,
               ),
-              UploadImageWidget(),
+              Obx(() => UploadImageWidget(bacImage: _adding_a_diet_controller.imagePath.value!)),
               const SizedBox(
                 height: 14,
               ),
-              const Text(
-                "Upload image",
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: yellowColor, fontFamily: "Poppins"),
+              GestureDetector(
+                onTap: () => _adding_a_diet_controller.initImage(),
+                child: const Text(
+                  "Upload image",
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: yellowColor, fontFamily: "Poppins"),
+                ),
               ),
               const SizedBox(
                 height: 30,
               ),
               MyTextFormField(
-                controller: _adding_a_diet_controller.IDController,
+                controller: _adding_a_diet_controller.NameOfTheDietControllerAr,
                 validator: () {},
-                hintText: "#ID",
+                hintText: "name of the diet in Arabic",
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
               ),
               const SizedBox(
                 height: 16,
               ),
-              // DropDownButton(
-              //     hint: "meal rating",
-              //     list: _adding_a_diet_controller.employeeStatus,
-              //     value: _adding_a_diet_controller.selectedEmployeeStatus),
+              MyTextFormField(
+                controller: _adding_a_diet_controller.NameOfTheDietController,
+                validator: () {},
+                hintText: "name of the diet in English",
+                prefixIcon: Image.asset("assets/images/yellow_check.png"),
+              ),
               const SizedBox(
                 height: 16,
               ),
-              MyTextFormField(multiLines: true, validator: () {}, hintText: "Description of the diet", prefixIcon: Image.asset("assets/images/yellow_dot.png")),
+              DropDownWidget(
+                hint: "meal rating",
+                onChange: (p0) {},
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              DropDownWidget(
+                hint: "Food Type",
+                onChange: (p0) {},
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              MyTextFormField(
+                  controller: _adding_a_diet_controller.DescriptionOfTheDietController,
+                  multiLines: true,
+                  validator: () {},
+                  hintText: "Description of the diet",
+                  prefixIcon: Image.asset("assets/images/yellow_dot.png")),
               const SizedBox(height: 13),
-              MyTextFormField(multiLines: true, validator: () {}, hintText: "components of the diet", prefixIcon: Image.asset("assets/images/yellow_dot.png")),
+              MyTextFormField(
+                  controller: _adding_a_diet_controller.componentsOfTheDietController,
+                  multiLines: true,
+                  validator: () {},
+                  hintText: "components of the diet",
+                  prefixIcon: Image.asset("assets/images/yellow_dot.png")),
               const SizedBox(
                 height: 13,
               ),
               MyTextFormField(
-                controller: _adding_a_diet_controller.IDController,
+                ontap: () async {
+                  String date = await TimePickDialog.selectTime(context);
+                  _adding_a_diet_controller.BeginningOfTheDietTimeController.text = date;
+                },
+                controller: _adding_a_diet_controller.BeginningOfTheDietTimeController,
                 KeyboardType: TextInputType.number,
                 validator: () {},
                 hintText: "beginning of the diet time",
@@ -78,12 +113,26 @@ class Adding_a_diet_Screen extends StatelessWidget {
                 height: 13,
               ),
               MyTextFormField(
-                controller: _adding_a_diet_controller.IDController,
+                ontap: () async {
+                  String date = await TimePickDialog.selectTime(context);
+                  _adding_a_diet_controller.EndOfTheDietTimeController.text = date;
+                },
+                controller: _adding_a_diet_controller.EndOfTheDietTimeController,
                 KeyboardType: TextInputType.number,
                 validator: () {},
-                hintText: "Diet time is over",
+                hintText: "end of the diet time",
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
               ),
+              const SizedBox(
+                height: 13,
+              ),
+              // MyTextFormField(
+              //   controller: _adding_a_diet_controller.DietTimeIsOverController,
+              //   KeyboardType: TextInputType.number,
+              //   validator: () {},
+              //   hintText: "Diet time is over",
+              //   prefixIcon: Image.asset("assets/images/yellow_check.png"),
+              // ),
               const SizedBox(
                 height: 18,
               ),

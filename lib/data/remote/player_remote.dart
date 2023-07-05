@@ -14,7 +14,7 @@ class PlayerRemoteDataSource {
 
   Future<Either<Failures, PlayerModel>> addPlayer(Map<String, dynamic> data) async {
     try {
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, data: data, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, data: data, headers: AppHeaders.headers);
       _log.i(response.data);
       PlayerModel playerModel = PlayerModel.fromJson(response.data['data']);
       return Right(playerModel);
@@ -25,7 +25,7 @@ class PlayerRemoteDataSource {
 
   Future<Either<Failures, List<PlayerModel>>> allPlayer() async {
     try {
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
       List<PlayerModel> data = List.from(response.data.map((e) => PlayerModel.fromJson(e)));
       return Right(data);
@@ -36,7 +36,7 @@ class PlayerRemoteDataSource {
 
   Future<Either<Failures, List<PlayerModel>>> updataPlayer(int id) async {
     try {
-      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
       List<PlayerModel> data = List.from(response.data.map((e) => PlayerModel.fromJson(e)));
       return Right(data);
@@ -47,9 +47,20 @@ class PlayerRemoteDataSource {
 
   Future<Either<Failures, Unit>> deletePlayer(int id) async {
     try {
-      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_player, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
       _log.i(response.data);
       return const Right(unit);
+    } catch (e) {
+      return Left(SomthingWrongFailures());
+    }
+  }
+
+  Future<Either<Failures, PlayerModel>> employeeById(Map<String, dynamic> data) async {
+    try {
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.playerShow, data: data, headers: AppHeaders.headers);
+      _log.i(response.data);
+      PlayerModel employeeModel = PlayerModel.fromJson(response.data);
+      return Right(employeeModel);
     } catch (e) {
       return Left(SomthingWrongFailures());
     }

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/logic/controllers/other/add_products_controller.dart';
+import 'package:systemgym/view/widgets/drop_down_widget.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -16,6 +17,8 @@ import '../../../constants/colors.dart';
 import '../../../constants/fonts.dart';
 import '../../../logic/controllers/public/adding_a_coach_controller.dart';
 import '../../../logic/controllers/public/adding_an_employee_controller.dart';
+import '../../../services/time_picker.dart';
+import '../../widgets/date_picker.dart';
 import '../../widgets/public/trainer_detail_widgets/top_snackbar.dart';
 
 class adding_a_coach_Screen extends StatelessWidget {
@@ -70,7 +73,7 @@ class adding_a_coach_Screen extends StatelessWidget {
                 height: 16,
               ),
               MyTextFormField(
-                controller: _controller.UserNameController,
+                controller: _controller.PasswordController,
                 hintText: "password",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
@@ -113,6 +116,10 @@ class adding_a_coach_Screen extends StatelessWidget {
                   controller: _controller.AboutTheTrainerController),
               const SizedBox(height: 19),
               MyTextFormField(
+                  ontap: () async {
+                    String time = await Get.to(() => DatePickerWidget());
+                    _controller.DateOfBirthController.text = time;
+                  },
                   validator: () {},
                   hintText: "date of birth",
                   prefixIcon: Image.asset("assets/images/yellow_check.png"),
@@ -122,8 +129,17 @@ class adding_a_coach_Screen extends StatelessWidget {
                   hint: "coach status",
                   list: _controller.CoachStatus,
                   value: _controller.selectedCoachStatus),
+              DropDownWidget(
+                hint: "coach status",
+                // asyncData: _controller.CoachStatus,
+                onChange: (p0) {},
+              ),
               const SizedBox(height: 21),
               MyTextFormField(
+                  ontap: () async {
+                    String time = await TimePickDialog.selectTime(context);
+                    _controller.TheBeginningOfTheShiftController.text = time;
+                  },
                   validator: () {},
                   hintText: "The beginning of the shift",
                   prefixIcon: Image.asset("assets/images/yellow_check.png"),
