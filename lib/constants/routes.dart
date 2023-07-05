@@ -31,7 +31,7 @@ import '../view/screens/other/all_tournament_screen.dart';
 import '../view/screens/profile/edit_profile_screen.dart';
 import '../view/screens/profile/pro_profile_screen.dart';
 import '../view/screens/profile/profilee_screen.dart';
-import '../view/screens/public/All _employee_screen.dart';
+import '../view/screens/public/all_employee_screen.dart';
 import '../view/screens/public/All_coach_screen.dart';
 import '../view/screens/public/add_a_training_section_screen.dart';
 import '../view/screens/public/add_new_department_screen.dart';
@@ -54,6 +54,7 @@ import '../view/screens/public/payment/payment_screen.dart';
 import '../view/screens/public/player_screens/fitness_trainers_screen.dart';
 import '../view/screens/public/player_screens/home_player_screen.dart';
 import '../view/screens/public/player_screens/notifications_player_screen.dart';
+import '../view/screens/public/player_screens/subscribe_screen.dart';
 import '../view/screens/public/player_screens/workout_categories_screen.dart';
 import '../view/screens/public/reviews/reviews_screen.dart';
 import '../view/screens/public/reviews/write_review_screen.dart';
@@ -323,6 +324,10 @@ class AppRoutes {
       name: Routes.allTournamentScreen,
       page: () => AllTournamentScreen(),
     ),
+    GetPage(
+      name: Routes.subscribeScreen,
+      page: () => SubscribeScreen(),
+    ),
   ];
 }
 
@@ -388,4 +393,5 @@ class Routes {
   static const allTrainingsSectionScreen = '/allTrainingsSectionScreen';
   static const allTeamScreen = '/allTeamScreen';
   static const allTournamentScreen = '/allTournamentScreen';
+  static const subscribeScreen = '/subscribeScreen';
 }

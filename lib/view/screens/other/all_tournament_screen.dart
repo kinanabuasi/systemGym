@@ -8,7 +8,8 @@ import '../../widgets/contact_info.dart';
 import '../../widgets/progress_indicator.dart';
 
 class AllTournamentScreen extends GetView<AllTournamenController> {
-  const AllTournamentScreen({Key? key}) : super(key: key);
+  final AllTournamenController controller = Get.put(AllTournamenController());
+  AllTournamentScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,8 @@ class AllTournamentScreen extends GetView<AllTournamenController> {
                     itemBuilder: (context, i) => ContactInfo(
                           id: controller.allTournamen[i].id.toString(),
                           name: controller.allTournamen[i].name!.en!,
-                          description: controller.allTournamen[i].description ?? '',
+                          description:
+                              controller.allTournamen[i].description ?? '',
                         ),
                     separatorBuilder: (context, i) => const SizedBox(
                           height: 45,

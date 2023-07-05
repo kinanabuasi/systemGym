@@ -15,7 +15,7 @@ class All_trainers_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBar(whiteText: "All", yellowText: " coach"),
+      appBar: const MyAppBar(whiteText: "All", yellowText: " trainers"),
       body: Container(
         width: double.infinity,
         color: mainColor,

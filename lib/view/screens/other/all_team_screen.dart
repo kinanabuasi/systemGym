@@ -8,7 +8,8 @@ import '../../widgets/contact_info.dart';
 import '../../widgets/progress_indicator.dart';
 
 class AllTeamScreen extends GetView<AllTeamController> {
-  const AllTeamScreen({Key? key}) : super(key: key);
+  final AllTeamController controller = Get.put(AllTeamController());
+  AllTeamScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

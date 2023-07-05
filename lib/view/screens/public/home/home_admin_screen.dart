@@ -38,7 +38,7 @@ class HomeAdminScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600),
                           //
                           MyText(
-                              text: "Admin",
+                              text: " Admin",
                               color: secondYellowColor,
                               fontSize: 16,
                               fontWeight: FontWeight.w600)
@@ -126,6 +126,7 @@ class HomeAdminScreen extends StatelessWidget {
                           ListView.builder(
                               shrinkWrap: true,
                               itemCount: 3,
+                              physics: const NeverScrollableScrollPhysics(),
                               itemBuilder: (context, index) {
                                 return Padding(
                                   padding: const EdgeInsets.symmetric(

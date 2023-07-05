@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/view/screens/auth/how_to_login_screen.dart';
-import 'package:systemgym/view/screens/public/All%20_employee_screen.dart';
+import 'package:systemgym/view/screens/public/all_employee_screen.dart';
 import 'package:systemgym/view/screens/public/add_a_training_screen.dart';
 import 'package:systemgym/view/screens/public/add_a_training_section_screen.dart';
 import 'package:systemgym/view/screens/public/adding_a_coach_screen.dart';

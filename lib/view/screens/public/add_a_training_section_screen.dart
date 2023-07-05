@@ -18,13 +18,17 @@ import '../../../logic/controllers/public/add_a_training_section_controller.dart
 import '../../../logic/controllers/public/adding_an_employee_controller.dart';
 import '../../widgets/public/trainer_detail_widgets/top_snackbar.dart';
 
-class Adding_a_training_section_Screen extends GetView<Adding_training_section_controller> {
+class Adding_a_training_section_Screen
+    extends GetView<Adding_training_section_controller> {
+  final Adding_training_section_controller controller =
+      Get.put(Adding_training_section_controller());
   Adding_a_training_section_Screen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBar(whiteText: "Add a", yellowText: " training section"),
+      appBar:
+          const MyAppBar(whiteText: "Add a", yellowText: " training section"),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -41,7 +45,11 @@ class Adding_a_training_section_Screen extends GetView<Adding_training_section_c
               ),
               const Text(
                 "Upload image",
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: yellowColor, fontFamily: "Poppins"),
+                style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                    color: yellowColor,
+                    fontFamily: "Poppins"),
               ),
               const SizedBox(
                 height: 30,
@@ -65,7 +73,8 @@ class Adding_a_training_section_Screen extends GetView<Adding_training_section_c
                 height: 16,
               ),
               MyTextFormField(
-                  controller: controller.DescriptionOfTheTrainingSectionController,
+                  controller:
+                      controller.DescriptionOfTheTrainingSectionController,
                   multiLines: true,
                   validator: () {},
                   hintText: "Description of the training section",
@@ -82,7 +91,9 @@ class Adding_a_training_section_Screen extends GetView<Adding_training_section_c
                 ),
                 function: () {
                   controller.onItemSave();
-                  ShowTopSnackBar("Good job, New Training section is added successfully", context);
+                  ShowTopSnackBar(
+                      "Good job, New Training section is added successfully",
+                      context);
                 },
               ),
               const SizedBox(
