@@ -15,8 +15,8 @@ class ChooseAgeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TakeInformationBody(
-        infoText: "To give you a better experience we need to know your gender",
-        screenHead: "Tell us about yourself!",
+        screenHead: "HOW OLD ARE YOU ?",
+        infoText: "This helps us create your personalized plan",
         nextButtonFunction: () {
           Get.toNamed(Routes.chooseWeight);
         },

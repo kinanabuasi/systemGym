@@ -33,6 +33,7 @@ class drawerBody extends StatelessWidget {
               ),
               const Divider(thickness: 1, color: whiteGrey),
               ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: titleNav.length,
                   itemBuilder: (context, index) {
@@ -56,60 +57,72 @@ class drawerBody extends StatelessWidget {
                       ],
                     );
                   }),
-              SizedBox(height: 8),
-              MyText(
-                  text: "Sign Out",
-                  color: red,
-                  fontSize: 17,
-                  fontWeight: FontWeight.w600),
+              const SizedBox(height: 8),
+              InkWell(
+                onTap: () {
+                  Get.offNamed(Routes.signIn);
+                },
+                child: MyText(
+                    text: "Sign Out",
+                    color: red,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w600),
+              ),
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 10.0),
                 child: Divider(thickness: 1, color: whiteGrey),
               ),
-              Container(
-                width: double.infinity,
-                height: 90,
-                decoration: BoxDecoration(
-                    color: darkGrey, borderRadius: BorderRadius.circular(20)),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: 50,
-                          decoration: BoxDecoration(
-                              color: red,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Center(
-                            child: MyText(
-                                text: "Pro",
-                                color: whiteGrey,
-                                fontSize: 11,
-                                fontWeight: FontWeight.w600),
+              InkWell(
+                onTap: () {
+                  Get.toNamed(Routes.subscribeScreen);
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(
+                      left: 10, right: 10, bottom: 25, top: 10),
+                  width: double.infinity,
+                  height: 90,
+                  decoration: BoxDecoration(
+                      color: darkGrey, borderRadius: BorderRadius.circular(20)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: 50,
+                            decoration: BoxDecoration(
+                                color: red,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Center(
+                              child: MyText(
+                                  text: "Pro",
+                                  color: whiteGrey,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w600),
+                            ),
                           ),
-                        ),
-                        MyText(
-                            text: "Upgrade to Premium",
-                            color: whiteGrey,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600),
-                        MyText(
-                            text: "This subscription is auto-renewable",
-                            color: whiteGrey,
-                            fontSize: 9,
-                            fontWeight: FontWeight.w400),
-                      ],
-                    ),
-                    const Spacer(),
-                    const Icon(
-                      Icons.chevron_right,
-                      color: whiteGrey,
-                      size: 20,
-                    )
-                  ]),
+                          MyText(
+                              text: "Upgrade to Premium",
+                              color: whiteGrey,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600),
+                          MyText(
+                              text: "This subscription is auto-renewable",
+                              color: whiteGrey,
+                              fontSize: 9,
+                              fontWeight: FontWeight.w400),
+                        ],
+                      ),
+                      const Spacer(),
+                      const Icon(
+                        Icons.chevron_right,
+                        color: whiteGrey,
+                        size: 30,
+                      )
+                    ]),
+                  ),
                 ),
               ),
             ],

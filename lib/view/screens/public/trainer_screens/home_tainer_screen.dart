@@ -28,7 +28,7 @@ class HomeTrainerScreen extends StatelessWidget {
                   color: white,
                   fontSize: 15,
                   fontWeight: FontWeight.w400),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Row(
                 children: [
                   MyText(
@@ -36,7 +36,7 @@ class HomeTrainerScreen extends StatelessWidget {
                       color: white,
                       fontSize: 17,
                       fontWeight: FontWeight.w600),
-                  Spacer(),
+                  const Spacer(),
                   MyText(
                       text: "Mon 26 Apr",
                       color: secondYellowColor,
@@ -44,12 +44,12 @@ class HomeTrainerScreen extends StatelessWidget {
                       fontWeight: FontWeight.w400),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                 width: double.infinity,
                 height: 160,
                 decoration: BoxDecoration(
-                    image: DecorationImage(
+                    image: const DecorationImage(
                         image: AssetImage("assets/images/intro1.png"),
                         fit: BoxFit.cover),
                     borderRadius: BorderRadius.circular(20)),
@@ -59,7 +59,7 @@ class HomeTrainerScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Spacer(),
+                      const Spacer(),
                       MyText(
                           text: "Wake Up Call",
                           color: white,
@@ -74,7 +74,7 @@ class HomeTrainerScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Row(
                 children: [
                   MyText(
@@ -82,7 +82,7 @@ class HomeTrainerScreen extends StatelessWidget {
                       color: white,
                       fontSize: 17,
                       fontWeight: FontWeight.w600),
-                  Spacer(),
+                  const Spacer(),
                   MyText(
                       text: "See all",
                       color: secondYellowColor,
@@ -90,7 +90,7 @@ class HomeTrainerScreen extends StatelessWidget {
                       fontWeight: FontWeight.w400),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                 height: 30,
                 width: double.infinity,
@@ -113,7 +113,7 @@ class HomeTrainerScreen extends StatelessWidget {
                       Tab(text: "Advance")
                     ]),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               SizedBox(
@@ -131,10 +131,11 @@ class HomeTrainerScreen extends StatelessWidget {
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
                               return Container(
+                                margin: const EdgeInsets.only(right: 10),
                                 width: 270,
                                 height: 160,
                                 decoration: BoxDecoration(
-                                    image: DecorationImage(
+                                    image: const DecorationImage(
                                         image: AssetImage(
                                             "assets/images/meal5.png"),
                                         fit: BoxFit.cover),
@@ -146,7 +147,7 @@ class HomeTrainerScreen extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
-                                      Spacer(),
+                                      const Spacer(),
                                       MyText(
                                           text: "Wake Up Call",
                                           color: white,
@@ -163,7 +164,7 @@ class HomeTrainerScreen extends StatelessWidget {
                               );
                             }),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       MyText(
@@ -171,7 +172,7 @@ class HomeTrainerScreen extends StatelessWidget {
                           color: white,
                           fontSize: 17,
                           fontWeight: FontWeight.w600),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       SizedBox(
@@ -209,10 +210,11 @@ class HomeTrainerScreen extends StatelessWidget {
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
                               return Container(
+                                margin: const EdgeInsets.only(right: 10),
                                 width: 270,
                                 height: 160,
                                 decoration: BoxDecoration(
-                                    image: DecorationImage(
+                                    image: const DecorationImage(
                                         image: AssetImage(
                                             "assets/images/meal5.png"),
                                         fit: BoxFit.cover),
@@ -224,7 +226,7 @@ class HomeTrainerScreen extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
-                                      Spacer(),
+                                      const Spacer(),
                                       MyText(
                                           text: "Wake Up Call",
                                           color: white,
@@ -241,7 +243,7 @@ class HomeTrainerScreen extends StatelessWidget {
                               );
                             }),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       MyText(
@@ -249,7 +251,7 @@ class HomeTrainerScreen extends StatelessWidget {
                           color: white,
                           fontSize: 17,
                           fontWeight: FontWeight.w600),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       SizedBox(
@@ -287,10 +289,11 @@ class HomeTrainerScreen extends StatelessWidget {
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
                               return Container(
+                                margin: const EdgeInsets.only(right: 10),
                                 width: 270,
                                 height: 160,
                                 decoration: BoxDecoration(
-                                    image: DecorationImage(
+                                    image: const DecorationImage(
                                         image: AssetImage(
                                             "assets/images/meal5.png"),
                                         fit: BoxFit.cover),
@@ -302,7 +305,7 @@ class HomeTrainerScreen extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
-                                      Spacer(),
+                                      const Spacer(),
                                       MyText(
                                           text: "Wake Up Call",
                                           color: white,
@@ -319,7 +322,7 @@ class HomeTrainerScreen extends StatelessWidget {
                               );
                             }),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       MyText(
@@ -327,7 +330,7 @@ class HomeTrainerScreen extends StatelessWidget {
                           color: white,
                           fontSize: 17,
                           fontWeight: FontWeight.w600),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       SizedBox(

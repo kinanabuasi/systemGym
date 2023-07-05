@@ -20,7 +20,7 @@ class SeeAllWidget extends StatelessWidget {
             fontWeight: FontWeight.w600),
         const Spacer(),
         InkWell(
-          onTap: () {},
+          onTap: seeAllFunction,
           child: Padding(
             padding: const EdgeInsets.only(right: 20.0),
             child: MyText(

@@ -10,7 +10,9 @@ import '../../widgets/contact_info.dart';
 import '../../widgets/progress_indicator.dart';
 
 class All_employee_Screen extends GetView<AllEmployeesController> {
-  const All_employee_Screen({Key? key}) : super(key: key);
+  final AllEmployeesController controller = Get.put(AllEmployeesController());
+
+  All_employee_Screen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

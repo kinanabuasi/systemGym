@@ -24,47 +24,46 @@ class SubscribeScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(children: [
                   Expanded(
-                      flex: 2,
                       child: Stack(
-                        children: [
-                          Container(
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: const BoxDecoration(color: mainColor),
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        height: double.infinity,
+                        decoration: const BoxDecoration(color: mainColor),
+                      ),
+                      ClipPath(
+                        clipper: CustomClipPath(),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: Image.asset(
+                            "assets/images/subscribe.png",
+                            fit: BoxFit.cover,
                           ),
-                          ClipPath(
-                            clipper: CustomClipPath(),
-                            child: SizedBox(
-                              width: double.infinity,
-                              child: Image.asset(
-                                "assets/images/subscribe.png",
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          const LinearGradientContainer(
-                              beginAlignment: Alignment.bottomCenter),
-                          Positioned(
-                            bottom: 150,
-                            left: 20,
-                            child: MyText(
-                                text: "Be Premiume\nGet unlimited access",
-                                color: white,
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Positioned(
-                            bottom: 100,
-                            left: 20,
-                            child: MyText(
-                                text:
-                                    "When you subscribe, you’ll get\ninstant unlimited access",
-                                color: white,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w400),
-                          )
-                        ],
-                      )),
+                        ),
+                      ),
+                      const LinearGradientContainer(
+                          beginAlignment: Alignment.bottomCenter),
+                      Positioned(
+                        bottom: 120,
+                        left: 20,
+                        child: MyText(
+                            text: "Be Premiume\nGet unlimited access",
+                            color: white,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Positioned(
+                        bottom: 70,
+                        left: 20,
+                        child: MyText(
+                            text:
+                                "When you subscribe, you’ll get\ninstant unlimited access",
+                            color: white,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400),
+                      )
+                    ],
+                  )),
                   Expanded(
                       child: SizedBox(
                     width: double.infinity,
@@ -89,7 +88,7 @@ class SubscribeScreen extends StatelessWidget {
                                           subscribeController.update();
                                         },
                                         child: Container(
-                                          height: 75,
+                                          height: 100,
                                           width: double.infinity,
                                           decoration: BoxDecoration(
                                               border: Border.all(
@@ -147,7 +146,7 @@ class SubscribeScreen extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                      const SizedBox(height: 10),
+                                      const SizedBox(height: 20),
                                       InkWell(
                                         onTap: () {
                                           subscribeController.isMonthlyPressed =
@@ -157,7 +156,7 @@ class SubscribeScreen extends StatelessWidget {
                                           subscribeController.update();
                                         },
                                         child: Container(
-                                          height: 75,
+                                          height: 100,
                                           width: double.infinity,
                                           decoration: BoxDecoration(
                                               border: Border.all(

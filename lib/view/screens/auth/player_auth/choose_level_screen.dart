@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:systemgym/component/my_text.dart';
 import 'package:systemgym/constants/colors.dart';
 
+import '../../../../constants/routes.dart';
 import '../../../../logic/controllers/auth/player_auth/choose_weight_controller.dart';
 import '../../../widgets/auth_player/take_information_body.dart';
 
@@ -15,7 +16,9 @@ class ChooseLevelScreen extends StatelessWidget {
     return TakeInformationBody(
         infoText: "This helps us create your personalized plan",
         screenHead: "Your regular physical\nactivity level?",
-        nextButtonFunction: () {},
+        nextButtonFunction: () {
+          Get.toNamed(Routes.homePlayerScreen);
+        },
         screenBody: GetBuilder<WeightController>(
             init: WeightController(),
             builder: (weightController) {

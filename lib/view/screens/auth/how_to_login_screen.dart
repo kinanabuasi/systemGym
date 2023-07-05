@@ -45,114 +45,116 @@ class HowToLoginScreen extends StatelessWidget {
       backgroundColor: mainColor,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                MyText(
-                    text: "Define the user attribute",
-                    color: white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold),
-                const SizedBox(
-                  height: 10,
-                ),
-                MyText(
-                    textAlign: TextAlign.center,
-                    text:
-                        "To give you a better experience we need\nto know who you are.",
-                    color: white,
-                    fontSize: 13,
-                    fontWeight: FontWeight.bold),
-              ],
-            ),
-            Expanded(
-              child: Column(
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  InkWell(
-                    onTap: () {
-                      Get.toNamed(Routes.signIn);
-                    },
-                    child: CircleAvatar(
-                      backgroundColor: secondYellowColor,
-                      radius: 60,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/images/admin.png",
-                              height: 90,
-                              width: 90,
-                            ),
-                            MyText(
-                                text: "Admin",
-                                color: mainColor,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600)
-                          ]),
-                    ),
-                  ),
+                  MyText(
+                      text: "Define the user attribute",
+                      color: white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
-                  InkWell(
-                    onTap: () {
-                      Get.toNamed(Routes.signIn);
-                    },
-                    child: CircleAvatar(
-                      backgroundColor: red,
-                      radius: 60,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/images/trainer1.png",
-                              height: 90,
-                              width: 90,
-                            ),
-                            MyText(
-                                text: "Trainer",
-                                color: mainColor,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600)
-                          ]),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Get.toNamed(Routes.signIn);
-                    },
-                    child: CircleAvatar(
-                      backgroundColor: green,
-                      radius: 60,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/images/player.png",
-                              height: 90,
-                              width: 90,
-                            ),
-                            MyText(
-                                text: "Player",
-                                color: mainColor,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600)
-                          ]),
-                    ),
-                  ),
+                  MyText(
+                      textAlign: TextAlign.center,
+                      text:
+                          "To give you a better experience we need\nto know who you are.",
+                      color: white,
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold),
                 ],
               ),
-            )
-          ],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(Routes.signIn);
+                      },
+                      child: CircleAvatar(
+                        backgroundColor: secondYellowColor,
+                        radius: 60,
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                "assets/images/admin.png",
+                                height: 90,
+                                width: 90,
+                              ),
+                              MyText(
+                                  text: "Admin",
+                                  color: mainColor,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w600)
+                            ]),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(Routes.homeTrainerScreen);
+                      },
+                      child: CircleAvatar(
+                        backgroundColor: red,
+                        radius: 60,
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                "assets/images/trainer1.png",
+                                height: 90,
+                                width: 90,
+                              ),
+                              MyText(
+                                  text: "Trainer",
+                                  color: mainColor,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w600)
+                            ]),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(Routes.chooseGender);
+                      },
+                      child: CircleAvatar(
+                        backgroundColor: green,
+                        radius: 60,
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                "assets/images/player.png",
+                                height: 90,
+                                width: 90,
+                              ),
+                              MyText(
+                                  text: "Player",
+                                  color: mainColor,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w600)
+                            ]),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     ));

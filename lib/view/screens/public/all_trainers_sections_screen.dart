@@ -11,7 +11,7 @@ class All_trainings_section_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBar(whiteText: "All", yellowText: " employee"),
+      appBar: const MyAppBar(whiteText: "All", yellowText: " sections"),
       body: Container(
         width: double.infinity,
         color: mainColor,
@@ -20,11 +20,14 @@ class All_trainings_section_Screen extends StatelessWidget {
             const SizedBox(
               height: 70,
             ),
-            MyCounter(itemsLength: 6, id: "ID", 
-            name: "fullname", description: "dateofbirth"),
+            MyCounter(
+                itemsLength: 6,
+                id: "ID",
+                name: "fullname",
+                description: "dateofbirth"),
             SizedBox(
               height: 11,
-            ), 
+            ),
           ],
         ),
       ),
