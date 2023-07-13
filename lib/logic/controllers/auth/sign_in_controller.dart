@@ -26,7 +26,7 @@ class SignInController extends GetxController {
       isLoading.value = true;
       Map<String, dynamic> map = {'email': emailController.text, 'password': passwordController.text};
       final data = await _authRemoteDataSource.adminLogin(map);
-      data.fold((l) => SnackbarUtil.showError(message: 'Wrong Data'), (r) => null);
+      data.fold((l) => SnackbarUtil.showError(message: 'Wrong Data'), (r) => Get.toNamed(Routes.homeAdminScreen));
       isLoading.value = false;
       update();
     }

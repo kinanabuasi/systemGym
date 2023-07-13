@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:systemgym/constants/colors.dart';
 
@@ -33,7 +34,7 @@ class DatePickerWidgetState extends State<DatePickerWidget> {
               // controller: dataPickerController.dataPickerRangeController,
               headerStyle: const DateRangePickerHeaderStyle(textAlign: TextAlign.center),
               onSelectionChanged: onSelectionChanged,
-              selectionMode: DateRangePickerSelectionMode.range,
+              selectionMode: DateRangePickerSelectionMode.single,
             ),
           ),
           Expanded(
@@ -69,6 +70,6 @@ class DatePickerWidgetState extends State<DatePickerWidget> {
   }
 
   void onSelectionChanged(DateRangePickerSelectionChangedArgs args) {
-    selectedDate = args.value.toString();
+    selectedDate = DateFormat('yyyy-MM-dd').format(args.value as DateTime);
   }
 }

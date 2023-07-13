@@ -11,7 +11,6 @@ Future<List<Media>?> pickImageformCamera(BuildContext context) async {
 }
 
 Future<List<Media>?> pickImagefromGallery(BuildContext context, [int count = 10]) async {
-  Navigator.of(context).pop();
   List<Media>? data = await ImagesPicker.pick(
     count: count,
     pickType: PickType.image,

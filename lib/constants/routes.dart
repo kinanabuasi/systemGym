@@ -31,7 +31,6 @@ import '../view/screens/other/all_tournament_screen.dart';
 import '../view/screens/profile/edit_profile_screen.dart';
 import '../view/screens/profile/pro_profile_screen.dart';
 import '../view/screens/profile/profilee_screen.dart';
-import '../view/screens/public/all_employee_screen.dart';
 import '../view/screens/public/All_coach_screen.dart';
 import '../view/screens/public/add_a_training_section_screen.dart';
 import '../view/screens/public/add_new_department_screen.dart';
@@ -41,6 +40,7 @@ import '../view/screens/public/adding_a_diet_screen.dart';
 import '../view/screens/public/adding_an_employee_screen.dart';
 import '../view/screens/public/all_department_screen.dart';
 import '../view/screens/public/all_diet_screen.dart';
+import '../view/screens/public/all_employee_screen.dart';
 import '../view/screens/public/all_trainers_sections_screen.dart';
 import '../view/screens/public/details_team_screen.dart';
 import '../view/screens/public/diet_plan_screen.dart';
@@ -69,7 +69,6 @@ import '../view/screens/settings/notifications_settings_screen.dart';
 import '../view/screens/settings/privacy_policy_screen.dart';
 import '../view/screens/settings/settings_screen.dart';
 import '../view/screens/settings/units_of_measure_screen.dart';
-import 'package:systemgym/view/screens/public/all_trainers_sections_screen.dart';
 
 class AppRoutes {
   static const splash = Routes.splashScreen;
@@ -83,23 +82,9 @@ class AppRoutes {
       name: Routes.introduction,
       page: () => IntroductionScreen(),
     ),
-    GetPage(
-        name: Routes.signIn,
-        page: () => SignInScreen(),
-        binding: SignInBinding(),
-        transition: Transition.rightToLeft,
-        transitionDuration: const Duration(milliseconds: 300)),
-    GetPage(
-        name: Routes.signUp,
-        page: () => SignUpScreen(),
-        binding: SignUpBinding(),
-        transition: Transition.downToUp,
-        transitionDuration: const Duration(milliseconds: 300)),
-    GetPage(
-        name: Routes.forgotPassword,
-        page: () => const ForgotPasswordScreen(),
-        transition: Transition.fadeIn,
-        transitionDuration: const Duration(milliseconds: 300)),
+    GetPage(name: Routes.signIn, page: () => SignInScreen(), binding: SignInBinding(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 300)),
+    GetPage(name: Routes.signUp, page: () => SignUpScreen(), binding: SignUpBinding(), transition: Transition.downToUp, transitionDuration: const Duration(milliseconds: 300)),
+    GetPage(name: Routes.forgotPassword, page: () => const ForgotPasswordScreen(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 300)),
     GetPage(
         name: Routes.verificationScreen,
         page: () => const VerificationScreen(),
@@ -280,10 +265,7 @@ class AppRoutes {
       name: Routes.addDietScreen,
       page: () => Adding_a_diet_Screen(),
     ),
-    GetPage(
-        name: Routes.addTeamScreen,
-        page: () => AddTeamScreen(),
-        binding: AddTeamBinding()),
+    GetPage(name: Routes.addTeamScreen, page: () => AddTeamScreen(), binding: AddTeamBinding()),
     GetPage(
       name: Routes.detailesTeamScreen,
       page: () => DetailesTeamScreen(),

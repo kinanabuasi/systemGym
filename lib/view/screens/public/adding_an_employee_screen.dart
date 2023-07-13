@@ -17,8 +17,10 @@ import '../../../component/upload_image_widget.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/fonts.dart';
 import '../../../logic/controllers/public/adding_an_employee_controller.dart';
+import '../../../model/section_model.dart';
 import '../../../services/time_picker.dart';
 import '../../widgets/drop_down_widget.dart';
+import '../../widgets/full_progress_indicator.dart';
 import '../../widgets/public/trainer_detail_widgets/top_snackbar.dart';
 
 class adding_an_employee_Screen extends StatefulWidget {
@@ -33,160 +35,169 @@ class _adding_an_employee_ScreenState extends State<adding_an_employee_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(whiteText: "Adding an", yellowText: " employee"),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 40.0),
-          width: double.infinity,
-          color: mainColor,
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 18,
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 40.0),
+              width: double.infinity,
+              color: mainColor,
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 18,
+                  ),
+                  UploadImageWidget(),
+                  const SizedBox(
+                    height: 14,
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Text(
+                      "Upload image",
+                      style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: yellowColor, fontFamily: "Poppins"),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  // MyTextFormField(
+                  //   controller: controller.IDController,
+                  //   validator: () {},
+                  //   hintText: "#ID",
+                  //   prefixIcon: Image.asset("assets/images/yellow_check.png"),
+                  // ),
+                  // const SizedBox(
+                  //   height: 16,
+                  // ),
+                  MyTextFormField(
+                    controller: controller.FullNameController,
+                    hintText: "Name en",
+                    validator: () {},
+                    prefixIcon: Image.asset("assets/images/yellow_check.png"),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  MyTextFormField(
+                    controller: controller.FullNameControllerAR,
+                    hintText: "Name ar",
+                    validator: () {},
+                    prefixIcon: Image.asset("assets/images/yellow_check.png"),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  MyTextFormField(
+                    controller: controller.emailController,
+                    hintText: "Email",
+                    validator: () {},
+                    prefixIcon: Image.asset("assets/images/yellow_check.png"),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  MyTextFormField(
+                    controller: controller.passwordController,
+                    hintText: "Password",
+                    validator: () {},
+                    prefixIcon: Image.asset("assets/images/yellow_check.png"),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  MyTextFormField(
+                    ontap: () async {
+                      String date = await Get.to(DatePickerWidget());
+                      controller.DateOfBirthController.text = date;
+                    },
+                    controller: controller.DateOfBirthController,
+                    KeyboardType: TextInputType.datetime,
+                    enable: false,
+                    hintText: "date of birth",
+                    validator: () {},
+                    prefixIcon: Image.asset("assets/images/yellow_check.png"),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  MyTextFormField(
+                    controller: controller.NationalNumberController,
+                    hintText: "National Number",
+                    validator: () {},
+                    prefixIcon: Image.asset("assets/images/yellow_check.png"),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  MyTextFormField(
+                      controller: controller.DescriptionController,
+                      multiLines: true,
+                      validator: () {},
+                      hintText: "About the employee",
+                      prefixIcon: Image.asset("assets/images/yellow_dot.png")),
+                  const SizedBox(
+                    height: 21,
+                  ),
+                  MyTextFormField(
+                      controller: controller.fullDescriptionController,
+                      multiLines: true,
+                      validator: () {},
+                      hintText: "Comprehensive overview",
+                      prefixIcon: Image.asset("assets/images/yellow_dot.png")),
+                  const SizedBox(height: 16),
+                  DropDownWidget<SectionModel>(
+                    asyncData: controller.getAllSection(),
+                    hint: "Section",
+                    onChange: (p0) => controller.selectSection(p0),
+                  ),
+                  const SizedBox(height: 16),
+                  DropDownWidget(
+                    hint: "employee status",
+                    onChange: (p0) {},
+                  ),
+                  const SizedBox(height: 42),
+                  MyTextFormField(
+                      ontap: () async {
+                        String time = await TimePickDialog.selectTime(context);
+                        controller.TheBeginningOfTheShiftController.text = time;
+                      },
+                      controller: controller.TheBeginningOfTheShiftController,
+                      enable: true,
+                      validator: () {},
+                      hintText: "The beginning of the shift",
+                      prefixIcon: Image.asset("assets/images/yellow_check.png")),
+                  const SizedBox(height: 16),
+                  MyTextFormField(
+                      ontap: () async {
+                        String time = await TimePickDialog.selectTime(context);
+                        controller.TheEndOfTheShiftController.text = time;
+                      },
+                      controller: controller.TheEndOfTheShiftController,
+                      validator: () {},
+                      enable: true,
+                      hintText: "The end of the shift",
+                      prefixIcon: Image.asset("assets/images/yellow_check.png")),
+                  const SizedBox(height: 16),
+                  MyTextFormField(
+                      controller: controller.TotalSalaryController, validator: () {}, hintText: "total salary", prefixIcon: Image.asset("assets/images/yellow_check.png")),
+                  const SizedBox(height: 88),
+                  MyButton(
+                    color: yellowColor,
+                    widget: MyText(text: "Create now", color: black, fontSize: 16, fontWeight: FontWeight.w700),
+                    function: () {
+                      controller.addEmployee();
+                    },
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                ],
               ),
-              Obx(() => UploadImageWidget(bacImage: '')),
-              const SizedBox(
-                height: 14,
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: const Text(
-                  "Upload image",
-                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: yellowColor, fontFamily: "Poppins"),
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              // MyTextFormField(
-              //   controller: controller.IDController,
-              //   validator: () {},
-              //   hintText: "#ID",
-              //   prefixIcon: Image.asset("assets/images/yellow_check.png"),
-              // ),
-              // const SizedBox(
-              //   height: 16,
-              // ),
-              MyTextFormField(
-                controller: controller.FullNameController,
-                hintText: "Name en",
-                validator: () {},
-                prefixIcon: Image.asset("assets/images/yellow_check.png"),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              MyTextFormField(
-                controller: controller.FullNameControllerAR,
-                hintText: "Name ar",
-                validator: () {},
-                prefixIcon: Image.asset("assets/images/yellow_check.png"),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              MyTextFormField(
-                controller: controller.emailController,
-                hintText: "Email",
-                validator: () {},
-                prefixIcon: Image.asset("assets/images/yellow_check.png"),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              MyTextFormField(
-                controller: controller.passwordController,
-                hintText: "Password",
-                validator: () {},
-                prefixIcon: Image.asset("assets/images/yellow_check.png"),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              MyTextFormField(
-                ontap: () async {
-                  String date = await Get.to(DatePickerWidget());
-                  controller.DateOfBirthController.text = date;
-                },
-                controller: controller.DateOfBirthController,
-                KeyboardType: TextInputType.datetime,
-                hintText: "date of birth",
-                validator: () {},
-                prefixIcon: Image.asset("assets/images/yellow_check.png"),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              MyTextFormField(
-                controller: controller.NationalNumberController,
-                hintText: "National Number",
-                validator: () {},
-                prefixIcon: Image.asset("assets/images/yellow_check.png"),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              MyTextFormField(
-                  controller: controller.DescriptionController,
-                  multiLines: true,
-                  validator: () {},
-                  hintText: "About the employee",
-                  prefixIcon: Image.asset("assets/images/yellow_dot.png")),
-              const SizedBox(
-                height: 21,
-              ),
-              MyTextFormField(
-                  controller: controller.fullDescriptionController,
-                  multiLines: true,
-                  validator: () {},
-                  hintText: "Comprehensive overview",
-                  prefixIcon: Image.asset("assets/images/yellow_dot.png")),
-              const SizedBox(height: 16),
-              DropDownWidget(
-                asyncData: controller.getAllSection(),
-                hint: "Section",
-                onChange: (p0) => controller.selectSection,
-              ),
-              const SizedBox(height: 16),
-              DropDownWidget(
-                hint: "employee status",
-                onChange: (p0) {},
-              ),
-              const SizedBox(height: 42),
-              MyTextFormField(
-                  ontap: () async {
-                    String time = await TimePickDialog.selectTime(context);
-                    controller.TheBeginningOfTheShiftController.text = time;
-                  },
-                  controller: controller.TheBeginningOfTheShiftController,
-                  validator: () {},
-                  hintText: "The beginning of the shift",
-                  prefixIcon: Image.asset("assets/images/yellow_check.png")),
-              const SizedBox(height: 16),
-              MyTextFormField(
-                  ontap: () async {
-                    String time = await TimePickDialog.selectTime(context);
-                    controller.TheEndOfTheShiftController.text = time;
-                  },
-                  controller: controller.TheEndOfTheShiftController,
-                  validator: () {},
-                  hintText: "The end of the shift",
-                  prefixIcon: Image.asset("assets/images/yellow_check.png")),
-              const SizedBox(height: 16),
-              MyTextFormField(controller: controller.TotalSalaryController, validator: () {}, hintText: "total salary", prefixIcon: Image.asset("assets/images/yellow_check.png")),
-              const SizedBox(height: 88),
-              MyButton(
-                color: yellowColor,
-                widget: MyText(text: "Create now", color: black, fontSize: 16, fontWeight: FontWeight.w700),
-                function: () {
-                  controller.addEmployee();
-                },
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-            ],
+            ),
           ),
-        ),
+          Obx(() => Visibility(visible: controller.isLoading.value, child: FullProgressIndicatorWidget()))
+        ],
       ),
     );
   }

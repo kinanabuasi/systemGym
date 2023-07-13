@@ -6,4 +6,5 @@ class StorageKey {
   static const TOKEN = 'TOKEN';
   static const LANG = 'LANG';
   static const THEME = 'THEME';
+  static const INTRO = 'INTRO';
 }

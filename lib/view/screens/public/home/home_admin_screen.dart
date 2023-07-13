@@ -8,7 +8,6 @@ import '../../../../constants/routes.dart';
 import '../../../widgets/public/home_admin_screen_widgets/admin_drawer_body.dart';
 import '../../../widgets/public/home_admin_screen_widgets/see_all_widget.dart';
 import '../../../widgets/public/home_admin_screen_widgets/show_all_widget.dart';
-import '../add_team_screen.dart';
 
 class HomeAdminScreen extends StatelessWidget {
   const HomeAdminScreen({super.key});
@@ -22,8 +21,7 @@ class HomeAdminScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(left: 20.0, bottom: 20, top: 20),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Row(
                 children: [
                   Column(
@@ -31,24 +29,12 @@ class HomeAdminScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          MyText(
-                              text: "Hello",
-                              color: white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600),
+                          MyText(text: "Hello", color: white, fontSize: 16, fontWeight: FontWeight.w600),
                           //
-                          MyText(
-                              text: " Admin",
-                              color: secondYellowColor,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600)
+                          MyText(text: " Admin", color: secondYellowColor, fontSize: 16, fontWeight: FontWeight.w600)
                         ],
                       ),
-                      MyText(
-                          text: "Manage your club today!",
-                          color: white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600)
+                      MyText(text: "Manage your club today!", color: white, fontSize: 20, fontWeight: FontWeight.w600)
                     ],
                   ),
                   const Spacer(),
@@ -66,8 +52,7 @@ class HomeAdminScreen extends StatelessWidget {
                             child: Stack(
                               children: [
                                 const CircleAvatar(
-                                  backgroundImage:
-                                      AssetImage("assets/images/person3.png"),
+                                  backgroundImage: AssetImage("assets/images/person3.png"),
                                   radius: 25,
                                 ),
                                 Positioned(
@@ -109,64 +94,51 @@ class HomeAdminScreen extends StatelessWidget {
                   //  height: 450,
                   margin: const EdgeInsets.only(right: 20),
                   width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: whiteGrey,
-                      borderRadius: BorderRadius.circular(20)),
+                  decoration: BoxDecoration(color: whiteGrey, borderRadius: BorderRadius.circular(20)),
                   child: Padding(
                     padding: const EdgeInsets.all(12.0),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          MyText(
-                            color: originalBlack,
-                            text: "Performance Analyzsis",
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                          ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: 3,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 10.0),
-                                  child: Row(
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      MyText(
+                        color: originalBlack,
+                        text: "Performance Analyzsis",
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: 3,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10.0),
+                              child: Row(
+                                children: [
+                                  CircleAvatar(
+                                    backgroundColor: colorPref[index],
+                                    radius: 5,
+                                  ),
+                                  const SizedBox(width: 5),
+                                  MyText(text: typePerf[index], color: originalBlack, fontSize: 11, fontWeight: FontWeight.w400),
+                                  const Spacer(),
+                                  Row(
                                     children: [
-                                      CircleAvatar(
-                                        backgroundColor: colorPref[index],
-                                        radius: 5,
-                                      ),
+                                      MyText(text: precentPerf[index], color: originalBlack, fontSize: 10, fontWeight: FontWeight.normal),
                                       const SizedBox(width: 5),
-                                      MyText(
-                                          text: typePerf[index],
-                                          color: originalBlack,
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.w400),
-                                      const Spacer(),
-                                      Row(
-                                        children: [
-                                          MyText(
-                                              text: precentPerf[index],
-                                              color: originalBlack,
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.normal),
-                                          const SizedBox(width: 5),
-                                          SizedBox(
-                                            width: 170,
-                                            child: LinearProgressIndicator(
-                                              backgroundColor: darkGrey,
-                                              color: colorPref[index],
-                                              value: doublePerf[index],
-                                            ),
-                                          )
-                                        ],
-                                      ),
+                                      SizedBox(
+                                        width: 170,
+                                        child: LinearProgressIndicator(
+                                          backgroundColor: darkGrey,
+                                          color: colorPref[index],
+                                          value: doublePerf[index],
+                                        ),
+                                      )
                                     ],
                                   ),
-                                );
-                              })
-                        ]),
+                                ],
+                              ),
+                            );
+                          })
+                    ]),
                   )),
               const SizedBox(height: 20),
               SeeAllWidget(
@@ -214,11 +186,8 @@ class HomeAdminScreen extends StatelessWidget {
                         margin: const EdgeInsets.only(right: 10),
                         height: 150,
                         width: 130,
-                        decoration: BoxDecoration(
-                            image: const DecorationImage(
-                                image: AssetImage("assets/images/meal5.png"),
-                                fit: BoxFit.cover),
-                            borderRadius: BorderRadius.circular(20)),
+                        decoration:
+                            BoxDecoration(image: const DecorationImage(image: AssetImage("assets/images/meal5.png"), fit: BoxFit.cover), borderRadius: BorderRadius.circular(20)),
                       );
                     }),
               ),
@@ -244,20 +213,13 @@ class HomeAdminScreen extends StatelessWidget {
                         margin: const EdgeInsets.only(right: 10),
                         height: 100,
                         width: 75,
-                        decoration: BoxDecoration(
-                            image: const DecorationImage(
-                                image: AssetImage("assets/images/meal3.png"),
-                                fit: BoxFit.cover),
-                            borderRadius: BorderRadius.circular(20)),
+                        decoration:
+                            BoxDecoration(image: const DecorationImage(image: AssetImage("assets/images/meal3.png"), fit: BoxFit.cover), borderRadius: BorderRadius.circular(20)),
                         child: Align(
                           alignment: Alignment.bottomCenter,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: MyText(
-                                text: "Gym",
-                                color: white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700),
+                            child: MyText(text: "Gym", color: white, fontSize: 16, fontWeight: FontWeight.w700),
                           ),
                         ),
                       );
@@ -285,20 +247,13 @@ class HomeAdminScreen extends StatelessWidget {
                         margin: const EdgeInsets.only(right: 10),
                         height: 120,
                         width: 220,
-                        decoration: BoxDecoration(
-                            image: const DecorationImage(
-                                image: AssetImage("assets/images/meal6.png"),
-                                fit: BoxFit.cover),
-                            borderRadius: BorderRadius.circular(20)),
+                        decoration:
+                            BoxDecoration(image: const DecorationImage(image: AssetImage("assets/images/meal6.png"), fit: BoxFit.cover), borderRadius: BorderRadius.circular(20)),
                         child: Align(
                           alignment: Alignment.bottomLeft,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: MyText(
-                                text: "Gym Centres",
-                                color: white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700),
+                            child: MyText(text: "Gym Centres", color: white, fontSize: 16, fontWeight: FontWeight.w700),
                           ),
                         ),
                       );
@@ -326,20 +281,13 @@ class HomeAdminScreen extends StatelessWidget {
                         margin: const EdgeInsets.only(right: 10),
                         height: 120,
                         width: 220,
-                        decoration: BoxDecoration(
-                            image: const DecorationImage(
-                                image: AssetImage("assets/images/meal6.png"),
-                                fit: BoxFit.cover),
-                            borderRadius: BorderRadius.circular(20)),
+                        decoration:
+                            BoxDecoration(image: const DecorationImage(image: AssetImage("assets/images/meal6.png"), fit: BoxFit.cover), borderRadius: BorderRadius.circular(20)),
                         child: Align(
                           alignment: Alignment.bottomLeft,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: MyText(
-                                text: "Gym Centres",
-                                color: white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700),
+                            child: MyText(text: "Gym Centres", color: white, fontSize: 16, fontWeight: FontWeight.w700),
                           ),
                         ),
                       );
@@ -355,11 +303,7 @@ class HomeAdminScreen extends StatelessWidget {
               const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.only(right: 20.0),
-                child: MyCounter(
-                    itemsLength: 4,
-                    id: "id",
-                    name: "name",
-                    description: "description"),
+                child: MyCounter(itemsLength: 4, id: "id", name: "name", description: "description"),
               ),
               const SizedBox(
                 height: 20,
@@ -371,11 +315,7 @@ class HomeAdminScreen extends StatelessWidget {
               const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.only(right: 20.0),
-                child: MyCounter(
-                    itemsLength: 4,
-                    id: "id",
-                    name: "name",
-                    description: "description"),
+                child: MyCounter(itemsLength: 4, id: "id", name: "name", description: "description"),
               ),
               const SizedBox(
                 height: 20,
@@ -387,11 +327,7 @@ class HomeAdminScreen extends StatelessWidget {
               const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.only(right: 20.0),
-                child: MyCounter(
-                    itemsLength: 4,
-                    id: "id",
-                    name: "name",
-                    description: "description"),
+                child: MyCounter(itemsLength: 4, id: "id", name: "name", description: "description"),
               )
             ]),
           ),

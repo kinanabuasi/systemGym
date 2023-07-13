@@ -10,18 +10,19 @@ class MyTextFormField extends StatelessWidget {
   final Function validator;
   final String hintText;
   final void Function()? ontap;
-  Color fillColor;
-  Color textColor;
-  Color focusedBorderColor;
-  Color enabledBorderColor;
-  TextEditingController? controller;
-  bool obsecure;
-  Widget? prefixIcon;
-  bool multiLines;
-  TextInputType KeyboardType;
-  String? fontFamily;
+  final Color fillColor;
+  final Color textColor;
+  final Color focusedBorderColor;
+  final Color enabledBorderColor;
+  final TextEditingController? controller;
+  final bool obsecure;
+  final Widget? prefixIcon;
+  final bool multiLines;
+  final TextInputType KeyboardType;
+  final String? fontFamily;
+  final bool enable;
 
-  MyTextFormField({
+  const MyTextFormField({
     super.key,
     required this.validator,
     required this.hintText,
@@ -36,12 +37,14 @@ class MyTextFormField extends StatelessWidget {
     this.KeyboardType = TextInputType.text,
     this.fontFamily = "Montserrat",
     this.ontap,
+    this.enable = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       onTap: ontap,
+      readOnly: enable,
       maxLines: multiLines ? 4 : 1,
       obscureText: obsecure,
       controller: controller,

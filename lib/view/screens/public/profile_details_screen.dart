@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/logic/controllers/other/add_products_controller.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
+
 import '../../../component/app_bars/app_bar.dart';
 import '../../../component/buttons/my_buttons.dart';
 import '../../../component/drop_down.dart';
@@ -11,16 +13,13 @@ import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
 import '../../../constants/colors.dart';
-import 'package:top_snackbar_flutter/top_snack_bar.dart';
-
 import '../../../constants/fonts.dart';
 import '../../../logic/controllers/public/adding_an_employee_controller.dart';
 import '../../widgets/public/trainer_detail_widgets/top_snackbar.dart';
 
 class profile_details_Screen extends StatelessWidget {
   profile_details_Screen({Key? key}) : super(key: key);
-  Adding_an_employee_controller adding_an_employee_controller =
-      Get.put(Adding_an_employee_controller());
+  Adding_an_employee_controller adding_an_employee_controller = Get.put(Adding_an_employee_controller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,11 +63,7 @@ class profile_details_Screen extends StatelessWidget {
                       ),
                       TextSpan(
                         text: "\n",
-                        style: const TextStyle(
-                            color: mainColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Poppins'),
+                        style: const TextStyle(color: mainColor, fontSize: 16, fontWeight: FontWeight.w600, fontFamily: 'Poppins'),
                       ),
                       TextSpan(
                         text: "#id0245789",
@@ -162,11 +157,7 @@ class profile_details_Screen extends StatelessWidget {
                         SizedBox(
                           width: 10,
                         ),
-                        MyText(
-                            text: "Sharon Jem",
-                            color: white,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400),
+                        MyText(text: "Sharon Jem", color: white, fontSize: 13, fontWeight: FontWeight.w400),
                         SizedBox(
                           width: 23,
                         ),
@@ -180,21 +171,13 @@ class profile_details_Screen extends StatelessWidget {
                             ),
                           ),
                           child: Center(
-                            child: MyText(
-                                text: "4.8",
-                                color: black,
-                                fontSize: 9,
-                                fontWeight: FontWeight.w700),
+                            child: MyText(text: "4.8", color: black, fontSize: 9, fontWeight: FontWeight.w700),
                           ),
                         ),
                         SizedBox(
                           width: 77,
                         ),
-                        MyText(
-                            text: "2d ago",
-                            color: white,
-                            fontSize: 11,
-                            fontWeight: FontWeight.w400),
+                        MyText(text: "2d ago", color: white, fontSize: 11, fontWeight: FontWeight.w400),
                       ]),
                       SizedBox(
                         height: 10,
@@ -214,13 +197,9 @@ class profile_details_Screen extends StatelessWidget {
               ),
               MyButton(
                 color: yellowColor,
-                widget: MyText(
-                    text: "Watch the exercises",
-                    color: black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700),
+                widget: MyText(text: "Watch the exercises", color: black, fontSize: 16, fontWeight: FontWeight.w700),
                 function: () {
-                  adding_an_employee_controller.onItemSave();
+                  adding_an_employee_controller.addEmployee();
                 },
               ),
               const SizedBox(

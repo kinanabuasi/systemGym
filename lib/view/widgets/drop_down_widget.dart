@@ -1,19 +1,22 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
+import 'package:systemgym/constants/colors.dart';
 import 'package:systemgym/model/gender_model.dart';
 import 'package:systemgym/model/player_model.dart';
+import 'package:systemgym/model/seeders_level_model.dart';
 import 'package:systemgym/model/tournament_model.dart';
 
-import '../../constants/colors.dart';
 import '../../model/Location_model.dart';
 import '../../model/Sublocation_model.dart';
+import '../../model/nationality_model.dart';
 import '../../model/section_model.dart';
+import '../../model/status_model.dart';
 
-class DropDownWidget extends StatefulWidget {
+class DropDownWidget<T> extends StatefulWidget {
   final String hint;
-  final Future<List<dynamic>>? asyncData;
-  final List<dynamic> data;
-  final Function(dynamic) onChange;
+  final Future<List<T>>? asyncData;
+  final List<T> data;
+  final Function(T) onChange;
   final bool isLocal;
   const DropDownWidget({
     super.key,
@@ -25,11 +28,17 @@ class DropDownWidget extends StatefulWidget {
   });
 
   @override
-  State<DropDownWidget> createState() => _DropDownWidgetState();
+  State<DropDownWidget<T>> createState() => _DropDownWidgetState<T>();
 }
 
-class _DropDownWidgetState extends State<DropDownWidget> {
-  // final _formKey = GlobalKey<FormState>();
+class _DropDownWidgetState<T> extends State<DropDownWidget<T>> {
+  final _openDropDownProgKey = GlobalKey<DropdownSearchState>();
+  late String hint;
+  @override
+  void initState() {
+    hint = widget.hint;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,27 +47,27 @@ class _DropDownWidgetState extends State<DropDownWidget> {
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(10),
         ),
-        child: DropdownSearch<dynamic>(
-          // compareFn: (i1, i2) => i1.level1 == i2.level1,
+        child: DropdownSearch<T>(
+          key: _openDropDownProgKey,
           items: widget.data,
           asyncItems: (text) => widget.asyncData ?? Future.value([]),
-          dropdownDecoratorProps: DropDownDecoratorProps(
+          dropdownDecoratorProps: const DropDownDecoratorProps(
             dropdownSearchDecoration: InputDecoration(
-                helperText: widget.hint,
-                hintStyle: const TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500, fontFamily: 'Montserrat'),
-                filled: true,
-                border: UnderlineInputBorder(borderSide: const BorderSide(color: mainColor), borderRadius: BorderRadius.circular(10)),
-                enabledBorder: UnderlineInputBorder(borderSide: const BorderSide(color: mainColor), borderRadius: BorderRadius.circular(10)),
-                focusedBorder: UnderlineInputBorder(borderSide: const BorderSide(color: mainColor), borderRadius: BorderRadius.circular(10)),
-                errorBorder: UnderlineInputBorder(borderSide: const BorderSide(color: Colors.red), borderRadius: BorderRadius.circular(10)),
-                focusedErrorBorder: UnderlineInputBorder(borderSide: const BorderSide(color: Colors.red), borderRadius: BorderRadius.circular(10))),
+                // hintText: widget.hint??,
+                hintStyle: TextStyle(color: Colors.black),
+                disabledBorder: InputBorder.none,
+                fillColor: white,
+                border: InputBorder.none,
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+                errorBorder: InputBorder.none,
+                focusedErrorBorder: InputBorder.none),
           ),
           dropdownBuilder: (context, selectedItem) => Container(
             margin: EdgeInsets.zero,
             padding: EdgeInsets.zero,
-            decoration: BoxDecoration(border: Border.all(color: Theme.of(context).primaryColor), borderRadius: BorderRadius.circular(5), color: Colors.white),
             child: Row(
               children: <Widget>[
                 const SizedBox(width: 5),
@@ -72,16 +81,22 @@ class _DropDownWidgetState extends State<DropDownWidget> {
             ),
           ),
           popupProps: PopupProps.menu(
-            interceptCallBacks: true, //important line
+            emptyBuilder: (context, searchEntry) => ListTile(title: Text(hint)),
             itemBuilder: (ctx, item, isSelected) {
               return ListTile(
-                selected: isSelected,
-                title: Text(_selctedItem(item)),
-                // onTap: () => myKey.currentState?.popupValidate([item]),
-              );
+                  selected: isSelected,
+                  title: Text(_selctedItem(item)),
+                  onTap: () {
+                    _openDropDownProgKey.currentState?.closeDropDownSearch();
+                    hint = _selctedItem(item);
+                    setState(() {});
+                  });
             },
           ),
-          onChanged: (value) => widget.onChange(value),
+          onChanged: (value) {
+            value as T;
+            widget.onChange(value);
+          },
         ),
       ),
     );
@@ -94,6 +109,9 @@ class _DropDownWidgetState extends State<DropDownWidget> {
     if (item is PlayerModel) return item.name!.en ?? '';
     if (item is TournamentModel) return item.name!.en ?? '';
     if (item is GenderModel) return item.name!.en ?? '';
-    return '';
+    if (item is SeedersIdModel) return item.name!.en ?? '';
+    if (item is StatusModel) return item.name!.en ?? '';
+    if (item is NationalityModel) return item.name!.en ?? '';
+    return widget.hint;
   }
 }

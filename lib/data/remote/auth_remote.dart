@@ -1,24 +1,31 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:systemgym/model/auth_model.dart';
 import 'package:systemgym/services/failures.dart';
 import 'package:systemgym/services/logger.dart';
 
 import '../../constants/api_links.dart';
 import '../../constants/headers.dart';
+import '../../constants/storage_keys.dart';
 import '../../model/refresh_token.dart';
-import '../../model/user_model.dart';
 import '../../services/network.dart';
+import '../local/auth_local.dart';
 
 class AuthRemoteDataSource {
   final NetworkManager _networkManager = NetworkManager(Dio());
+  final AuthLocalDataSource _localAuth = AuthLocalDataSource();
+  final GetStorage _box = GetStorage();
   final log = logger(AuthRemoteDataSource);
 
-  Future<Either<Failures, UserModel>> adminLogin(Map<String, dynamic> data) async {
+  Future<Either<Failures, AuthModel>> adminLogin(Map<String, dynamic> data) async {
     try {
       final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, data: data, headers: AppHeaders.headers);
-      UserModel userModel = UserModel.fromJson(response.data);
+      AuthModel authModel = AuthModel.fromJson(response.data);
+      _localAuth.saveUser(authModel.user!.toJson());
+      _localAuth.saveToken(authModel.accessToken!);
       log.v(response.data);
-      return Right(userModel);
+      return Right(authModel);
     } catch (e) {
       return Left(SomthingWrongFailures());
     }
@@ -78,7 +85,8 @@ class AuthRemoteDataSource {
 
   Future<Either<Failures, RefreshTokenModel>> adminRefresh() async {
     try {
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.register_admin, headers: AppHeaders.headers);
+      final String token = _box.read(StorageKey.TOKEN);
+      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.refresh_admin, headers: AppHeaders.authHeader(token));
       log.v(response.data);
       RefreshTokenModel refreshTokenModel = RefreshTokenModel.fromJson(response.data);
       return Right(refreshTokenModel);

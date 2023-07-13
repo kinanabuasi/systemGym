@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:systemgym/data/local/auth_local.dart';
 
+import '../../../component/buttons/my_buttons.dart';
+import '../../../component/linear_gradient.dart';
+import '../../../component/my_text.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/routes.dart';
-import '../../../component/linear_gradient.dart';
-import '../../../component/buttons/my_buttons.dart';
-import '../../../component/my_text.dart';
 
 buildIntroScreens({
   required String imageUrl,
@@ -38,8 +39,7 @@ buildIntroScreens({
                           ),
                         ),
                       ),
-                      const LinearGradientContainer(
-                          beginAlignment: Alignment.bottomCenter),
+                      const LinearGradientContainer(beginAlignment: Alignment.bottomCenter),
                     ],
                   )),
                   Expanded(
@@ -81,33 +81,24 @@ buildIntroScreens({
               width: double.infinity,
               child: Image.asset("assets/images/intro1.png", fit: BoxFit.cover),
             ),
-            const LinearGradientContainer(
-                beginAlignment: Alignment.bottomCenter),
+            const LinearGradientContainer(beginAlignment: Alignment.bottomCenter),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                MyText(
-                    text: title,
-                    textAlign: TextAlign.center,
-                    color: white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
+                MyText(text: title, textAlign: TextAlign.center, color: white, fontSize: 30, fontWeight: FontWeight.bold),
                 const SizedBox(
                   height: 20,
                 ),
-                MyText(
-                    text: supTitle,
-                    textAlign: TextAlign.center,
-                    color: whiteGrey,
-                    fontSize: 20,
-                    fontWeight: FontWeight.normal),
+                MyText(text: supTitle, textAlign: TextAlign.center, color: whiteGrey, fontSize: 20, fontWeight: FontWeight.normal),
                 const SizedBox(
                   height: 20,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 80.0),
                   child: MyButton(
-                    function: () {
+                    function: () async {
+                      AuthLocalDataSource authLocalDataSource = AuthLocalDataSource();
+                      authLocalDataSource.saveIntro('1');
                       Get.toNamed(Routes.howToLoginScreen);
                     },
                     widget: Padding(
@@ -138,10 +129,8 @@ class CustomClipPath extends CustomClipper<Path> {
 
     path0.moveTo(size.width * -0.0012500, size.height * -0.0100000);
     path0.lineTo(0, size.height * 0.9970000);
-    path0.quadraticBezierTo(size.width * 0.7521875, size.height * 0.8231200,
-        size.width, size.height * 0.8235000);
-    path0.quadraticBezierTo(size.width * 1.0021875, size.height * 0.5751200,
-        size.width, size.height * 0.0050000);
+    path0.quadraticBezierTo(size.width * 0.7521875, size.height * 0.8231200, size.width, size.height * 0.8235000);
+    path0.quadraticBezierTo(size.width * 1.0021875, size.height * 0.5751200, size.width, size.height * 0.0050000);
     path0.close();
 
     return path0;

@@ -25,7 +25,7 @@ class SublocationRemoteDataSource {
 
   Future<Either<Failures, List<SubLocationModel>>> allSublocation() async {
     try {
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.get, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.subLocation, headers: AppHeaders.headers);
       _log.i(response.data);
       List<SubLocationModel> data = List.from(response.data.map((e) => SubLocationModel.fromJson(e)));
       return Right(data);

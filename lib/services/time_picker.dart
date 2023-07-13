@@ -15,7 +15,8 @@ class TimePickDialog {
         });
 
     if (picked != null && picked != TimeOfDay.now()) {
-      return picked.toString();
+      String time = picked.minute < 10 ? '${picked.hour}:0${picked.minute}' : '${picked.hour}:${picked.minute}';
+      return time;
     }
     return '';
   }

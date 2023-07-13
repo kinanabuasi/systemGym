@@ -113,7 +113,6 @@ class Adding_a_training_Screen extends StatelessWidget {
                   fontfamily: Poppins,
                 ),
                 function: () {
-                  adding_an_employee_controller.onItemSave();
                   return ShowTopSnackBar("Good job, New Training is added successfully", context);
                 },
               ),
