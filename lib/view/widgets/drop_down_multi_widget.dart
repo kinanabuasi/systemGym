@@ -9,11 +9,11 @@ import '../../model/Location_model.dart';
 import '../../model/Sublocation_model.dart';
 import '../../model/section_model.dart';
 
-class DropDownMultiWidget extends StatefulWidget {
+class DropDownMultiWidget<T> extends StatefulWidget {
   final String hint;
-  final Future<List<dynamic>>? asyncData;
-  final List<dynamic> data;
-  final Function(dynamic) onChange;
+  final Future<List<T>>? asyncData;
+  final List<T> data;
+  final Function(List<T>) onChange;
   final bool isLocal;
   const DropDownMultiWidget({
     super.key,
@@ -25,10 +25,10 @@ class DropDownMultiWidget extends StatefulWidget {
   });
 
   @override
-  State<DropDownMultiWidget> createState() => _DropDownMultiWidgetState();
+  State<DropDownMultiWidget<T>> createState() => _DropDownMultiWidgetState<T>();
 }
 
-class _DropDownMultiWidgetState extends State<DropDownMultiWidget> {
+class _DropDownMultiWidgetState<T> extends State<DropDownMultiWidget<T>> {
   // final _formKey = GlobalKey<FormState>();
 
   @override
@@ -40,7 +40,7 @@ class _DropDownMultiWidgetState extends State<DropDownMultiWidget> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        child: DropdownSearch<dynamic>.multiSelection(
+        child: DropdownSearch<T>.multiSelection(
           // compareFn: (i1, i2) => i1.level1 == i2.level1,
           items: widget.data,
           asyncItems: (text) => widget.asyncData ?? Future.value([]),
@@ -65,7 +65,7 @@ class _DropDownMultiWidgetState extends State<DropDownMultiWidget> {
                 Image.asset("assets/images/yellow_check.png"),
                 const SizedBox(width: 15),
                 Text(
-                  _selctedItem(selectedItem),
+                  widget.hint,
                   style: const TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500, fontFamily: 'Montserrat'),
                 ),
               ],
@@ -87,7 +87,7 @@ class _DropDownMultiWidgetState extends State<DropDownMultiWidget> {
     );
   }
 
-  String _selctedItem(dynamic item) {
+  String _selctedItem(T item) {
     if (item is LocationModel) return item.name!.en ?? '';
     if (item is SubLocationModel) return item.name!.en ?? '';
     if (item is SectionModel) return item.name!.en ?? '';

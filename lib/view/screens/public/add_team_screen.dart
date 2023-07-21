@@ -2,16 +2,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:systemgym/logic/controllers/other/add_products_controller.dart';
+import 'package:systemgym/model/coach_model.dart';
+import 'package:systemgym/model/player_model.dart';
 
 import '../../../component/app_bars/app_bar.dart';
 import '../../../component/buttons/my_buttons.dart';
-import '../../../component/drop_down.dart';
 import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
 import '../../../constants/colors.dart';
 import '../../../logic/controllers/public/add_team_controller.dart';
+import '../../widgets/drop_down_multi_widget.dart';
 
 class AddTeamScreen extends GetView<AddTeamController> {
   const AddTeamScreen({Key? key}) : super(key: key);
@@ -31,24 +32,23 @@ class AddTeamScreen extends GetView<AddTeamController> {
               const SizedBox(
                 height: 18,
               ),
-              Center(child: UploadImageWidget()),
+              Center(
+                child: UploadImageWidget(onSelect: (p0) => controller.initImagePath(p0)),
+              ),
               const SizedBox(
                 height: 14,
               ),
               const Center(
                 child: Text(
                   "upload image",
-                  style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w500,
-                      color: yellowColor),
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: yellowColor),
                 ),
               ),
               const SizedBox(
                 height: 30,
               ),
               MyTextFormField(
-                hintText: "#ID",
+                hintText: "Team Number",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
               ),
@@ -56,7 +56,15 @@ class AddTeamScreen extends GetView<AddTeamController> {
                 height: 16,
               ),
               MyTextFormField(
-                hintText: "Team Name",
+                hintText: "Team Name EN",
+                validator: () {},
+                prefixIcon: Image.asset("assets/images/yellow_check.png"),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              MyTextFormField(
+                hintText: "Team Name AR",
                 validator: () {},
                 prefixIcon: Image.asset("assets/images/yellow_check.png"),
               ),
@@ -72,17 +80,19 @@ class AddTeamScreen extends GetView<AddTeamController> {
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(
-                  hint: "Team coach",
-                  list: controller.coaches,
-                  value: controller.teamCoach),
+              DropDownMultiWidget<CoachModel>(
+                asyncData: controller.getAllCoches(),
+                hint: "Section",
+                onChange: (p0) => controller.selectCoashes(p0),
+              ),
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(
-                  hint: "Team members",
-                  list: controller.members,
-                  value: controller.teamMember),
+              DropDownMultiWidget<PlayerModel>(
+                asyncData: controller.getAllPlayers(),
+                hint: "Section",
+                onChange: (p0) => controller.selectPlayers(p0),
+              ),
               const SizedBox(
                 height: 16,
               ),
@@ -105,8 +115,7 @@ class AddTeamScreen extends GetView<AddTeamController> {
                                 const Padding(
                                   padding: EdgeInsets.all(5.0),
                                   child: CircleAvatar(
-                                    backgroundImage:
-                                        AssetImage("assets/images/person4.png"),
+                                    backgroundImage: AssetImage("assets/images/person4.png"),
                                     radius: 25,
                                   ),
                                 ),
@@ -118,8 +127,7 @@ class AddTeamScreen extends GetView<AddTeamController> {
                                   child: Container(
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      border: Border.all(
-                                          color: whiteGrey, width: 3),
+                                      border: Border.all(color: whiteGrey, width: 3),
                                       color: Colors.transparent,
                                     ),
                                   ),
@@ -132,8 +140,7 @@ class AddTeamScreen extends GetView<AddTeamController> {
                                     width: 15,
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      border: Border.all(
-                                          color: mainColor, width: 3),
+                                      border: Border.all(color: mainColor, width: 3),
                                       color: whiteGrey,
                                     ),
                                   ),
@@ -141,11 +148,7 @@ class AddTeamScreen extends GetView<AddTeamController> {
                               ],
                             ),
                             const SizedBox(height: 5),
-                            MyText(
-                                text: "name",
-                                color: whiteGrey,
-                                fontSize: 11,
-                                fontWeight: FontWeight.w400)
+                            MyText(text: "name", color: whiteGrey, fontSize: 11, fontWeight: FontWeight.w400)
                           ],
                         ),
                       );
@@ -168,24 +171,19 @@ class AddTeamScreen extends GetView<AddTeamController> {
                         width: 50,
                         child: Column(
                           children: [
-                            Stack(
-                              children: const [
+                            const Stack(
+                              children: [
                                 Padding(
                                   padding: EdgeInsets.all(5.0),
                                   child: CircleAvatar(
-                                    backgroundImage:
-                                        AssetImage("assets/images/person4.png"),
+                                    backgroundImage: AssetImage("assets/images/person4.png"),
                                     radius: 25,
                                   ),
                                 ),
                               ],
                             ),
                             const SizedBox(height: 5),
-                            MyText(
-                                text: "name",
-                                color: whiteGrey,
-                                fontSize: 11,
-                                fontWeight: FontWeight.w400)
+                            MyText(text: "name", color: whiteGrey, fontSize: 11, fontWeight: FontWeight.w400)
                           ],
                         ),
                       );
@@ -206,24 +204,19 @@ class AddTeamScreen extends GetView<AddTeamController> {
                         width: 50,
                         child: Column(
                           children: [
-                            Stack(
-                              children: const [
+                            const Stack(
+                              children: [
                                 Padding(
                                   padding: EdgeInsets.all(5.0),
                                   child: CircleAvatar(
-                                    backgroundImage:
-                                        AssetImage("assets/images/person4.png"),
+                                    backgroundImage: AssetImage("assets/images/person4.png"),
                                     radius: 25,
                                   ),
                                 ),
                               ],
                             ),
                             const SizedBox(height: 5),
-                            MyText(
-                                text: "name",
-                                color: whiteGrey,
-                                fontSize: 11,
-                                fontWeight: FontWeight.w400)
+                            MyText(text: "name", color: whiteGrey, fontSize: 11, fontWeight: FontWeight.w400)
                           ],
                         ),
                       );
@@ -234,11 +227,7 @@ class AddTeamScreen extends GetView<AddTeamController> {
               ),
               MyButton(
                 color: yellowColor,
-                widget: MyText(
-                    text: "Create now",
-                    color: black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700),
+                widget: MyText(text: "Create now", color: black, fontSize: 18, fontWeight: FontWeight.w700),
                 function: () {},
               ),
               const SizedBox(

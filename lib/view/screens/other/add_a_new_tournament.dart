@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/constants/colors.dart';
 import 'package:systemgym/logic/controllers/other/add_a_new_tournament_controller.dart';
+import 'package:systemgym/model/seeders_level_model.dart';
 import 'package:systemgym/services/time_picker.dart';
 import 'package:systemgym/view/widgets/drop_down_widget.dart';
 
 import '../../../component/app_bars/app_bar.dart';
 import '../../../component/buttons/my_buttons.dart';
-import '../../../component/drop_down.dart';
 import '../../../component/my_text.dart';
 import '../../../component/text_form/my_text_form_field.dart';
 import '../../../component/upload_image_widget.dart';
+import '../../../model/Prize_model.dart';
+import '../../../model/coach_model.dart';
 import '../../widgets/drop_down_multi_widget.dart';
 
 class AddANewTournamentScreen extends StatefulWidget {
@@ -39,7 +41,7 @@ class _AddANewTournamentScreenState extends State<AddANewTournamentScreen> {
               const SizedBox(
                 height: 18,
               ),
-              UploadImageWidget(),
+              UploadImageWidget(onSelect: (p0) => controller.initImagePath(p0)),
               const SizedBox(
                 height: 14,
               ),
@@ -78,15 +80,27 @@ class _AddANewTournamentScreenState extends State<AddANewTournamentScreen> {
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(hint: "Tournament type", list: controller.items, value: controller.tournament_type),
+              DropDownWidget<SeedersIdModel>(
+                hint: "Tournament type",
+                onChange: (p0) => controller.initTournmantTypeId(p0),
+                asyncData: controller.getAllTournmantType(),
+              ),
               const SizedBox(
                 height: 16,
               ),
-              DropDownMultiWidget(hint: "Add trainees", asyncData: controller.getAllPlayer(), onChange: (p0) => controller.initPalyers),
+              DropDownMultiWidget<CoachModel>(
+                asyncData: controller.getAllCoches(),
+                hint: "Add trainees",
+                onChange: (p0) => controller.selectCoashes(p0),
+              ),
               const SizedBox(
                 height: 16,
               ),
-              DropDownMultiWidget(hint: "Add trainers", asyncData: controller.getAllCoash(), onChange: (p0) => controller.initCoach),
+              DropDownMultiWidget<CoachModel>(
+                asyncData: controller.getAllCoches(),
+                hint: "Add Trainer",
+                onChange: (p0) => controller.selectCoashes(p0),
+              ),
               const SizedBox(
                 height: 16,
               ),
@@ -116,11 +130,11 @@ class _AddANewTournamentScreenState extends State<AddANewTournamentScreen> {
               const SizedBox(
                 height: 16,
               ),
-              DropDownWidget(hint: "Award type", asyncData: controller.getAllPrize(), onChange: (p0) => controller.initPrize),
+              DropDownWidget<PrizeModel>(hint: "Award type", asyncData: controller.getAllPrize(), onChange: (p0) => controller.initPrize),
               const SizedBox(
                 height: 16,
               ),
-              DropDownButton(hint: "Championship level", list: controller.items, value: controller.Championship_level),
+              DropDownWidget<SeedersIdModel>(hint: "Award type", asyncData: controller.getallChampionesChipLevel(), onChange: (p0) => controller.initChampionesChipLevel(p0)),
               const SizedBox(height: 16),
               MyButton(
                 color: yellowColor,

@@ -43,7 +43,7 @@ class _AddNewDepartmentScreenState extends State<AddNewDepartmentScreen> {
             const SizedBox(
               height: 18,
             ),
-            UploadImageWidget(),
+            const UploadImageWidget(),
             const SizedBox(
               height: 14,
             ),

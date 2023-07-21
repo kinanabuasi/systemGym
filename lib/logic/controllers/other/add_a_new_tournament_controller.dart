@@ -4,6 +4,7 @@ import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:systemgym/data/remote/player_remote.dart';
+import 'package:systemgym/data/remote/seeders_remote.dart';
 
 import '../../../data/remote/coash_remote.dart';
 import '../../../data/remote/prize_remote.dart';
@@ -11,29 +12,23 @@ import '../../../data/remote/tournament_remote.dart';
 import '../../../model/Prize_model.dart';
 import '../../../model/coach_model.dart';
 import '../../../model/player_model.dart';
+import '../../../model/seeders_level_model.dart';
 
 class AddANewTournamentController extends GetxController {
   final TournamentRemoteDataSource _tournamentRemoteDataSource = TournamentRemoteDataSource();
   final PlayerRemoteDataSource _playerRemoteDataSource = PlayerRemoteDataSource();
   final PrizeRemoteDataSource _prizeRemoteDataSource = PrizeRemoteDataSource();
   final CoachRemoteDataSource _coachRemoteDataSource = CoachRemoteDataSource();
+  final SeedersRemote _seedersRemote = SeedersRemote();
 
   RxBool isLoading = false.obs;
 
-  List<String> items = ['Option 1', 'Option 2', 'Option 3'];
-  String? tournament_type;
-  List<String> items2 = ['Option 1', 'Option 2', 'Option 3'];
-  String? trainees;
-  List<String> items3 = ['Option 1', 'Option 2', 'Option 3'];
-  String? trainers;
-  List<String> items4 = ['Option 1', 'Option 2', 'Option 3'];
-  String? Award_type;
-  List<String> items5 = ['Option 1', 'Option 2', 'Option 3'];
-  String? Championship_level;
-
+  List<CoachModel> selectedCoaceshModel = [];
+  List<PlayerModel> selectedPlayersModel = [];
   late PrizeModel _prizeModel;
-  List<PlayerModel> _players = [];
-  List<CoachModel> _choches = [];
+  late SeedersIdModel torunmantType;
+  late SeedersIdModel championesChipLevel;
+  String? imagePath;
 
   final TextEditingController idController = TextEditingController();
   final TextEditingController TournamentNameController = TextEditingController();
@@ -46,12 +41,10 @@ class AddANewTournamentController extends GetxController {
   final TextEditingController TheEndOfTheTournamentController = TextEditingController();
 
   dio.FormData initData() {
-    return dio.FormData.fromMap({
-      'coach_id[]': 2,
-      'player_id[]': 2,
-      'championship_levels_id': 1,
+    dio.FormData form = dio.FormData.fromMap({
+      'championship_levels_id': championesChipLevel.id,
       'prize_type_id': _prizeModel.id,
-      'tournament_type_id': 1,
+      'tournament_type_id': torunmantType.id,
       'end_time': TournamentStartDateController.text.trim(),
       'start_time': TheEndOfTheTournamentController.text.trim(),
       'number': TournamentNumberController.text.trim(),
@@ -59,28 +52,39 @@ class AddANewTournamentController extends GetxController {
       'name_en': TournamentNameController.text.trim(),
       'name_ar': TournamentNameController.text.trim(),
     });
+    for (var i in selectedCoaceshModel) {
+      form.fields.add(MapEntry('coach_id[]', i.id.toString()));
+    }
+    for (var i in selectedPlayersModel) {
+      form.fields.add(MapEntry('player_id[]', i.id.toString()));
+    }
+    return form;
   }
 
-  Future<List<PlayerModel>> getAllPlayer() async {
+  initImagePath(String path) {
+    imagePath = path;
+  }
+
+  Future<List<CoachModel>> getAllCoches() async {
+    List<CoachModel> coaches = [];
+    final data = await _coachRemoteDataSource.allCoach();
+    data.fold((l) => null, (r) => coaches = r);
+    return coaches;
+  }
+
+  selectCoashes(List<CoachModel> coashesModel) {
+    selectedCoaceshModel = coashesModel;
+  }
+
+  Future<List<PlayerModel>> getAllPlayers() async {
     List<PlayerModel> players = [];
     final data = await _playerRemoteDataSource.allPlayer();
     data.fold((l) => null, (r) => players = r);
     return players;
   }
 
-  initPalyers(List<PlayerModel> data) {
-    _players = data;
-  }
-
-  Future<List<CoachModel>> getAllCoash() async {
-    List<CoachModel> coashes = [];
-    final data = await _coachRemoteDataSource.allCoach();
-    data.fold((l) => null, (r) => coashes = r);
-    return coashes;
-  }
-
-  initCoach(List<CoachModel> data) {
-    _choches = data;
+  selectPlayers(List<PlayerModel> playersModel) {
+    selectedPlayersModel = playersModel;
   }
 
   Future<List<PrizeModel>> getAllPrize() async {
@@ -92,6 +96,28 @@ class AddANewTournamentController extends GetxController {
 
   initPrize(PrizeModel prize) {
     _prizeModel = prize;
+  }
+
+  Future<List<SeedersIdModel>> getAllTournmantType() async {
+    List<SeedersIdModel> tournmantType = [];
+    final data = await _seedersRemote.allTournmentType();
+    data.fold((l) => null, (r) => tournmantType = r);
+    return tournmantType;
+  }
+
+  initTournmantTypeId(SeedersIdModel seedersId) {
+    torunmantType = seedersId;
+  }
+
+  Future<List<SeedersIdModel>> getallChampionesChipLevel() async {
+    List<SeedersIdModel> championesChipLevel = [];
+    final data = await _seedersRemote.allChampionesChipLevel();
+    data.fold((l) => null, (r) => championesChipLevel = r);
+    return championesChipLevel;
+  }
+
+  initChampionesChipLevel(SeedersIdModel seedersId) {
+    championesChipLevel = seedersId;
   }
 
   addTournamentData() async {
