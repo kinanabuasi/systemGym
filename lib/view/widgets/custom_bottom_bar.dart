@@ -22,13 +22,13 @@ class CustomBottomBar extends StatelessWidget {
       type: BottomBarEnum.tf,
     ),
     NabBarModel(
-      icon: 'assets/svg/plate',
-      title: 'Diet Plan',
+      icon: 'assets/svg/plete',
+      title: 'Diet Plen',
       type: BottomBarEnum.tf,
     ),
     NabBarModel(
       icon: 'assets/svg/bell',
-      title: 'Notification',
+      title: 'Notificetion',
       type: BottomBarEnum.tf,
     )
   ];
@@ -79,11 +79,7 @@ class CustomBottomBar extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  CommonImageView(
-                      svgPath: bottomMenuList[index].icon,
-                      height: 28,
-                      width: 29,
-                      color: white),
+                  CommonImageView(svgPath: bottomMenuList[index].icon, height: 28, width: 29, color: white),
                   Padding(
                     padding: const EdgeInsets.all(7),
                     child: Text(
@@ -116,11 +112,11 @@ Widget getDefaultWidget() {
   return Container(
     color: Colors.white,
     padding: const EdgeInsets.all(10),
-    child: Center(
+    child: const Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           Text(
             'Please replace the respective Widget here',
             style: TextStyle(

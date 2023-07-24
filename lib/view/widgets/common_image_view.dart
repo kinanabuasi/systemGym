@@ -3,7 +3,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:octo_image/octo_image.dart';
 
 class CommonImageView extends StatelessWidget {
@@ -36,43 +35,7 @@ class CommonImageView extends StatelessWidget {
   }
 
   Widget _buildImageView() {
-    if (svgPath != null) {
-      return SizedBox(
-        height: height,
-        width: width,
-        child: SvgPicture.asset(
-          svgPath!,
-          height: height,
-          width: width,
-        ),
-      );
-    } else if (file != null) {
-      return OctoImage(
-        height: height,
-        width: width,
-        image: FileImage(file!),
-        placeholderBuilder: OctoPlaceholder.blurHash(
-          'LEHV6nWB2yk8pyo0adR*.7kCMdnj',
-        ),
-        errorBuilder: OctoError.blurHash(
-          'LEHV6nWB2yk8pyo0adR*.7kCMdnj',
-        ),
-        fit: BoxFit.cover,
-      );
-    } else if (url != null) {
-      return OctoImage(
-        height: height,
-        width: width,
-        fit: fit,
-        image: NetworkImage(url!),
-        placeholderBuilder: OctoPlaceholder.blurHash(
-          'LEHV6nWB2yk8pyo0adR*.7kCMdnj',
-        ),
-        errorBuilder: OctoError.blurHash(
-          'LEHV6nWB2yk8pyo0adR*.7kCMdnj',
-        ),
-      );
-    } else if (imagePath != null) {
+    if (imagePath != null) {
       return OctoImage(
         height: height,
         width: width,

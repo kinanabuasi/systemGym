@@ -44,61 +44,7 @@ class _DropDownWidgetState<T> extends State<DropDownWidget<T>> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: DropdownSearch<T>(
-          key: _openDropDownProgKey,
-          items: widget.data,
-          asyncItems: (text) => widget.asyncData ?? Future.value([]),
-          dropdownDecoratorProps: const DropDownDecoratorProps(
-            dropdownSearchDecoration: InputDecoration(
-                // hintText: widget.hint??,
-                hintStyle: TextStyle(color: Colors.black),
-                disabledBorder: InputBorder.none,
-                fillColor: white,
-                border: InputBorder.none,
-                enabledBorder: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                errorBorder: InputBorder.none,
-                focusedErrorBorder: InputBorder.none),
-          ),
-          dropdownBuilder: (context, selectedItem) => Container(
-            margin: EdgeInsets.zero,
-            padding: EdgeInsets.zero,
-            child: Row(
-              children: <Widget>[
-                const SizedBox(width: 5),
-                Image.asset("assets/images/yellow_check.png"),
-                const SizedBox(width: 15),
-                Text(
-                  _selctedItem(selectedItem),
-                  style: const TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500, fontFamily: 'Montserrat'),
-                ),
-              ],
-            ),
-          ),
-          popupProps: PopupProps.menu(
-            emptyBuilder: (context, searchEntry) => ListTile(title: Text(hint)),
-            itemBuilder: (ctx, item, isSelected) {
-              return ListTile(
-                  selected: isSelected,
-                  title: Text(_selctedItem(item)),
-                  onTap: () {
-                    _openDropDownProgKey.currentState?.closeDropDownSearch();
-                    hint = _selctedItem(item);
-                    setState(() {});
-                  });
-            },
-          ),
-          onChanged: (value) {
-            value as T;
-            widget.onChange(value);
-          },
-        ),
-      ),
+      child: Container(),
     );
   }
 

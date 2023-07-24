@@ -12,8 +12,6 @@ class _FullProgressIndicatorWidgetState extends State<FullProgressIndicatorWidge
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.sizeOf(context).height,
-      width: MediaQuery.sizeOf(context).width,
       color: Colors.transparent,
       child: const Center(
         child: CircularProgressIndicator(color: secondYellowColor),
