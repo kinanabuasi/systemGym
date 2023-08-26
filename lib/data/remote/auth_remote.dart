@@ -18,9 +18,12 @@ class AuthRemoteDataSource {
   final GetStorage _box = GetStorage();
   final log = logger(AuthRemoteDataSource);
 
-  Future<Either<Failures, AuthModel>> adminLogin(Map<String, dynamic> data) async {
+  Future<Either<Failures, AuthModel>> adminLogin(
+      Map<String, dynamic> data) async {
     try {
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, data: data, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.post,
+          ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin,
+          data: data, headers: AppHeaders.headers);
       AuthModel authModel = AuthModel.fromJson(response.data);
       _localAuth.saveUser(authModel.user!.toJson());
       _localAuth.saveToken(authModel.accessToken!);
@@ -66,7 +69,9 @@ class AuthRemoteDataSource {
 
   Future<Either<Failures, Unit>> adminLogout() async {
     try {
-      await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.logout_admin, headers: AppHeaders.headers);
+      await _networkManager.request(RequestMethod.post,
+          ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.logout_admin,
+          headers: AppHeaders.headers);
 
       return const Right(unit);
     } catch (e) {
@@ -86,11 +91,15 @@ class AuthRemoteDataSource {
   Future<Either<Failures, RefreshTokenModel>> adminRefresh() async {
     try {
       final String token = _box.read(StorageKey.TOKEN);
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.refresh_admin, headers: AppHeaders.authHeader(token));
+      final response = await _networkManager.request(RequestMethod.post,
+          ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.refresh_admin,
+          headers: AppHeaders.authHeader(token));
       log.v(response.data);
-      RefreshTokenModel refreshTokenModel = RefreshTokenModel.fromJson(response.data);
+      RefreshTokenModel refreshTokenModel =
+          RefreshTokenModel.fromJson(response.data);
       return Right(refreshTokenModel);
     } catch (e) {
+      print(e);
       return Left(SomthingWrongFailures());
     }
   }
@@ -118,7 +127,9 @@ class AuthRemoteDataSource {
 
   Future<Either<Failures, String>> adminData() async {
     try {
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.user_profile_admin, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.post,
+          ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.user_profile_admin,
+          headers: AppHeaders.headers);
       log.v(response.data);
       return const Right('');
     } catch (e) {

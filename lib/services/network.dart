@@ -8,7 +8,7 @@ class NetworkManager {
       Map<String, dynamic>? headers,
       Map<String, dynamic>? queryParameters,
       Function(int count, int total)? onSendProgressm}) {
-    return _dio.request(url,
+    Future<Response<T>> response = _dio.request(url,
         data: data,
         queryParameters: queryParameters,
         options: Options(
@@ -16,6 +16,8 @@ class NetworkManager {
           headers: headers,
         ),
         onReceiveProgress: onSendProgressm);
+
+    return response;
   }
 }
 

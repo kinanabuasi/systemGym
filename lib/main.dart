@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:systemgym/data/remote/auth_remote.dart';
+import 'package:systemgym/services/snackbar.dart';
 import 'package:systemgym/view/screens/auth/how_to_login_screen.dart';
 import 'package:systemgym/view/screens/public/add_a_training_screen.dart';
 import 'package:systemgym/view/screens/public/add_a_training_section_screen.dart';
@@ -28,6 +30,7 @@ import 'view/screens/public/sessions_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  gettoken();
   await GetStorage.init();
   runApp(const MyApp());
 }
@@ -62,4 +65,15 @@ class MyApp extends StatelessWidget {
       // getPages: AppRoutes.routes
     );
   }
+}
+
+Future<void> gettoken() async {
+  final AuthRemoteDataSource _authRemoteDataSource = AuthRemoteDataSource();
+
+  Map<String, dynamic> map = {
+    'email': 'admin@admin.com',
+    'password': '12345678'
+  };
+  final data = await _authRemoteDataSource.adminLogin(map);
+  data.fold((l) => SnackbarUtil.showError(message: 'Wrong Data'), (r) => null);
 }

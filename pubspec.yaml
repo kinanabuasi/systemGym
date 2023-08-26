@@ -24,6 +24,7 @@ dependencies:
   fluttertoast: ^8.2.2
   get: ^4.6.5
   get_storage: ^2.1.1
+  http: ^1.1.0
   images_picker: ^1.2.11
   intl: ^0.18.1
   logger: ^1.4.0

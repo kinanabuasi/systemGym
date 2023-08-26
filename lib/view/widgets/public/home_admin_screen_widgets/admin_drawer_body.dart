@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import '../../../../component/my_text.dart';
 import '../../../../constants/colors.dart';
 import '../../../../constants/routes.dart';
+import '../../../../data/local/auth_local.dart';
 
 class drawerBody extends StatelessWidget {
   const drawerBody({
@@ -60,6 +61,7 @@ class drawerBody extends StatelessWidget {
               const SizedBox(height: 8),
               InkWell(
                 onTap: () {
+                  AuthLocalDataSource().deleteToken();
                   Get.offNamed(Routes.signIn);
                 },
                 child: MyText(

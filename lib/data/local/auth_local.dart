@@ -40,6 +40,16 @@ class AuthLocalDataSource {
     }
   }
 
+  Either<Failures, String> deleteToken() {
+    try {
+      _box.erase();
+      return Right('');
+    } catch (e) {
+      log.e(e);
+      return Left(SomthingWrongFailures());
+    }
+  }
+
   Either<Failures, UserModel> saveUser(Map<String, dynamic> userData) {
     try {
       _box.write(StorageKey.USER_DATA, userData);

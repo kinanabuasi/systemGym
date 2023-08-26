@@ -15,11 +15,13 @@ class ProductRemoteDataSource {
   final GetStorage _box = GetStorage();
   final _log = logger(ProductRemoteDataSource);
 
-  Future<Either<Failures, ProductModel>> addProduct(Map<String, dynamic> data) async {
+  Future<Either<Failures, ProductModel>> addProduct(
+      Map<String, dynamic> data) async {
     try {
       String token = _box.read(StorageKey.TOKEN);
-      final response =
-          await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, data: data, headers: AppHeaders.authHeader(token));
+      final response = await _networkManager.request(RequestMethod.post,
+          ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin,
+          data: data, headers: AppHeaders.authHeader(token));
       _log.i(response.data);
       ProductModel productModel = ProductModel.fromJson(response.data['data']);
       return Right(productModel);
@@ -28,10 +30,13 @@ class ProductRemoteDataSource {
     }
   }
 
-  Future<Either<Failures, ProductModel>> activityById(Map<String, dynamic> data) async {
+  Future<Either<Failures, ProductModel>> activityById(
+      Map<String, dynamic> data) async {
     try {
       //  String token = _box.read(StorageKey.TOKEN);
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, data: data, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.post,
+          ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin,
+          data: data, headers: AppHeaders.headers);
       _log.i(response.data);
       ProductModel productModel = ProductModel.fromJson(response.data);
       return Right(productModel);
@@ -43,9 +48,13 @@ class ProductRemoteDataSource {
   Future<Either<Failures, List<ProductModel>>> allProduct() async {
     try {
       //  String token = _box.read(StorageKey.TOKEN);
-      final response = await _networkManager.request(RequestMethod.post, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.headers);
+      final response = await _networkManager.request(RequestMethod.get,
+          ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.product,
+          headers: AppHeaders.authHeader(GetStorage().read(StorageKey.TOKEN)));
       _log.i(response.data);
-      List<ProductModel> data = List.from(response.data.map((e) => ProductModel.fromJson(e)));
+
+      List<ProductModel> data =
+          List.from(response.data.map((e) => ProductModel.fromJson(e)));
       return Right(data);
     } catch (e) {
       return Left(SomthingWrongFailures());
@@ -55,7 +64,9 @@ class ProductRemoteDataSource {
   Future<Either<Failures, ProductModel>> updataProduct(int id) async {
     try {
       String token = _box.read(StorageKey.USER_DATA);
-      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.authHeader(token));
+      final response = await _networkManager.request(RequestMethod.put,
+          ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin,
+          headers: AppHeaders.authHeader(token));
       _log.i(response.data);
       ProductModel productModel = ProductModel.fromJson(response.data);
       return Right(productModel);
@@ -67,7 +78,9 @@ class ProductRemoteDataSource {
   Future<Either<Failures, Unit>> deleteProduct(int id) async {
     try {
       String token = _box.read(StorageKey.USER_DATA);
-      final response = await _networkManager.request(RequestMethod.put, ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin, headers: AppHeaders.authHeader(token));
+      final response = await _networkManager.request(RequestMethod.put,
+          ApiEndPoints.baseUrl + ApiEndPoints.authEndpoints.login_admin,
+          headers: AppHeaders.authHeader(token));
       _log.i(response.data);
       return const Right(unit);
     } catch (e) {

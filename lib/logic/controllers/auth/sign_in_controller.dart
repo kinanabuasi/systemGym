@@ -10,7 +10,7 @@ class SignInController extends GetxController {
   TextEditingController passwordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   RxBool isLoading = false.obs;
-  late final int roleId;
+  late final int? roleId;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final AuthRemoteDataSource _authRemoteDataSource = AuthRemoteDataSource();
 
@@ -24,9 +24,13 @@ class SignInController extends GetxController {
     var formData = formKey.currentState;
     if (formData?.validate() == true) {
       isLoading.value = true;
-      Map<String, dynamic> map = {'email': emailController.text, 'password': passwordController.text};
+      Map<String, dynamic> map = {
+        'email': emailController.text,
+        'password': passwordController.text
+      };
       final data = await _authRemoteDataSource.adminLogin(map);
-      data.fold((l) => SnackbarUtil.showError(message: 'Wrong Data'), (r) => Get.toNamed(Routes.homeAdminScreen));
+      data.fold((l) => SnackbarUtil.showError(message: 'Wrong Data'),
+          (r) => Get.toNamed(Routes.homeAdminScreen));
       isLoading.value = false;
       update();
     }

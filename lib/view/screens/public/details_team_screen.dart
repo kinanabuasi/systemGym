@@ -134,13 +134,13 @@ class DetailesTeamScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 16.0, left: 20),
-                child: ShowAllWidget(
-                    image: "assets/images/person4.png",
-                    activeColor: whiteGrey,
-                    name: "Stella"),
-              ),
+              // const Padding(
+              //   padding: EdgeInsets.only(top: 16.0, left: 20),
+              //   child: ShowAllWidget(
+              //       image: "assets/images/person4.png",
+              //       activeColor: whiteGrey,
+              //       name: "Stella"),
+              // ),
               Padding(
                 padding: const EdgeInsets.only(top: 30.0),
                 child: Container(
